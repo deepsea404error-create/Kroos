@@ -1,0 +1,7 @@
+{
+  "kroosmod:KroosBadge": {
+    "NAME": "克洛丝证章",
+    "FLAVOR": "A1 小队的标志，曾闪耀于无数行动中。",
+    "DESCRIPTIONS": ["战斗开始时获得 2 层[#b0c4de]寒芒[]。每回合获得 1 层[#b0c4de]寒芒[]。"]
+  }
+}

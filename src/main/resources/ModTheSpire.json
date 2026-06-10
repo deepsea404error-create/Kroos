@@ -1,0 +1,12 @@
+{
+  "modid": "kroosmod",
+  "name": "寒芒克洛丝",
+  "author_list": ["Kroos Mod Team"],
+  "description": "以明日方舟·寒芒克洛丝为原型的杀戮尖塔人物mod。",
+  "version": "0.1.0",
+  "sts_version": "12-22-2020",
+  "mts_version": "3.30.3",
+  "dependencies": ["basemod", "stslib"],
+  "update_json": "",
+  "mod_version": "0.1.0"
+}

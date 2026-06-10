@@ -1,0 +1,57 @@
+[
+  {
+    "PROPER_NAME": "寒芒",
+    "NAMES": ["寒芒", "hanmang", "frost"],
+    "DESCRIPTION": "大部分卡牌可以消耗 [#b0c4de]寒芒[] 触发额外效果。"
+  },
+  {
+    "PROPER_NAME": "专注",
+    "NAMES": ["专注", "zhuanzhu", "focus"],
+    "DESCRIPTION": "当专注 >= 3 层时，消耗 3 层专注，获得 1 层暴击。"
+  },
+  {
+    "PROPER_NAME": "暴击",
+    "NAMES": ["暴击", "baoji", "critical"],
+    "DESCRIPTION": "攻击牌造成 1.5 倍伤害。"
+  },
+  {
+    "PROPER_NAME": "破绽",
+    "NAMES": ["破绽", "poyan", "flaw"],
+    "DESCRIPTION": "当敌人破绽 >= 5 时，消耗 5 层破绽，施加 1 层中的。"
+  },
+  {
+    "PROPER_NAME": "中的",
+    "NAMES": ["中的", "zhongde", "hit"],
+    "DESCRIPTION": "拥有中的的敌人在行动开始前受到 10 点伤害；攻击行为转为眩晕。中的层数每回合 -1。"
+  },
+  {
+    "PROPER_NAME": "迷彩",
+    "NAMES": ["迷彩", "micai", "camo"],
+    "DESCRIPTION": "受到的攻击伤害降低 50%。每次受到攻击 -1 层迷彩。"
+  },
+  {
+    "PROPER_NAME": "浅眠",
+    "NAMES": ["浅眠", "qianmian", "doze"],
+    "DESCRIPTION": "非梦击牌伤害 ×80%。回合结束获得 6 点格挡、回复 2 点生命。退出浅眠时消耗全部蓄势。"
+  },
+  {
+    "PROPER_NAME": "蓄势",
+    "NAMES": ["蓄势", "xushi", "charge"],
+    "DESCRIPTION": "退出浅眠时消耗：抽 X 张牌, 获得 X 点能量, 获得 X×2 层临时力量。"
+  },
+  {
+    "PROPER_NAME": "箭矢",
+    "NAMES": ["箭矢", "jianshi", "arrow"],
+    "DESCRIPTION": "箭矢类攻击牌。打出后获得其消耗能量数的[#b0c4de]专注[]层数, 与相关 power 联动。"
+  },
+  {
+    "PROPER_NAME": "梦击",
+    "NAMES": ["梦击", "mengji", "dreamstrike"],
+    "DESCRIPTION": "梦击类攻击牌。在[#b0c4de]浅眠[]状态下不会被降低伤害。"
+  },
+  {
+    "PROPER_NAME": "A1小队",
+    "NAMES": ["A1小队", "A1squad"],
+    "DESCRIPTION": "A1 小队卡牌, 均为虚无, 消耗类型的无色卡。"
+  }
+]

@@ -1,0 +1,22 @@
+{
+  "kroosmod:Strike": {
+    "NAME": "打击",
+    "DESCRIPTION": "造成 !D! 点伤害。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。"
+  },
+  "kroosmod:Defend": {
+    "NAME": "防御",
+    "DESCRIPTION": "获得 !B! 点[R]格挡[]。",
+    "UPGRADE_DESCRIPTION": "获得 !B! 点[R]格挡[]。"
+  },
+  "kroosmod:DoubleShot": {
+    "NAME": "二连射",
+    "DESCRIPTION": "造成 !D! 点伤害 2 次。 NL [#b0c4de]寒芒[]：消耗 1 层[#b0c4de]寒芒[]，伤害+2。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害 2 次。 NL [#b0c4de]寒芒[]：消耗 1 层[#b0c4de]寒芒[]，[R]伤害+3[]。"
+  },
+  "kroosmod:PreparedShot": {
+    "NAME": "预备射击",
+    "DESCRIPTION": "获得 !M! 层[#b0c4de]寒芒[]。",
+    "UPGRADE_DESCRIPTION": "获得 !M! 层[#b0c4de]寒芒[]。"
+  }
+}

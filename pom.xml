@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>sts.kroos</groupId>
+    <artifactId>KroosMod</artifactId>
+    <version>0.1.0</version>
+    <packaging>jar</packaging>
+
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+        <!-- 本地 jar 依赖。放在项目 lib/ 目录下 -->
+        <dependency>
+            <groupId>com.megacrit.cardcrawl</groupId>
+            <artifactId>desktop</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/desktop-1.0.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>com.evacipated.cardcrawl</groupId>
+            <artifactId>mod-the-spire</artifactId>
+            <version>3.30.3</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/ModTheSpire.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>basemod</groupId>
+            <artifactId>basemod</artifactId>
+            <version>5.51.3</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/BaseMod.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>stslib</groupId>
+            <artifactId>stslib</artifactId>
+            <version>2.5.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/StSLib.jar</systemPath>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>KroosMod</finalName>
+        <plugins>
+            <plugin>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.3.0</version>
+                <configuration>
+                    <archive>
+                        <manifestEntries>
+                            <Mod-Version>${project.version}</Mod-Version>
+                        </manifestEntries>
+                    </archive>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.3.1</version>
+            </plugin>
+        </plugins>
+    </build>
+</project>
