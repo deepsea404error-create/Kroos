@@ -73,5 +73,40 @@
     "NAME": "要害瞄准",
     "DESCRIPTION": "对敌人施加 !M! 层[R]破绽[]。 NL 获得 1 点[R]力量[]，1 层[#b0c4de]寒芒[]。 NL 抽 1 张牌。",
     "UPGRADE_DESCRIPTION": "对敌人施加 !M! 层[R]破绽[]。 NL 获得 1 点[R]力量[]，2 层[#b0c4de]寒芒[]。 NL 抽 2 张牌。"
+  },
+  "kroosmod:WarningShot": {
+    "NAME": "警戒射击",
+    "DESCRIPTION": "[#b0c4de]梦击[]。造成 !D! 点伤害，施加 !M! 层[R]破绽[]。 NL [#b0c4de]寒芒[]：消耗 1 层[#b0c4de]寒芒[]，给予 1 层[R]易伤[]。",
+    "UPGRADE_DESCRIPTION": "[#b0c4de]梦击[]。造成 !D! 点伤害，施加 !M! 层[R]破绽[]。 NL [#b0c4de]寒芒[]：消耗 1 层[#b0c4de]寒芒[]，[R]给予 2 层[R]易伤[][]。"
+  },
+  "kroosmod:Yawn": {
+    "NAME": "打哈欠",
+    "DESCRIPTION": "[#b0c4de]梦击[]。造成 !D! 点伤害。 NL 如果敌人本回合意图不为[R]攻击[]，进入[#b0c4de]浅眠[]状态。 NL [#b0c4de]寒芒[]：消耗 1 层[#b0c4de]寒芒[]，伤害+4。",
+    "UPGRADE_DESCRIPTION": "[#b0c4de]梦击[]。造成 !D! 点伤害。 NL 如果敌人本回合意图不为[R]攻击[]，进入[#b0c4de]浅眠[]状态。 NL [#b0c4de]寒芒[]：消耗 1 层[#b0c4de]寒芒[]，[R]伤害+6[]。"
+  },
+  "kroosmod:GoodDream": {
+    "NAME": "好梦",
+    "DESCRIPTION": "获得 !B! 点[R]格挡[]。 NL 若处于[#b0c4de]浅眠[]状态，额外获得 !M! 点[R]格挡[]。 NL 否则，进入[#b0c4de]浅眠[]状态。 NL [#b0c4de]寒芒[]：消耗 1 层[#b0c4de]寒芒[]，获得 1 点[R]敏捷[]。",
+    "UPGRADE_DESCRIPTION": "获得 !B! 点[R]格挡[]。 NL 若处于[#b0c4de]浅眠[]状态，额外获得 !M! 点[R]格挡[]。 NL 否则，进入[#b0c4de]浅眠[]状态。 NL [#b0c4de]寒芒[]：消耗 1 层[#b0c4de]寒芒[]，获得 1 点[R]敏捷[]。"
+  },
+  "kroosmod:Scout": {
+    "NAME": "侦察",
+    "DESCRIPTION": "[R]消耗[]。抽 !M! 张牌。 NL [#b0c4de]寒芒[]：消耗 1 层[#b0c4de]寒芒[]，额外抽 1 张牌。",
+    "UPGRADE_DESCRIPTION": "[R]消耗[]。抽 !M! 张牌。 NL [#b0c4de]寒芒[]：消耗 1 层[#b0c4de]寒芒[]，额外抽 1 张牌。"
+  },
+  "kroosmod:EmergencyReload": {
+    "NAME": "紧急装填",
+    "DESCRIPTION": "抽 !M! 张牌。 NL 每抽到 1 张[R]攻击[]牌，获得 1 层[#b0c4de]寒芒[]。 NL [#b0c4de]寒芒[]：消耗 1 层[#b0c4de]寒芒[]，额外抽 1 张牌。",
+    "UPGRADE_DESCRIPTION": "抽 !M! 张牌。 NL 每抽到 1 张[R]攻击[]牌，获得 1 层[#b0c4de]寒芒[]。 NL [#b0c4de]寒芒[]：消耗 1 层[#b0c4de]寒芒[]，额外抽 1 张牌。"
+  },
+  "kroosmod:EquipmentUpgrade": {
+    "NAME": "装备改良",
+    "DESCRIPTION": "随机升级 !M! 张手牌。获得 1 层[#b0c4de]专注[]。 NL [#b0c4de]寒芒[]：消耗 1 层[#b0c4de]寒芒[]，额外升级 1 张手牌。",
+    "UPGRADE_DESCRIPTION": "随机升级 !M! 张手牌。获得 2 层[#b0c4de]专注[]。 NL [#b0c4de]寒芒[]：消耗 1 层[#b0c4de]寒芒[]，额外升级 1 张手牌。"
+  },
+  "kroosmod:MechanicalSight": {
+    "NAME": "机械瞄具",
+    "DESCRIPTION": "获得 !M! 点[R]活力[]。 NL [#b0c4de]寒芒[]：消耗 1 层[#b0c4de]寒芒[]，获得 1 层[#b0c4de]专注[]。",
+    "UPGRADE_DESCRIPTION": "获得 !M! 点[R]活力[]。 NL [#b0c4de]寒芒[]：消耗 1 层[#b0c4de]寒芒[]，获得 1 层[#b0c4de]专注[]。"
   }
 }

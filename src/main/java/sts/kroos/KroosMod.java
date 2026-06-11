@@ -24,12 +24,19 @@ import sts.kroos.cards.attack.Hunt;
 import sts.kroos.cards.attack.RapidFire;
 import sts.kroos.cards.attack.Strike;
 import sts.kroos.cards.attack.Volley;
+import sts.kroos.cards.attack.WarningShot;
+import sts.kroos.cards.attack.Yawn;
 import sts.kroos.cards.skill.AimForVital;
 import sts.kroos.cards.skill.Defend;
 import sts.kroos.cards.skill.EmergencyEvasion;
+import sts.kroos.cards.skill.EmergencyReload;
+import sts.kroos.cards.skill.EquipmentUpgrade;
+import sts.kroos.cards.skill.GoodDream;
+import sts.kroos.cards.skill.MechanicalSight;
 import sts.kroos.cards.skill.OpenEyes;
 import sts.kroos.cards.skill.PreparedShot;
 import sts.kroos.cards.skill.Rest;
+import sts.kroos.cards.skill.Scout;
 import sts.kroos.cards.skill.SimpleFortification;
 import sts.kroos.cards.skill.WindUp;
 import sts.kroos.characters.Kroos;
@@ -113,6 +120,8 @@ public class KroosMod implements
         BaseMod.addCard(new FrostPierce());
         BaseMod.addCard(new FlawShot());
         BaseMod.addCard(new Volley());
+        BaseMod.addCard(new WarningShot());
+        BaseMod.addCard(new Yawn());
         // 白卡技能
         BaseMod.addCard(new SimpleFortification());
         BaseMod.addCard(new EmergencyEvasion());
@@ -120,6 +129,11 @@ public class KroosMod implements
         BaseMod.addCard(new OpenEyes());
         BaseMod.addCard(new WindUp());
         BaseMod.addCard(new AimForVital());
+        BaseMod.addCard(new GoodDream());
+        BaseMod.addCard(new Scout());
+        BaseMod.addCard(new EmergencyReload());
+        BaseMod.addCard(new EquipmentUpgrade());
+        BaseMod.addCard(new MechanicalSight());
 
         UnlockTracker.unlockCard(Strike.ID);
         UnlockTracker.unlockCard(Defend.ID);
@@ -130,12 +144,19 @@ public class KroosMod implements
         UnlockTracker.unlockCard(FrostPierce.ID);
         UnlockTracker.unlockCard(FlawShot.ID);
         UnlockTracker.unlockCard(Volley.ID);
+        UnlockTracker.unlockCard(WarningShot.ID);
+        UnlockTracker.unlockCard(Yawn.ID);
         UnlockTracker.unlockCard(SimpleFortification.ID);
         UnlockTracker.unlockCard(EmergencyEvasion.ID);
         UnlockTracker.unlockCard(Rest.ID);
         UnlockTracker.unlockCard(OpenEyes.ID);
         UnlockTracker.unlockCard(WindUp.ID);
         UnlockTracker.unlockCard(AimForVital.ID);
+        UnlockTracker.unlockCard(GoodDream.ID);
+        UnlockTracker.unlockCard(Scout.ID);
+        UnlockTracker.unlockCard(EmergencyReload.ID);
+        UnlockTracker.unlockCard(EquipmentUpgrade.ID);
+        UnlockTracker.unlockCard(MechanicalSight.ID);
     }
 
     // === 遗物注册 ===
