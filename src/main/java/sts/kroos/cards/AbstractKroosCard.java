@@ -208,6 +208,13 @@ public abstract class AbstractKroosCard extends CustomCard {
             ((A1SquadBondPower) bond).notifyConsumed(amount);
         }
 
+        // 遗物监听 (成长的证明 / 其他响应寒芒消耗的遗物)
+        for (com.megacrit.cardcrawl.relics.AbstractRelic r : AbstractDungeon.player.relics) {
+            if (r instanceof sts.kroos.relics.IFrostConsumeListener) {
+                ((sts.kroos.relics.IFrostConsumeListener) r).onFrostConsumed(amount);
+            }
+        }
+
         return amount;
     }
 

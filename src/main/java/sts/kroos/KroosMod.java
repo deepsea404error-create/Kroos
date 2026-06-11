@@ -90,7 +90,20 @@ import sts.kroos.cards.skill.Unstoppable;
 import sts.kroos.cards.skill.WindUp;
 import sts.kroos.characters.Kroos;
 import sts.kroos.patches.KroosEnum;
+import sts.kroos.relics.A1GroupPhoto;
+import sts.kroos.relics.A1SquadSupport;
+import sts.kroos.relics.ArrowImprovementRelic;
+import sts.kroos.relics.Bedrock;
+import sts.kroos.relics.BrokenCrossbow;
+import sts.kroos.relics.EmergencyMindConcentrate;
+import sts.kroos.relics.EmergencyMindReinforce;
 import sts.kroos.relics.KroosBadge;
+import sts.kroos.relics.OperatorBadge;
+import sts.kroos.relics.OriginStone;
+import sts.kroos.relics.PartingWaves;
+import sts.kroos.relics.PracticeTarget;
+import sts.kroos.relics.ProofOfGrowth;
+import sts.kroos.relics.Scope;
 
 /**
  * 寒芒克洛丝 mod 主入口。
@@ -316,7 +329,34 @@ public class KroosMod implements
     @Override
     public void receiveEditRelics() {
         BaseMod.addRelicToCustomPool(new KroosBadge(), KroosEnum.KROOS_COLOR);
+        BaseMod.addRelicToCustomPool(new PracticeTarget(), KroosEnum.KROOS_COLOR);
+        BaseMod.addRelicToCustomPool(new BrokenCrossbow(), KroosEnum.KROOS_COLOR);
+        BaseMod.addRelicToCustomPool(new Scope(), KroosEnum.KROOS_COLOR);
+        BaseMod.addRelicToCustomPool(new A1GroupPhoto(), KroosEnum.KROOS_COLOR);
+        BaseMod.addRelicToCustomPool(new EmergencyMindReinforce(), KroosEnum.KROOS_COLOR);
+        BaseMod.addRelicToCustomPool(new ArrowImprovementRelic(), KroosEnum.KROOS_COLOR);
+        BaseMod.addRelicToCustomPool(new EmergencyMindConcentrate(), KroosEnum.KROOS_COLOR);
+        BaseMod.addRelicToCustomPool(new PartingWaves(), KroosEnum.KROOS_COLOR);
+        BaseMod.addRelicToCustomPool(new Bedrock(), KroosEnum.KROOS_COLOR);
+        BaseMod.addRelicToCustomPool(new ProofOfGrowth(), KroosEnum.KROOS_COLOR);
+        BaseMod.addRelicToCustomPool(new OriginStone(), KroosEnum.KROOS_COLOR);
+        BaseMod.addRelicToCustomPool(new OperatorBadge(), KroosEnum.KROOS_COLOR);
+        BaseMod.addRelicToCustomPool(new A1SquadSupport(), KroosEnum.KROOS_COLOR);
+
         UnlockTracker.markRelicAsSeen(KroosBadge.ID);
+        UnlockTracker.markRelicAsSeen(PracticeTarget.ID);
+        UnlockTracker.markRelicAsSeen(BrokenCrossbow.ID);
+        UnlockTracker.markRelicAsSeen(Scope.ID);
+        UnlockTracker.markRelicAsSeen(A1GroupPhoto.ID);
+        UnlockTracker.markRelicAsSeen(EmergencyMindReinforce.ID);
+        UnlockTracker.markRelicAsSeen(ArrowImprovementRelic.ID);
+        UnlockTracker.markRelicAsSeen(EmergencyMindConcentrate.ID);
+        UnlockTracker.markRelicAsSeen(PartingWaves.ID);
+        UnlockTracker.markRelicAsSeen(Bedrock.ID);
+        UnlockTracker.markRelicAsSeen(ProofOfGrowth.ID);
+        UnlockTracker.markRelicAsSeen(OriginStone.ID);
+        UnlockTracker.markRelicAsSeen(OperatorBadge.ID);
+        UnlockTracker.markRelicAsSeen(A1SquadSupport.ID);
     }
 
     // === 本地化资源 ===
