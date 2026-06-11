@@ -13,6 +13,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import sts.kroos.patches.KroosEnum;
+import sts.kroos.powers.A1SquadBondPower;
 import sts.kroos.powers.ArrowImprovementPower;
 import sts.kroos.powers.DozePower;
 import sts.kroos.powers.FocusPower;
@@ -199,6 +200,12 @@ public abstract class AbstractKroosCard extends CustomCard {
         AbstractPower tp = AbstractDungeon.player.getPower(TransparentPower.POWER_ID);
         if (tp instanceof TransparentPower) {
             ((TransparentPower) tp).notifyConsumed(amount);
+        }
+
+        // A1 小队的羁绊累计 (按逻辑消耗)
+        AbstractPower bond = AbstractDungeon.player.getPower(A1SquadBondPower.POWER_ID);
+        if (bond instanceof A1SquadBondPower) {
+            ((A1SquadBondPower) bond).notifyConsumed(amount);
         }
 
         return amount;

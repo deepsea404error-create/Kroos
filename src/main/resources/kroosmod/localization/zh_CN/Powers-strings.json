@@ -94,5 +94,9 @@
   "kroosmod:DoubleIncoming": {
     "NAME": "受击翻倍",
     "DESCRIPTIONS": ["本回合该单位受到的[R]攻击伤害[]翻倍。"]
+  },
+  "kroosmod:A1SquadBond": {
+    "NAME": "A1小队的羁绊",
+    "DESCRIPTIONS": ["每消耗 4 点[#b0c4de]寒芒[], 随机获得 ", " 张 A1 小队卡。"]
   }
 }

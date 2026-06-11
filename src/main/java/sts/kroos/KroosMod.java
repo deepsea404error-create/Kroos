@@ -39,7 +39,12 @@ import sts.kroos.cards.attack.ThroatSeal;
 import sts.kroos.cards.attack.Volley;
 import sts.kroos.cards.attack.WarningShot;
 import sts.kroos.cards.attack.Yawn;
+import sts.kroos.cards.colorless.A1_Fen;
+import sts.kroos.cards.colorless.A1_Furong;
+import sts.kroos.cards.colorless.A1_Miguelu;
+import sts.kroos.cards.colorless.A1_Yanrong;
 import sts.kroos.cards.colorless.NormalArrow;
+import sts.kroos.cards.power.A1SquadBond;
 import sts.kroos.cards.power.ArrowImprovement;
 import sts.kroos.cards.power.DreamShadow;
 import sts.kroos.cards.power.FlawConfirm;
@@ -226,8 +231,14 @@ public class KroosMod implements
         BaseMod.addCard(new TacticalShift());
         BaseMod.addCard(new Brace());
         BaseMod.addCard(new OneInstant());
+        // 金卡能力
+        BaseMod.addCard(new A1SquadBond());
         // 衍生无色
         BaseMod.addCard(new NormalArrow());
+        BaseMod.addCard(new A1_Fen());
+        BaseMod.addCard(new A1_Miguelu());
+        BaseMod.addCard(new A1_Furong());
+        BaseMod.addCard(new A1_Yanrong());
 
         UnlockTracker.unlockCard(Strike.ID);
         UnlockTracker.unlockCard(Defend.ID);
@@ -293,7 +304,12 @@ public class KroosMod implements
         UnlockTracker.unlockCard(TacticalShift.ID);
         UnlockTracker.unlockCard(Brace.ID);
         UnlockTracker.unlockCard(OneInstant.ID);
+        UnlockTracker.unlockCard(A1SquadBond.ID);
         UnlockTracker.unlockCard(NormalArrow.ID);
+        UnlockTracker.unlockCard(A1_Fen.ID);
+        UnlockTracker.unlockCard(A1_Miguelu.ID);
+        UnlockTracker.unlockCard(A1_Furong.ID);
+        UnlockTracker.unlockCard(A1_Yanrong.ID);
     }
 
     // === 遗物注册 ===

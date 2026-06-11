@@ -323,5 +323,30 @@
     "NAME": "一瞬",
     "DESCRIPTION": "当前回合每打出 1 张[R]攻击[]牌，施加 1 层[R]破绽[]。 NL 丢弃所有手牌。 NL [#b0c4de]寒芒[]：消耗 1 层[#b0c4de]寒芒[]，施加 1 层[R]破绽[]。",
     "UPGRADE_DESCRIPTION": "[R]保留[]。当前回合每打出 1 张[R]攻击[]牌，施加 1 层[R]破绽[]。 NL 丢弃所有手牌。 NL [#b0c4de]寒芒[]：消耗 1 层[#b0c4de]寒芒[]，施加 1 层[R]破绽[]。"
+  },
+  "kroosmod:A1_Fen": {
+    "NAME": "A1小队-芬",
+    "DESCRIPTION": "[R]消耗[]。[R]虚无[]。 NL 抽 !M! 张牌。 NL [#b0c4de]寒芒[]：消耗 1 层[#b0c4de]寒芒[]，额外抽 1 张牌。",
+    "UPGRADE_DESCRIPTION": "[R]消耗[]。[R]虚无[]。 NL 抽 !M! 张牌。 NL [#b0c4de]寒芒[]：消耗 1 层[#b0c4de]寒芒[]，额外抽 1 张牌。"
+  },
+  "kroosmod:A1_Miguelu": {
+    "NAME": "A1小队-米格鲁",
+    "DESCRIPTION": "[R]消耗[]。[R]虚无[]。 NL 获得 !B! 点[R]格挡[]，!M! 点[R]敏捷[]。 NL [#b0c4de]寒芒[]：消耗 1 层[#b0c4de]寒芒[]，额外 +3 [R]格挡[]。",
+    "UPGRADE_DESCRIPTION": "[R]消耗[]。[R]虚无[]。 NL 获得 !B! 点[R]格挡[]，!M! 点[R]敏捷[]。 NL [#b0c4de]寒芒[]：消耗 1 层[#b0c4de]寒芒[]，[R]额外 +5 [R]格挡[][]。"
+  },
+  "kroosmod:A1_Furong": {
+    "NAME": "A1小队-芙蓉",
+    "DESCRIPTION": "[R]消耗[]。[R]虚无[]。 NL 失去 2 点生命，获得 !M! 点能量，4 点[R]活力[]。 NL [#b0c4de]寒芒[]：消耗 1 层[#b0c4de]寒芒[]，获得 1 层[R]临时力量[]。",
+    "UPGRADE_DESCRIPTION": "[R]消耗[]。[R]虚无[]。 NL 失去 2 点生命，获得 !M! 点能量，[R]6 点[R]活力[][]。 NL [#b0c4de]寒芒[]：消耗 1 层[#b0c4de]寒芒[]，[R]获得 2 层[R]临时力量[][]。"
+  },
+  "kroosmod:A1_Yanrong": {
+    "NAME": "A1小队-炎熔",
+    "DESCRIPTION": "[R]消耗[]。[R]虚无[]。 NL 对所有敌人造成 !D! 点伤害。 NL 给予 1 层[R]虚弱[]和[R]易伤[]。 NL [#b0c4de]寒芒[]：消耗 1 层[#b0c4de]寒芒[]，额外给予 1 层[R]虚弱[]和[R]易伤[]。",
+    "UPGRADE_DESCRIPTION": "[R]消耗[]。[R]虚无[]。 NL 对所有敌人造成 !D! 点伤害。 NL 给予 1 层[R]虚弱[]和[R]易伤[]。 NL [#b0c4de]寒芒[]：消耗 1 层[#b0c4de]寒芒[]，额外给予 1 层[R]虚弱[]和[R]易伤[]。"
+  },
+  "kroosmod:A1SquadBond": {
+    "NAME": "A1小队的羁绊",
+    "DESCRIPTION": "每消耗 4 点[#b0c4de]寒芒[]，随机获得 !M! 张 A1 小队卡。 NL [#b0c4de]寒芒[]：消耗 1 层[#b0c4de]寒芒[]，在 3 张 A1 小队卡中选 1 张加入手牌，本回合耗能为 0。",
+    "UPGRADE_DESCRIPTION": "每消耗 4 点[#b0c4de]寒芒[]，随机获得 !M! 张 [R]A1 小队卡+[]。 NL [#b0c4de]寒芒[]：消耗 1 层[#b0c4de]寒芒[]，在 3 张 A1 小队卡中选 [R]2[] 张加入手牌，本回合耗能为 0。"
   }
 }
