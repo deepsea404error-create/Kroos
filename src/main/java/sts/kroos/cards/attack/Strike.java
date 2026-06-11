@@ -28,7 +28,7 @@ public class Strike extends AbstractKroosCard {
     }
 
     @Override
-    public void use(AbstractPlayer p, AbstractMonster m) {
+    public void useImpl(AbstractPlayer p, AbstractMonster m) {
         // 普通伤害, 寒芒/暴击效果由 power 框架接管
         addToBot(new DamageAction(m,
                 new DamageInfo(p, this.damage, this.damageTypeForTurn),

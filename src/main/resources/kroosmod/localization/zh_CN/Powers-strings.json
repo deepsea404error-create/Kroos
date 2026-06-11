@@ -18,5 +18,13 @@
   "kroosmod:Hit": {
     "NAME": "中的",
     "DESCRIPTIONS": ["剩余 ", " 层。行动开始前受到 10 点伤害，本回合的攻击行为转为眩晕；每回合 -1 层。"]
+  },
+  "kroosmod:ArrowImprovement": {
+    "NAME": "箭矢改良",
+    "DESCRIPTIONS": ["[#b0c4de]箭矢[]牌伤害 +", " 点。"]
+  },
+  "kroosmod:Scatter": {
+    "NAME": "散射",
+    "DESCRIPTIONS": ["[#b0c4de]箭矢[]牌对非主目标的其他敌人造成 50% 伤害。"]
   }
 }

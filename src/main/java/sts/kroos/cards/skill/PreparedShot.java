@@ -26,7 +26,7 @@ public class PreparedShot extends AbstractKroosCard {
     }
 
     @Override
-    public void use(AbstractPlayer p, AbstractMonster m) {
+    public void useImpl(AbstractPlayer p, AbstractMonster m) {
         addToBot(new ApplyPowerAction(p, p,
                 new FrostPower(p, this.magicNumber), this.magicNumber));
     }

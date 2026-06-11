@@ -25,7 +25,7 @@ public class Defend extends AbstractKroosCard {
     }
 
     @Override
-    public void use(AbstractPlayer p, AbstractMonster m) {
+    public void useImpl(AbstractPlayer p, AbstractMonster m) {
         addToBot(new GainBlockAction(p, p, this.block));
     }
 

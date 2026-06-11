@@ -30,7 +30,7 @@ public class DoubleShot extends AbstractKroosCard {
     }
 
     @Override
-    public void use(AbstractPlayer p, AbstractMonster m) {
+    public void useImpl(AbstractPlayer p, AbstractMonster m) {
         // 寒芒触发: 同步判断分支, action 队列减层
         int bonus = 0;
         if (canConsumeFrost(1)) {
