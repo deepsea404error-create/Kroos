@@ -1,5 +1,5 @@
-# Game dependency - too large for GitHub (>100MB), must be installed locally
-lib/desktop-1.0.jar
+# Game dependencies - installed locally, not committed to version control
+lib/
 
 # Build output
 target/
