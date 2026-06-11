@@ -6,6 +6,7 @@ import basemod.interfaces.EditCharactersSubscriber;
 import basemod.interfaces.EditKeywordsSubscriber;
 import basemod.interfaces.EditRelicsSubscriber;
 import basemod.interfaces.EditStringsSubscriber;
+import basemod.interfaces.OnStartBattleSubscriber;
 import basemod.interfaces.PostInitializeSubscriber;
 import com.badlogic.gdx.Gdx;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
@@ -17,11 +18,19 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.localization.RelicStrings;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import com.google.gson.Gson;
+import sts.kroos.cards.attack.Awareness;
 import sts.kroos.cards.attack.DoubleShot;
+import sts.kroos.cards.attack.ExplosiveArrow;
 import sts.kroos.cards.attack.FlawShot;
 import sts.kroos.cards.attack.FrostPierce;
+import sts.kroos.cards.attack.GlitteringEdge;
 import sts.kroos.cards.attack.Hunt;
+import sts.kroos.cards.attack.PrecisionShot;
+import sts.kroos.cards.attack.RainbowArrow;
 import sts.kroos.cards.attack.RapidFire;
+import sts.kroos.cards.attack.ReinforcedArrow;
+import sts.kroos.cards.attack.SkyVolley;
+import sts.kroos.cards.attack.SlowBurn;
 import sts.kroos.cards.attack.Strike;
 import sts.kroos.cards.attack.Volley;
 import sts.kroos.cards.attack.WarningShot;
@@ -30,6 +39,7 @@ import sts.kroos.cards.power.ArrowImprovement;
 import sts.kroos.cards.power.DreamShadow;
 import sts.kroos.cards.power.FlawConfirm;
 import sts.kroos.cards.power.HeartScar;
+import sts.kroos.cards.power.Heartbeat;
 import sts.kroos.cards.power.Insomnia;
 import sts.kroos.cards.power.PhantomCamo;
 import sts.kroos.cards.power.Resonance;
@@ -66,6 +76,7 @@ public class KroosMod implements
         EditRelicsSubscriber,
         EditStringsSubscriber,
         EditKeywordsSubscriber,
+        OnStartBattleSubscriber,
         PostInitializeSubscriber {
 
     public static final String MOD_ID = "kroosmod";
@@ -159,6 +170,16 @@ public class KroosMod implements
         BaseMod.addCard(new SkyfireFlame());
         BaseMod.addCard(new ArrowImprovement());
         BaseMod.addCard(new PhantomCamo());
+        BaseMod.addCard(new Heartbeat());
+        // 蓝卡攻击
+        BaseMod.addCard(new SkyVolley());
+        BaseMod.addCard(new ExplosiveArrow());
+        BaseMod.addCard(new ReinforcedArrow());
+        BaseMod.addCard(new RainbowArrow());
+        BaseMod.addCard(new GlitteringEdge());
+        BaseMod.addCard(new SlowBurn());
+        BaseMod.addCard(new Awareness());
+        BaseMod.addCard(new PrecisionShot());
 
         UnlockTracker.unlockCard(Strike.ID);
         UnlockTracker.unlockCard(Defend.ID);
@@ -194,6 +215,15 @@ public class KroosMod implements
         UnlockTracker.unlockCard(SkyfireFlame.ID);
         UnlockTracker.unlockCard(ArrowImprovement.ID);
         UnlockTracker.unlockCard(PhantomCamo.ID);
+        UnlockTracker.unlockCard(Heartbeat.ID);
+        UnlockTracker.unlockCard(SkyVolley.ID);
+        UnlockTracker.unlockCard(ExplosiveArrow.ID);
+        UnlockTracker.unlockCard(ReinforcedArrow.ID);
+        UnlockTracker.unlockCard(RainbowArrow.ID);
+        UnlockTracker.unlockCard(GlitteringEdge.ID);
+        UnlockTracker.unlockCard(SlowBurn.ID);
+        UnlockTracker.unlockCard(Awareness.ID);
+        UnlockTracker.unlockCard(PrecisionShot.ID);
     }
 
     // === 遗物注册 ===
@@ -231,4 +261,9 @@ public class KroosMod implements
         // 预留：badge / mod 设置面板
     }
 
+    @Override
+    public void receiveOnBattleStart(com.megacrit.cardcrawl.rooms.AbstractRoom room) {
+        // 战斗开始时清空战斗范围计数器 (强化箭/精准射击等持续计数依赖)
+        sts.kroos.util.BattleCounters.resetAll();
+    }
 }

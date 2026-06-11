@@ -168,5 +168,50 @@
     "NAME": "幻影伪装",
     "DESCRIPTION": "回合结束时，若处于[#b0c4de]浅眠[]状态，获得 !M! 层[#b0c4de]迷彩[]。",
     "UPGRADE_DESCRIPTION": "回合结束时，若处于[#b0c4de]浅眠[]状态，获得 !M! 层[#b0c4de]迷彩[]。"
+  },
+  "kroosmod:Heartbeat": {
+    "NAME": "心音",
+    "DESCRIPTION": "每回合从前 !M! 张卡牌获得的[R]格挡[]翻倍。 NL [#b0c4de]寒芒[]：消耗 1 层[#b0c4de]寒芒[]，获得 6 点[R]格挡[]。",
+    "UPGRADE_DESCRIPTION": "每回合从前 !M! 张卡牌获得的[R]格挡[]翻倍。 NL [#b0c4de]寒芒[]：消耗 1 层[#b0c4de]寒芒[]，获得 6 点[R]格挡[]。"
+  },
+  "kroosmod:SkyVolley": {
+    "NAME": "破空连射",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 每有 1 张[#b0c4de]箭矢[]牌，额外造成 1 次伤害。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL 每有 1 张[#b0c4de]箭矢[]牌，额外造成 1 次伤害。"
+  },
+  "kroosmod:ExplosiveArrow": {
+    "NAME": "爆炸箭",
+    "DESCRIPTION": "[#b0c4de]箭矢[]。造成 !D! 点伤害，对所有敌人造成 !M! 点伤害。 NL [#b0c4de]寒芒[]：消耗 1 层[#b0c4de]寒芒[]，对所有敌人额外造成 2 点伤害。",
+    "UPGRADE_DESCRIPTION": "[#b0c4de]箭矢[]。造成 !D! 点伤害，对所有敌人造成 !M! 点伤害。 NL [#b0c4de]寒芒[]：消耗 1 层[#b0c4de]寒芒[]，[R]对所有敌人额外造成 4 点伤害[]。"
+  },
+  "kroosmod:ReinforcedArrow": {
+    "NAME": "强化箭",
+    "DESCRIPTION": "[#b0c4de]箭矢[]。[R]消耗[]。造成 !D! 点伤害。 NL 本局每使用过 1 次本牌，伤害+2 (上限 22)。 NL [#b0c4de]寒芒[]：若未达上限，消耗 1 层[#b0c4de]寒芒[]，本牌伤害额外+2。",
+    "UPGRADE_DESCRIPTION": "[#b0c4de]箭矢[]。[R]消耗[]。造成 !D! 点伤害。 NL 本局每使用过 1 次本牌，[R]伤害+3 (上限 44)[]。 NL [#b0c4de]寒芒[]：若未达上限，消耗 1 层[#b0c4de]寒芒[]，本牌伤害额外+2。"
+  },
+  "kroosmod:RainbowArrow": {
+    "NAME": "破虹箭",
+    "DESCRIPTION": "[#b0c4de]箭矢[]。造成 !D! 点伤害。 NL 对拥有[R]格挡[]的敌人伤害翻倍，并施加 1 层[R]破绽[]。 NL [#b0c4de]寒芒[]：若造成伤害，消耗 1 层[#b0c4de]寒芒[]，给予 2 层[R]易伤[]。",
+    "UPGRADE_DESCRIPTION": "[#b0c4de]箭矢[]。造成 !D! 点伤害。 NL 对拥有[R]格挡[]的敌人伤害翻倍，并施加 1 层[R]破绽[]。 NL [#b0c4de]寒芒[]：若造成伤害，消耗 1 层[#b0c4de]寒芒[]，[R]给予 3 层[R]易伤[][]。"
+  },
+  "kroosmod:GlitteringEdge": {
+    "NAME": "锋芒尽露",
+    "DESCRIPTION": "[#b0c4de]寒芒[]：消耗 3 层[#b0c4de]寒芒[]，造成 !D! 点伤害。",
+    "UPGRADE_DESCRIPTION": "[#b0c4de]寒芒[]：消耗 3 层[#b0c4de]寒芒[]，造成 !D! 点伤害。"
+  },
+  "kroosmod:SlowBurn": {
+    "NAME": "慢悠悠",
+    "DESCRIPTION": "[R]保留[]。[#b0c4de]梦击[]。造成 !D! 点伤害。 NL 每[R]保留[] 1 回合，伤害+2。 NL [#b0c4de]寒芒[]：若在[#b0c4de]浅眠[]状态，消耗 1 层[#b0c4de]寒芒[]，伤害+5。",
+    "UPGRADE_DESCRIPTION": "[R]保留[]。[#b0c4de]梦击[]。造成 !D! 点伤害。 NL 每[R]保留[] 1 回合，[R]伤害+4[]。 NL [#b0c4de]寒芒[]：若在[#b0c4de]浅眠[]状态，消耗 1 层[#b0c4de]寒芒[]，[R]伤害+8[]。"
+  },
+  "kroosmod:Awareness": {
+    "NAME": "警觉",
+    "DESCRIPTION": "[#b0c4de]梦击[]。造成 !D! 点伤害。 NL 若处于[#b0c4de]浅眠[]状态，则退出[#b0c4de]浅眠[]。 NL 获得 !M! 层[#b0c4de]寒芒[]。",
+    "UPGRADE_DESCRIPTION": "[#b0c4de]梦击[]。造成 !D! 点伤害。 NL 若处于[#b0c4de]浅眠[]状态，则退出[#b0c4de]浅眠[]。 NL 获得 !M! 层[#b0c4de]寒芒[]。"
+  },
+  "kroosmod:PrecisionShot": {
+    "NAME": "精准射击",
+    "DESCRIPTION": "造成 !D! 点伤害，施加 !M! 层[R]破绽[]。 NL 本场战斗每打出过 1 次精准射击，伤害+5。 NL [#b0c4de]寒芒[]：消耗 1 层[#b0c4de]寒芒[]，施加 1 层[R]破绽[]。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害，施加 !M! 层[R]破绽[]。 NL 本场战斗每打出过 1 次精准射击，[R]伤害+8[]。 NL [#b0c4de]寒芒[]：消耗 1 层[#b0c4de]寒芒[]，施加 1 层[R]破绽[]。"
   }
 }

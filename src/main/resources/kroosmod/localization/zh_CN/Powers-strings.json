@@ -86,5 +86,9 @@
   "kroosmod:SkyfireFlame": {
     "NAME": "天坠之火",
     "DESCRIPTIONS": ["[R]中的[]效果造成伤害 +", " 点。"]
+  },
+  "kroosmod:Heartbeat": {
+    "NAME": "心音",
+    "DESCRIPTIONS": ["每回合从前 ", " 张卡牌获得的[R]格挡[]翻倍。"]
   }
 }
