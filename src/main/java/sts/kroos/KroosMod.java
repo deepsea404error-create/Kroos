@@ -26,6 +26,18 @@ import sts.kroos.cards.attack.Strike;
 import sts.kroos.cards.attack.Volley;
 import sts.kroos.cards.attack.WarningShot;
 import sts.kroos.cards.attack.Yawn;
+import sts.kroos.cards.power.ArrowImprovement;
+import sts.kroos.cards.power.DreamShadow;
+import sts.kroos.cards.power.FlawConfirm;
+import sts.kroos.cards.power.HeartScar;
+import sts.kroos.cards.power.Insomnia;
+import sts.kroos.cards.power.PhantomCamo;
+import sts.kroos.cards.power.Resonance;
+import sts.kroos.cards.power.SkyfireFlame;
+import sts.kroos.cards.power.SupplyDrop;
+import sts.kroos.cards.power.Transparent;
+import sts.kroos.cards.power.Unlit;
+import sts.kroos.cards.power.Vigilance;
 import sts.kroos.cards.skill.AimForVital;
 import sts.kroos.cards.skill.Defend;
 import sts.kroos.cards.skill.EmergencyEvasion;
@@ -134,6 +146,19 @@ public class KroosMod implements
         BaseMod.addCard(new EmergencyReload());
         BaseMod.addCard(new EquipmentUpgrade());
         BaseMod.addCard(new MechanicalSight());
+        // 蓝卡能力
+        BaseMod.addCard(new Insomnia());
+        BaseMod.addCard(new FlawConfirm());
+        BaseMod.addCard(new HeartScar());
+        BaseMod.addCard(new Transparent());
+        BaseMod.addCard(new Unlit());
+        BaseMod.addCard(new Resonance());
+        BaseMod.addCard(new SupplyDrop());
+        BaseMod.addCard(new DreamShadow());
+        BaseMod.addCard(new Vigilance());
+        BaseMod.addCard(new SkyfireFlame());
+        BaseMod.addCard(new ArrowImprovement());
+        BaseMod.addCard(new PhantomCamo());
 
         UnlockTracker.unlockCard(Strike.ID);
         UnlockTracker.unlockCard(Defend.ID);
@@ -157,6 +182,18 @@ public class KroosMod implements
         UnlockTracker.unlockCard(EmergencyReload.ID);
         UnlockTracker.unlockCard(EquipmentUpgrade.ID);
         UnlockTracker.unlockCard(MechanicalSight.ID);
+        UnlockTracker.unlockCard(Insomnia.ID);
+        UnlockTracker.unlockCard(FlawConfirm.ID);
+        UnlockTracker.unlockCard(HeartScar.ID);
+        UnlockTracker.unlockCard(Transparent.ID);
+        UnlockTracker.unlockCard(Unlit.ID);
+        UnlockTracker.unlockCard(Resonance.ID);
+        UnlockTracker.unlockCard(SupplyDrop.ID);
+        UnlockTracker.unlockCard(DreamShadow.ID);
+        UnlockTracker.unlockCard(Vigilance.ID);
+        UnlockTracker.unlockCard(SkyfireFlame.ID);
+        UnlockTracker.unlockCard(ArrowImprovement.ID);
+        UnlockTracker.unlockCard(PhantomCamo.ID);
     }
 
     // === 遗物注册 ===

@@ -94,13 +94,21 @@ public class DozePower extends AbstractPower {
     }
 
     /**
-     * 浅眠移除时, 触发蓄势放电 — 仅"通知"蓄势离场, 不计算其效果。
+     * 浅眠移除时:
+     *   1) 通过 RemoveSpecificPowerAction 触发蓄势放电(由 ChargePower.onRemove 自管)
+     *   2) 广播 onDozeExited 给所有实现 IDozeExitListener 的同主 power (警惕等)
      */
     @Override
     public void onRemove() {
-        if (owner != null && owner.hasPower(ChargePower.POWER_ID)) {
+        if (owner == null) return;
+        if (owner.hasPower(ChargePower.POWER_ID)) {
             AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(
                     owner, owner, ChargePower.POWER_ID));
+        }
+        for (AbstractPower p : owner.powers) {
+            if (p instanceof IDozeExitListener) {
+                ((IDozeExitListener) p).onDozeExited();
+            }
         }
     }
 }

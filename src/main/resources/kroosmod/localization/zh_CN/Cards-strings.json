@@ -108,5 +108,65 @@
     "NAME": "机械瞄具",
     "DESCRIPTION": "获得 !M! 点[R]活力[]。 NL [#b0c4de]寒芒[]：消耗 1 层[#b0c4de]寒芒[]，获得 1 层[#b0c4de]专注[]。",
     "UPGRADE_DESCRIPTION": "获得 !M! 点[R]活力[]。 NL [#b0c4de]寒芒[]：消耗 1 层[#b0c4de]寒芒[]，获得 1 层[#b0c4de]专注[]。"
+  },
+  "kroosmod:Insomnia": {
+    "NAME": "无法入眠",
+    "DESCRIPTION": "每回合开始时获得 !M! 层[#b0c4de]寒芒[]。 NL [#b0c4de]寒芒[]：消耗 1 层[#b0c4de]寒芒[]，回复 2 点生命。",
+    "UPGRADE_DESCRIPTION": "每回合开始时获得 !M! 层[#b0c4de]寒芒[]。 NL [#b0c4de]寒芒[]：消耗 1 层[#b0c4de]寒芒[]，[R]回复 4 点生命[]。"
+  },
+  "kroosmod:FlawConfirm": {
+    "NAME": "破绽确认",
+    "DESCRIPTION": "每回合前 !M! 张牌对敌人造成伤害时，施加 1 层[R]破绽[]。",
+    "UPGRADE_DESCRIPTION": "[R]固有[]。每回合前 !M! 张牌对敌人造成伤害时，施加 1 层[R]破绽[]。"
+  },
+  "kroosmod:HeartScar": {
+    "NAME": "心之痕",
+    "DESCRIPTION": "每回合前 !M! 次触发[#b0c4de]寒芒[]效果时，消耗的[#b0c4de]寒芒[] -1。 NL 获得 !M! 层[#b0c4de]寒芒[]。",
+    "UPGRADE_DESCRIPTION": "每回合前 !M! 次触发[#b0c4de]寒芒[]效果时，消耗的[#b0c4de]寒芒[] -1。 NL 获得 !M! 层[#b0c4de]寒芒[]。"
+  },
+  "kroosmod:Transparent": {
+    "NAME": "通明",
+    "DESCRIPTION": "每消耗 5 层[#b0c4de]寒芒[]，获得 !M! 点能量。",
+    "UPGRADE_DESCRIPTION": "每消耗 5 层[#b0c4de]寒芒[]，获得 !M! 点能量。"
+  },
+  "kroosmod:Unlit": {
+    "NAME": "无明",
+    "DESCRIPTION": "[#ff8c69]暴击[]时，获得 !M! 点[R]格挡[]。",
+    "UPGRADE_DESCRIPTION": "[R]固有[]。[#ff8c69]暴击[]时，获得 !M! 点[R]格挡[]。"
+  },
+  "kroosmod:Resonance": {
+    "NAME": "共鸣",
+    "DESCRIPTION": "[#ff8c69]暴击[]时，获得 !M! 层[#b0c4de]寒芒[]。",
+    "UPGRADE_DESCRIPTION": "[R]固有[]。[#ff8c69]暴击[]时，获得 !M! 层[#b0c4de]寒芒[]。"
+  },
+  "kroosmod:SupplyDrop": {
+    "NAME": "物资补给",
+    "DESCRIPTION": "每回合额外抽 !M! 张牌。",
+    "UPGRADE_DESCRIPTION": "[R]固有[]。每回合额外抽 !M! 张牌。"
+  },
+  "kroosmod:DreamShadow": {
+    "NAME": "梦影",
+    "DESCRIPTION": "每次进入[#b0c4de]浅眠[]状态时，获得 !M! 点[R]敏捷[]。 NL [#b0c4de]寒芒[]：消耗 1 层[#b0c4de]寒芒[]，立即获得 1 点[R]敏捷[]。",
+    "UPGRADE_DESCRIPTION": "每次进入[#b0c4de]浅眠[]状态时，获得 !M! 点[R]敏捷[]。 NL [#b0c4de]寒芒[]：消耗 1 层[#b0c4de]寒芒[]，立即获得 1 点[R]敏捷[]。"
+  },
+  "kroosmod:Vigilance": {
+    "NAME": "警惕",
+    "DESCRIPTION": "每次退出[#b0c4de]浅眠[]状态，获得 !M! 点[R]活力[]。",
+    "UPGRADE_DESCRIPTION": "每次退出[#b0c4de]浅眠[]状态，获得 !M! 点[R]活力[]。"
+  },
+  "kroosmod:SkyfireFlame": {
+    "NAME": "天坠之火",
+    "DESCRIPTION": "攻击带有[R]中的[]的敌人，[R]中的[]效果造成伤害 +!M! 点。",
+    "UPGRADE_DESCRIPTION": "攻击带有[R]中的[]的敌人，[R]中的[]效果造成伤害 +!M! 点。"
+  },
+  "kroosmod:ArrowImprovement": {
+    "NAME": "箭矢改良",
+    "DESCRIPTION": "[#b0c4de]箭矢[]牌额外造成 !M! 点伤害。",
+    "UPGRADE_DESCRIPTION": "[R]固有[]。[#b0c4de]箭矢[]牌额外造成 !M! 点伤害。"
+  },
+  "kroosmod:PhantomCamo": {
+    "NAME": "幻影伪装",
+    "DESCRIPTION": "回合结束时，若处于[#b0c4de]浅眠[]状态，获得 !M! 层[#b0c4de]迷彩[]。",
+    "UPGRADE_DESCRIPTION": "回合结束时，若处于[#b0c4de]浅眠[]状态，获得 !M! 层[#b0c4de]迷彩[]。"
   }
 }

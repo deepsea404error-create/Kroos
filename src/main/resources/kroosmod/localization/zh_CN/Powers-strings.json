@@ -50,5 +50,41 @@
   "kroosmod:FrostEcho": {
     "NAME": "寒芒余韵",
     "DESCRIPTIONS": ["下回合获得 ", " 层[#b0c4de]寒芒[]。"]
+  },
+  "kroosmod:Insomnia": {
+    "NAME": "无法入眠",
+    "DESCRIPTIONS": ["每回合开始获得 ", " 层[#b0c4de]寒芒[]。"]
+  },
+  "kroosmod:FlawConfirm": {
+    "NAME": "破绽确认",
+    "DESCRIPTIONS": ["每回合前 ", " 张牌对敌人造成伤害时, 施加 1 层[R]破绽[]。"]
+  },
+  "kroosmod:HeartScar": {
+    "NAME": "心之痕",
+    "DESCRIPTIONS": ["每回合前 ", " 次触发[#b0c4de]寒芒[]效果时, 消耗的[#b0c4de]寒芒[] -1。"]
+  },
+  "kroosmod:Transparent": {
+    "NAME": "通明",
+    "DESCRIPTIONS": ["每消耗 5 层[#b0c4de]寒芒[], 获得 ", " 点能量。"]
+  },
+  "kroosmod:Unlit": {
+    "NAME": "无明",
+    "DESCRIPTIONS": ["[#ff8c69]暴击[]时, 获得 ", " 点[R]格挡[]。"]
+  },
+  "kroosmod:Resonance": {
+    "NAME": "共鸣",
+    "DESCRIPTIONS": ["[#ff8c69]暴击[]时, 获得 ", " 层[#b0c4de]寒芒[]。"]
+  },
+  "kroosmod:ExtraDraw": {
+    "NAME": "物资补给",
+    "DESCRIPTIONS": ["每回合开始时额外抽 ", " 张牌。"]
+  },
+  "kroosmod:Vigilance": {
+    "NAME": "警惕",
+    "DESCRIPTIONS": ["每次退出[#b0c4de]浅眠[], 获得 ", " 点[R]活力[]。"]
+  },
+  "kroosmod:SkyfireFlame": {
+    "NAME": "天坠之火",
+    "DESCRIPTIONS": ["[R]中的[]效果造成伤害 +", " 点。"]
   }
 }

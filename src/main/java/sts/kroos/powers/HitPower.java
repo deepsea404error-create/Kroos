@@ -68,17 +68,24 @@ public class HitPower extends AbstractPower {
         if (this.amount <= 0 || owner == null || owner.isDeadOrEscaped()) return;
         this.flash();
 
-        // 1) 10 点 HP_LOSS 伤害 (类似猎人中毒触发时机)
+        // 1) 计算本次 tick 伤害 = BASE_DAMAGE + [天坠之火].amount (若玩家具有)
+        int dmg = BASE_DAMAGE;
+        if (AbstractDungeon.player != null) {
+            AbstractPower sf = AbstractDungeon.player.getPower(SkyfireFlamePower.POWER_ID);
+            if (sf != null) dmg += sf.amount;
+        }
+
+        // 2) HP_LOSS 伤害 (类似中毒触发时机, 无视格挡)
         AbstractDungeon.actionManager.addToBottom(new DamageAction(
                 owner,
-                new DamageInfo(owner, BASE_DAMAGE, DamageInfo.DamageType.HP_LOSS),
+                new DamageInfo(owner, dmg, DamageInfo.DamageType.HP_LOSS),
                 AbstractGameAction.AttackEffect.FIRE));
 
-        // 2) 眩晕 1 回合: 借助 StSLib 的 StunMonsterPower (会跳过本回合的 takeTurn)
+        // 3) 眩晕 1 回合 (StSLib StunMonsterPower)
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(
                 owner, owner, new StunMonsterPower(owner, 1)));
 
-        // 3) 自然衰减 1 层 (每回合 -1)
+        // 4) 自然衰减 1 层
         AbstractDungeon.actionManager.addToBottom(
                 new ReducePowerAction(owner, owner, POWER_ID, 1));
     }

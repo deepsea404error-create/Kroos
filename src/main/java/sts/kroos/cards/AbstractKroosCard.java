@@ -17,7 +17,9 @@ import sts.kroos.powers.ArrowImprovementPower;
 import sts.kroos.powers.DozePower;
 import sts.kroos.powers.FocusPower;
 import sts.kroos.powers.FrostPower;
+import sts.kroos.powers.HeartScarPower;
 import sts.kroos.powers.ScatterPower;
+import sts.kroos.powers.TransparentPower;
 
 /**
  * 寒芒克洛丝所有卡牌的公共抽象基类。
@@ -171,13 +173,34 @@ public abstract class AbstractKroosCard extends CustomCard {
     }
 
     /**
-     * 消耗 amount 层寒芒(进入 action 队列)。返回实际尝试消耗的层数。
-     * 注: 心之痕的减免逻辑应该在 HeartScar power 内自行 hook ReducePowerAction, 不耦合本方法。
+     * 消耗 amount 层寒芒(进入 action 队列)。返回 amount(逻辑消耗量, 即触发用)。
+     *
+     * 内部流程:
+     *   1) [心之痕] 询问 tryDiscount(amount), 决定本次实际扣的层数 (可能为 0)
+     *   2) 若 actual > 0, 入队 ReducePowerAction(actual)
+     *   3) [通明] 通知本次触发以"逻辑消耗量"累计计数 — 心之痕的减免不影响通明计数
      */
     public int consumeFrost(int amount) {
         if (!canConsumeFrost(amount)) return 0;
-        AbstractPower p = currentFrost();
-        addToBot(new ReducePowerAction(p.owner, p.owner, p.ID, amount));
+        AbstractPower fp = currentFrost();
+        int actual = amount;
+
+        // 心之痕减免
+        AbstractPower hs = AbstractDungeon.player.getPower(HeartScarPower.POWER_ID);
+        if (hs instanceof HeartScarPower) {
+            actual = ((HeartScarPower) hs).tryDiscount(amount);
+        }
+
+        if (actual > 0) {
+            addToBot(new ReducePowerAction(fp.owner, fp.owner, fp.ID, actual));
+        }
+
+        // 通明累计 (按逻辑消耗)
+        AbstractPower tp = AbstractDungeon.player.getPower(TransparentPower.POWER_ID);
+        if (tp instanceof TransparentPower) {
+            ((TransparentPower) tp).notifyConsumed(amount);
+        }
+
         return amount;
     }
 
