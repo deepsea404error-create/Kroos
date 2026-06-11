@@ -26,5 +26,25 @@
   "kroosmod:Scatter": {
     "NAME": "散射",
     "DESCRIPTIONS": ["[#b0c4de]箭矢[]牌对非主目标的其他敌人造成 50% 伤害。"]
+  },
+  "kroosmod:Camouflage": {
+    "NAME": "迷彩",
+    "DESCRIPTIONS": ["剩余 ", " 层。受到的攻击伤害降低 50%；每次受到攻击 -1 层。"]
+  },
+  "kroosmod:Doze": {
+    "NAME": "浅眠",
+    "DESCRIPTIONS": ["处于[#b0c4de]浅眠[]状态。非[#b0c4de]梦击[]牌伤害 ×80%；回合结束获得 6 点格挡、恢复 2 点生命；进入浅眠及每回合开始获得 1 层[#b0c4de]蓄势[]；退出浅眠时消耗全部[#b0c4de]蓄势[]。"]
+  },
+  "kroosmod:Charge": {
+    "NAME": "蓄势",
+    "DESCRIPTIONS": ["当前 ", " 层。退出浅眠时消耗：抽 ", " 张牌，获得 ", " 点能量，获得 ", " 层临时力量。"]
+  },
+  "kroosmod:PhantomCamo": {
+    "NAME": "幻影伪装",
+    "DESCRIPTIONS": ["回合结束时若处于[#b0c4de]浅眠[]状态，获得 ", " 层[#b0c4de]迷彩[]。"]
+  },
+  "kroosmod:DreamShadow": {
+    "NAME": "梦影",
+    "DESCRIPTIONS": ["首次进入[#b0c4de]浅眠[]时，获得 ", " 点[R]敏捷[]。"]
   }
 }

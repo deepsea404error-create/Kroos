@@ -14,6 +14,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import sts.kroos.patches.KroosEnum;
 import sts.kroos.powers.ArrowImprovementPower;
+import sts.kroos.powers.DozePower;
 import sts.kroos.powers.FocusPower;
 import sts.kroos.powers.FrostPower;
 import sts.kroos.powers.ScatterPower;
@@ -98,33 +99,40 @@ public abstract class AbstractKroosCard extends CustomCard {
     }
 
     // ===================================================================
-    // 伤害修饰: 箭矢改良在卡牌 applyPowers 阶段加成
+    // 伤害修饰: 箭矢改良(+X) 与 浅眠减伤(*0.8) 由卡侧处理
+    //   原因: 两者都依赖"是否箭矢/梦击"标签, power 端拿不到当前卡的可靠引用,
+    //         因此把基于卡标签的修饰统一放在卡的 applyPowers/calculateCardDamage。
     // ===================================================================
 
     @Override
     public void applyPowers() {
         super.applyPowers();
-        if (!isArrow || this.baseDamage < 0) return;
-        AbstractPower aip = AbstractDungeon.player != null
-                ? AbstractDungeon.player.getPower(ArrowImprovementPower.POWER_ID)
-                : null;
-        if (aip != null && aip.amount > 0) {
-            this.damage += aip.amount;
-            this.isDamageModified = this.damage != this.baseDamage;
-        }
+        applyKroosDamageModifiers();
     }
 
     @Override
     public void calculateCardDamage(AbstractMonster mo) {
         super.calculateCardDamage(mo);
-        if (!isArrow || this.baseDamage < 0) return;
-        AbstractPower aip = AbstractDungeon.player != null
-                ? AbstractDungeon.player.getPower(ArrowImprovementPower.POWER_ID)
-                : null;
-        if (aip != null && aip.amount > 0) {
-            this.damage += aip.amount;
-            this.isDamageModified = this.damage != this.baseDamage;
+        applyKroosDamageModifiers();
+    }
+
+    private void applyKroosDamageModifiers() {
+        if (this.baseDamage < 0) return;
+        if (AbstractDungeon.player == null) return;
+
+        // 1) 箭矢改良: 仅对箭矢牌生效, 加性修饰
+        if (isArrow) {
+            AbstractPower aip = AbstractDungeon.player.getPower(ArrowImprovementPower.POWER_ID);
+            if (aip != null && aip.amount > 0) {
+                this.damage += aip.amount;
+            }
         }
+        // 2) 浅眠减伤: 攻击牌且非梦击, 乘性修饰(向下取整)
+        if (this.type == CardType.ATTACK && !isDreamStrike
+                && AbstractDungeon.player.hasPower(DozePower.POWER_ID)) {
+            this.damage = (int) Math.floor(this.damage * DozePower.NON_DREAM_STRIKE_MULTIPLIER);
+        }
+        this.isDamageModified = this.damage != this.baseDamage;
     }
 
     // ===================================================================
