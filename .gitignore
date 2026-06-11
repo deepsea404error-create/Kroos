@@ -1,0 +1,15 @@
+# Game dependency - too large for GitHub (>100MB), must be installed locally
+lib/desktop-1.0.jar
+
+# Build output
+target/
+*.class
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
