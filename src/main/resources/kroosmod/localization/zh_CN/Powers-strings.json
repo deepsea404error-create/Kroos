@@ -90,5 +90,9 @@
   "kroosmod:Heartbeat": {
     "NAME": "心音",
     "DESCRIPTIONS": ["每回合从前 ", " 张卡牌获得的[R]格挡[]翻倍。"]
+  },
+  "kroosmod:DoubleIncoming": {
+    "NAME": "受击翻倍",
+    "DESCRIPTIONS": ["本回合该单位受到的[R]攻击伤害[]翻倍。"]
   }
 }

@@ -278,5 +278,50 @@
     "NAME": "隐藏",
     "DESCRIPTION": "[R]消耗[]。[R]保留[]。 NL 获得 !B! 点[R]格挡[]，!M! 层[#b0c4de]迷彩[]。 NL [#b0c4de]寒芒[]：消耗 1 层[#b0c4de]寒芒[]，获得 1 点[R]敏捷[]。",
     "UPGRADE_DESCRIPTION": "[R]消耗[]。[R]保留[]。 NL 获得 !B! 点[R]格挡[]，!M! 层[#b0c4de]迷彩[]。 NL [#b0c4de]寒芒[]：消耗 1 层[#b0c4de]寒芒[]，获得 1 点[R]敏捷[]。"
+  },
+  "kroosmod:ThroatSeal": {
+    "NAME": "封喉",
+    "DESCRIPTION": "[R]消耗[]。造成 !D! 点伤害 !M! 次。 NL 每次伤害若未被完全阻挡，施加 1 层[R]破绽[]。 NL [#b0c4de]寒芒[]：消耗 3 层[#b0c4de]寒芒[]，额外造成 2 次伤害。",
+    "UPGRADE_DESCRIPTION": "[R]消耗[]。造成 !D! 点伤害 !M! 次。 NL 每次伤害若未被完全阻挡，施加 1 层[R]破绽[]。 NL [#b0c4de]寒芒[]：消耗 3 层[#b0c4de]寒芒[]，额外造成 2 次伤害。"
+  },
+  "kroosmod:BayonetCharge": {
+    "NAME": "下挂刺刀",
+    "DESCRIPTION": "造成 !D! 点伤害，施加 !M! 层[R]破绽[]。 NL 若敌人意图为[R]攻击[]，本回合该敌人所受伤害翻倍。 NL [#b0c4de]寒芒[]：若敌人有[R]防御[]，消耗 2 层[#b0c4de]寒芒[]，去除其所有[R]格挡[]。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害，施加 !M! 层[R]破绽[]。 NL 若敌人意图为[R]攻击[]，本回合该敌人所受伤害翻倍。 NL [#b0c4de]寒芒[]：若敌人有[R]防御[]，消耗 2 层[#b0c4de]寒芒[]，去除其所有[R]格挡[]。"
+  },
+  "kroosmod:Rouse": {
+    "NAME": "奋起",
+    "DESCRIPTION": "[#b0c4de]梦击[]。解除[#b0c4de]浅眠[]。造成 !D! 点伤害，施加 !M! 层[R]破绽[]。 NL 本场每解除 1 次[#b0c4de]浅眠[]，额外造成 1 次伤害。 NL [#b0c4de]寒芒[]：消耗 1 层[#b0c4de]寒芒[]，获得 1 点[R]力量[]。",
+    "UPGRADE_DESCRIPTION": "[#b0c4de]梦击[]。解除[#b0c4de]浅眠[]。造成 !D! 点伤害，施加 !M! 层[R]破绽[]。 NL 本场每解除 1 次[#b0c4de]浅眠[]，额外造成 1 次伤害。 NL [#b0c4de]寒芒[]：消耗 1 层[#b0c4de]寒芒[]，[R]获得 2 点[R]力量[][]。"
+  },
+  "kroosmod:PiercingCloud": {
+    "NAME": "穿云",
+    "DESCRIPTION": "造成 !D! 点伤害，施加 !M! 层[R]破绽[]。 NL [#b0c4de]寒芒[]：本牌[#ff8c69]暴击[]时，消耗 1 层[#b0c4de]寒芒[]，保留此牌且其耗能变为 0。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害，施加 !M! 层[R]破绽[]。 NL [#b0c4de]寒芒[]：本牌[#ff8c69]暴击[]时，消耗 1 层[#b0c4de]寒芒[]，保留此牌且其耗能变为 0。"
+  },
+  "kroosmod:RapidShift": {
+    "NAME": "急速转移",
+    "DESCRIPTION": "[R]消耗[]。消耗 !M! 张手牌，立即额外获得 1 点能量与 5 张手牌(等效额外回合)。 NL [#b0c4de]寒芒[]：消耗 3 层[#b0c4de]寒芒[]，下回合额外抽 2 张牌，+1 点能量。",
+    "UPGRADE_DESCRIPTION": "[R]保留[]。消耗 !M! 张手牌，立即额外获得 1 点能量与 5 张手牌(等效额外回合)。 NL [#b0c4de]寒芒[]：消耗 2 层[#b0c4de]寒芒[]，下回合额外抽 2 张牌，+1 点能量。"
+  },
+  "kroosmod:Traceless": {
+    "NAME": "无痕",
+    "DESCRIPTION": "[R]消耗[]。 NL 获得 1 层[#ff8c69]暴击[]。 NL 获得 !M! 层[#b0c4de]迷彩[]。 NL [#b0c4de]寒芒[]：消耗 1 层[#b0c4de]寒芒[]，获得 1 层[#b0c4de]迷彩[]。",
+    "UPGRADE_DESCRIPTION": "[R]消耗[]。 NL [R]获得 2 层[#ff8c69]暴击[][]。 NL 获得 !M! 层[#b0c4de]迷彩[]。 NL [#b0c4de]寒芒[]：消耗 1 层[#b0c4de]寒芒[]，获得 1 层[#b0c4de]迷彩[]。"
+  },
+  "kroosmod:TacticalShift": {
+    "NAME": "战术调整",
+    "DESCRIPTION": "丢弃所有手牌。 NL 每丢弃 1 张[R]攻击[]牌，获得 1 层[#b0c4de]寒芒[]。 NL 每丢弃 1 张非[R]攻击[]牌，获得 !M! 点[R]格挡[]。 NL [#b0c4de]寒芒[]：消耗 1 层[#b0c4de]寒芒[]，下回合获得 1 点能量。",
+    "UPGRADE_DESCRIPTION": "[R]保留[]。丢弃所有手牌。 NL 每丢弃 1 张[R]攻击[]牌，获得 1 层[#b0c4de]寒芒[]。 NL 每丢弃 1 张非[R]攻击[]牌，获得 !M! 点[R]格挡[]。 NL [#b0c4de]寒芒[]：消耗 1 层[#b0c4de]寒芒[]，[R]下回合获得 2 点能量[]。"
+  },
+  "kroosmod:Brace": {
+    "NAME": "蓄势待发",
+    "DESCRIPTION": "本回合手牌全部[R]保留[]至下回合。 NL [#b0c4de]寒芒[]：消耗 1 层[#b0c4de]寒芒[]，下回合获得 1 点能量。",
+    "UPGRADE_DESCRIPTION": "[R]保留[]。本回合手牌全部[R]保留[]至下回合。 NL [#b0c4de]寒芒[]：消耗 1 层[#b0c4de]寒芒[]，[R]下回合获得 2 点能量[]。"
+  },
+  "kroosmod:OneInstant": {
+    "NAME": "一瞬",
+    "DESCRIPTION": "当前回合每打出 1 张[R]攻击[]牌，施加 1 层[R]破绽[]。 NL 丢弃所有手牌。 NL [#b0c4de]寒芒[]：消耗 1 层[#b0c4de]寒芒[]，施加 1 层[R]破绽[]。",
+    "UPGRADE_DESCRIPTION": "[R]保留[]。当前回合每打出 1 张[R]攻击[]牌，施加 1 层[R]破绽[]。 NL 丢弃所有手牌。 NL [#b0c4de]寒芒[]：消耗 1 层[#b0c4de]寒芒[]，施加 1 层[R]破绽[]。"
   }
 }

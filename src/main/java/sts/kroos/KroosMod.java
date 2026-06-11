@@ -19,19 +19,23 @@ import com.megacrit.cardcrawl.localization.RelicStrings;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import com.google.gson.Gson;
 import sts.kroos.cards.attack.Awareness;
+import sts.kroos.cards.attack.BayonetCharge;
 import sts.kroos.cards.attack.DoubleShot;
 import sts.kroos.cards.attack.ExplosiveArrow;
 import sts.kroos.cards.attack.FlawShot;
 import sts.kroos.cards.attack.FrostPierce;
 import sts.kroos.cards.attack.GlitteringEdge;
 import sts.kroos.cards.attack.Hunt;
+import sts.kroos.cards.attack.PiercingCloud;
 import sts.kroos.cards.attack.PrecisionShot;
 import sts.kroos.cards.attack.RainbowArrow;
 import sts.kroos.cards.attack.RapidFire;
 import sts.kroos.cards.attack.ReinforcedArrow;
+import sts.kroos.cards.attack.Rouse;
 import sts.kroos.cards.attack.SkyVolley;
 import sts.kroos.cards.attack.SlowBurn;
 import sts.kroos.cards.attack.Strike;
+import sts.kroos.cards.attack.ThroatSeal;
 import sts.kroos.cards.attack.Volley;
 import sts.kroos.cards.attack.WarningShot;
 import sts.kroos.cards.attack.Yawn;
@@ -50,6 +54,7 @@ import sts.kroos.cards.power.Transparent;
 import sts.kroos.cards.power.Unlit;
 import sts.kroos.cards.power.Vigilance;
 import sts.kroos.cards.skill.AimForVital;
+import sts.kroos.cards.skill.Brace;
 import sts.kroos.cards.skill.Collapse;
 import sts.kroos.cards.skill.CrossbowModify;
 import sts.kroos.cards.skill.Defend;
@@ -63,14 +68,18 @@ import sts.kroos.cards.skill.HoldMode;
 import sts.kroos.cards.skill.HundredForge;
 import sts.kroos.cards.skill.MechanicalSight;
 import sts.kroos.cards.skill.MemoryWound;
+import sts.kroos.cards.skill.OneInstant;
 import sts.kroos.cards.skill.OpenEyes;
 import sts.kroos.cards.skill.PreparedShot;
+import sts.kroos.cards.skill.RapidShift;
 import sts.kroos.cards.skill.RapidShoot;
 import sts.kroos.cards.skill.Rest;
 import sts.kroos.cards.skill.Scout;
 import sts.kroos.cards.skill.SimpleFortification;
 import sts.kroos.cards.skill.Solitude;
 import sts.kroos.cards.skill.SupportOrder;
+import sts.kroos.cards.skill.TacticalShift;
+import sts.kroos.cards.skill.Traceless;
 import sts.kroos.cards.skill.TruthAndDare;
 import sts.kroos.cards.skill.Unstoppable;
 import sts.kroos.cards.skill.WindUp;
@@ -206,6 +215,17 @@ public class KroosMod implements
         BaseMod.addCard(new CrossbowModify());
         BaseMod.addCard(new HoldMode());
         BaseMod.addCard(new Hide());
+        // 金卡攻击
+        BaseMod.addCard(new ThroatSeal());
+        BaseMod.addCard(new BayonetCharge());
+        BaseMod.addCard(new Rouse());
+        BaseMod.addCard(new PiercingCloud());
+        // 金卡技能
+        BaseMod.addCard(new RapidShift());
+        BaseMod.addCard(new Traceless());
+        BaseMod.addCard(new TacticalShift());
+        BaseMod.addCard(new Brace());
+        BaseMod.addCard(new OneInstant());
         // 衍生无色
         BaseMod.addCard(new NormalArrow());
 
@@ -264,6 +284,15 @@ public class KroosMod implements
         UnlockTracker.unlockCard(CrossbowModify.ID);
         UnlockTracker.unlockCard(HoldMode.ID);
         UnlockTracker.unlockCard(Hide.ID);
+        UnlockTracker.unlockCard(ThroatSeal.ID);
+        UnlockTracker.unlockCard(BayonetCharge.ID);
+        UnlockTracker.unlockCard(Rouse.ID);
+        UnlockTracker.unlockCard(PiercingCloud.ID);
+        UnlockTracker.unlockCard(RapidShift.ID);
+        UnlockTracker.unlockCard(Traceless.ID);
+        UnlockTracker.unlockCard(TacticalShift.ID);
+        UnlockTracker.unlockCard(Brace.ID);
+        UnlockTracker.unlockCard(OneInstant.ID);
         UnlockTracker.unlockCard(NormalArrow.ID);
     }
 
