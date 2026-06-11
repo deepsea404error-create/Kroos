@@ -31,9 +31,10 @@ public class DoubleShot extends AbstractKroosCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        // 寒芒触发: 消耗1层寒芒, 伤害额外提升
+        // 寒芒触发: 同步判断分支, action 队列减层
         int bonus = 0;
-        if (consumeFrost(1) > 0) {
+        if (canConsumeFrost(1)) {
+            consumeFrost(1);
             bonus = this.upgraded ? FROST_BONUS_UPG : FROST_BONUS;
         }
         int dmg = this.damage + bonus;

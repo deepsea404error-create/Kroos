@@ -1,13 +1,14 @@
 package sts.kroos.cards.skill;
 
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import sts.kroos.KroosMod;
 import sts.kroos.cards.AbstractKroosCard;
+import sts.kroos.powers.FrostPower;
 
 /**
  * 预备射击(初始) - 1费, 获得2层寒芒, 升级后3层。
- * 寒芒 power 尚未实现, 这里留空实现, 待 power 接入后填充。
  */
 public class PreparedShot extends AbstractKroosCard {
 
@@ -18,8 +19,6 @@ public class PreparedShot extends AbstractKroosCard {
     public static final int FROST = 2;
     public static final int UPGRADE_FROST = 1;
 
-    public int magicNumberBase = FROST;
-
     public PreparedShot() {
         super(ID, IMG, COST, CardType.SKILL, CardRarity.BASIC, CardTarget.SELF);
         this.baseMagicNumber = FROST;
@@ -28,7 +27,8 @@ public class PreparedShot extends AbstractKroosCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        // TODO: 接入寒芒 power 后调用 addToBot(new ApplyPowerAction(p, p, new FrostPower(p, magicNumber), magicNumber));
+        addToBot(new ApplyPowerAction(p, p,
+                new FrostPower(p, this.magicNumber), this.magicNumber));
     }
 
     @Override
@@ -45,3 +45,4 @@ public class PreparedShot extends AbstractKroosCard {
         }
     }
 }
+

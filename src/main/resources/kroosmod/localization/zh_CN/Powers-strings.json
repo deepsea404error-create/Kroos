@@ -1,1 +1,6 @@
-{}
+{
+  "kroosmod:Frost": {
+    "NAME": "寒芒",
+    "DESCRIPTIONS": ["当前拥有 ", " 层 [#b0c4de]寒芒[]。消耗[#b0c4de]寒芒[]可触发卡牌额外效果。"]
+  }
+}

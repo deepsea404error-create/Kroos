@@ -2,15 +2,16 @@ package sts.kroos.relics;
 
 import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import sts.kroos.KroosMod;
+import sts.kroos.powers.FrostPower;
 import sts.kroos.util.TextureLoader;
 
 /**
  * 克洛丝证章(初始遗物)
  * 战斗开始时获得2层寒芒。每回合获得1层寒芒。
- *
- * 实际寒芒 power 实现后, 在 atBattleStart / atTurnStart 中触发。
  */
 public class KroosBadge extends CustomRelic {
 
@@ -34,13 +35,22 @@ public class KroosBadge extends CustomRelic {
 
     @Override
     public void atBattleStart() {
-        // TODO: 接入寒芒 power
         this.flash();
+        AbstractDungeon.actionManager.addToBottom(
+                new ApplyPowerAction(
+                        AbstractDungeon.player, AbstractDungeon.player,
+                        new FrostPower(AbstractDungeon.player, BATTLE_START_FROST),
+                        BATTLE_START_FROST));
     }
 
     @Override
     public void atTurnStart() {
-        // TODO: 接入寒芒 power
+        this.flash();
+        AbstractDungeon.actionManager.addToBottom(
+                new ApplyPowerAction(
+                        AbstractDungeon.player, AbstractDungeon.player,
+                        new FrostPower(AbstractDungeon.player, PER_TURN_FROST),
+                        PER_TURN_FROST));
     }
 
     @Override
@@ -48,3 +58,4 @@ public class KroosBadge extends CustomRelic {
         return new KroosBadge();
     }
 }
+

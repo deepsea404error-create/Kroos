@@ -1,11 +1,14 @@
 package sts.kroos.cards;
 
 import basemod.abstracts.CustomCard;
-import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
-import sts.kroos.KroosMod;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import sts.kroos.patches.KroosEnum;
+import sts.kroos.powers.FrostPower;
 
 /**
  * 寒芒克洛丝所有卡牌的公共抽象基类。
@@ -59,13 +62,31 @@ public abstract class AbstractKroosCard extends CustomCard {
     }
 
     /**
-     * 消耗寒芒。寒芒 power 实现完成前留作 hook。
-     * @param amount 期望消耗的层数 (尚未考虑心之痕减免)
-     * @return 实际消耗的层数(若不足, 返回 0)
+     * 同步检查玩家身上的[寒芒]层数是否足以支付 amount。
+     * 不修改层数。各张卡牌应先用此方法走分支, 再调用 consumeFrost 进入 action 队列。
+     */
+    public static boolean canConsumeFrost(int amount) {
+        AbstractPower p = currentFrost();
+        return p != null && p.amount >= amount;
+    }
+
+    /**
+     * 消耗 amount 层寒芒(进入 action 队列)。
+     * 返回值: 实际尝试消耗的层数。若玩家寒芒不足, 返回 0 且不入队。
+     *
+     * 注: 心之痕的减免逻辑应该在 [HeartScar power] 内自行 hook ReducePowerAction
+     * 触发时进行抵扣, 而非耦合到本方法。
      */
     public int consumeFrost(int amount) {
-        // TODO: 寒芒 power 实现后接入实际消耗逻辑
-        return 0;
+        if (!canConsumeFrost(amount)) return 0;
+        AbstractPower p = currentFrost();
+        addToBot(new ReducePowerAction(p.owner, p.owner, p.ID, amount));
+        return amount;
+    }
+
+    private static AbstractPower currentFrost() {
+        if (AbstractDungeon.player == null) return null;
+        return AbstractDungeon.player.getPower(FrostPower.POWER_ID);
     }
 
     /**
