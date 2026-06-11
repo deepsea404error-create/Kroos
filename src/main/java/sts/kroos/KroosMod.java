@@ -17,10 +17,21 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.localization.RelicStrings;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import com.google.gson.Gson;
-import sts.kroos.cards.attack.Strike;
 import sts.kroos.cards.attack.DoubleShot;
+import sts.kroos.cards.attack.FlawShot;
+import sts.kroos.cards.attack.FrostPierce;
+import sts.kroos.cards.attack.Hunt;
+import sts.kroos.cards.attack.RapidFire;
+import sts.kroos.cards.attack.Strike;
+import sts.kroos.cards.attack.Volley;
+import sts.kroos.cards.skill.AimForVital;
 import sts.kroos.cards.skill.Defend;
+import sts.kroos.cards.skill.EmergencyEvasion;
+import sts.kroos.cards.skill.OpenEyes;
 import sts.kroos.cards.skill.PreparedShot;
+import sts.kroos.cards.skill.Rest;
+import sts.kroos.cards.skill.SimpleFortification;
+import sts.kroos.cards.skill.WindUp;
 import sts.kroos.characters.Kroos;
 import sts.kroos.patches.KroosEnum;
 import sts.kroos.relics.KroosBadge;
@@ -91,15 +102,40 @@ public class KroosMod implements
     // === 卡牌注册 ===
     @Override
     public void receiveEditCards() {
+        // 初始牌
         BaseMod.addCard(new Strike());
         BaseMod.addCard(new Defend());
         BaseMod.addCard(new DoubleShot());
         BaseMod.addCard(new PreparedShot());
+        // 白卡攻击
+        BaseMod.addCard(new RapidFire());
+        BaseMod.addCard(new Hunt());
+        BaseMod.addCard(new FrostPierce());
+        BaseMod.addCard(new FlawShot());
+        BaseMod.addCard(new Volley());
+        // 白卡技能
+        BaseMod.addCard(new SimpleFortification());
+        BaseMod.addCard(new EmergencyEvasion());
+        BaseMod.addCard(new Rest());
+        BaseMod.addCard(new OpenEyes());
+        BaseMod.addCard(new WindUp());
+        BaseMod.addCard(new AimForVital());
 
         UnlockTracker.unlockCard(Strike.ID);
         UnlockTracker.unlockCard(Defend.ID);
         UnlockTracker.unlockCard(DoubleShot.ID);
         UnlockTracker.unlockCard(PreparedShot.ID);
+        UnlockTracker.unlockCard(RapidFire.ID);
+        UnlockTracker.unlockCard(Hunt.ID);
+        UnlockTracker.unlockCard(FrostPierce.ID);
+        UnlockTracker.unlockCard(FlawShot.ID);
+        UnlockTracker.unlockCard(Volley.ID);
+        UnlockTracker.unlockCard(SimpleFortification.ID);
+        UnlockTracker.unlockCard(EmergencyEvasion.ID);
+        UnlockTracker.unlockCard(Rest.ID);
+        UnlockTracker.unlockCard(OpenEyes.ID);
+        UnlockTracker.unlockCard(WindUp.ID);
+        UnlockTracker.unlockCard(AimForVital.ID);
     }
 
     // === 遗物注册 ===

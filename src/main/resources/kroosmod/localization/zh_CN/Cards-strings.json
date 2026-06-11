@@ -18,5 +18,60 @@
     "NAME": "预备射击",
     "DESCRIPTION": "获得 !M! 层[#b0c4de]寒芒[]。",
     "UPGRADE_DESCRIPTION": "获得 !M! 层[#b0c4de]寒芒[]。"
+  },
+  "kroosmod:RapidFire": {
+    "NAME": "连射",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 若上一张牌是[R]攻击[]牌，本牌耗能变为 0。 NL [#b0c4de]寒芒[]：消耗 1 层[#b0c4de]寒芒[]，抽 1 张牌。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL 若上一张牌是[R]攻击[]牌，本牌耗能变为 0。 NL [#b0c4de]寒芒[]：消耗 1 层[#b0c4de]寒芒[]，[R]抽 1 张牌并将其升级[]。"
+  },
+  "kroosmod:Hunt": {
+    "NAME": "追猎",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 本牌[#ff8c69]暴击[]时，额外造成 1 次伤害，施加 1 层[R]破绽[]。 NL [#b0c4de]寒芒[]：消耗 1 层[#b0c4de]寒芒[]，伤害+2。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL 本牌[#ff8c69]暴击[]时，额外造成 1 次伤害，施加 1 层[R]破绽[]。 NL [#b0c4de]寒芒[]：消耗 1 层[#b0c4de]寒芒[]，[R]伤害+3[]。"
+  },
+  "kroosmod:FrostPierce": {
+    "NAME": "寒光贯穿",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 额外造成等同于当前[#b0c4de]寒芒[]层数的伤害。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL 额外造成等同于当前[#b0c4de]寒芒[]层数 [R]1.5 倍[] 的伤害。"
+  },
+  "kroosmod:FlawShot": {
+    "NAME": "虚损箭",
+    "DESCRIPTION": "[#b0c4de]箭矢[]。造成 !D! 点伤害，施加 !M! 层[R]破绽[]。 NL [#b0c4de]寒芒[]：消耗 1 层[#b0c4de]寒芒[]，伤害+3，给予 1 层[R]虚弱[]。",
+    "UPGRADE_DESCRIPTION": "[#b0c4de]箭矢[]。造成 !D! 点伤害，施加 !M! 层[R]破绽[]。 NL [#b0c4de]寒芒[]：消耗 1 层[#b0c4de]寒芒[]，[R]伤害+5[]，给予 1 层[R]虚弱[]。"
+  },
+  "kroosmod:Volley": {
+    "NAME": "穿透箭",
+    "DESCRIPTION": "[#b0c4de]箭矢[]。对所有敌人造成 !D! 点伤害。 NL [#b0c4de]寒芒[]：消耗 2 层[#b0c4de]寒芒[]，伤害+2。",
+    "UPGRADE_DESCRIPTION": "[#b0c4de]箭矢[]。对所有敌人造成 !D! 点伤害。 NL [#b0c4de]寒芒[]：消耗 2 层[#b0c4de]寒芒[]，[R]伤害+3[]。"
+  },
+  "kroosmod:SimpleFortification": {
+    "NAME": "简易工事",
+    "DESCRIPTION": "获得 !B! 点[R]格挡[]，下回合获得 !M! 层[#b0c4de]寒芒[]。",
+    "UPGRADE_DESCRIPTION": "获得 !B! 点[R]格挡[]，下回合获得 !M! 层[#b0c4de]寒芒[]。"
+  },
+  "kroosmod:EmergencyEvasion": {
+    "NAME": "紧急回避",
+    "DESCRIPTION": "[R]保留[]。获得 !B! 点[R]格挡[]。 NL [#b0c4de]寒芒[]：消耗 1 层[#b0c4de]寒芒[]，获得 1 层[#b0c4de]迷彩[]。",
+    "UPGRADE_DESCRIPTION": "[R]保留[]。获得 !B! 点[R]格挡[]。 NL [#b0c4de]寒芒[]：消耗 1 层[#b0c4de]寒芒[]，获得 1 层[#b0c4de]迷彩[]。"
+  },
+  "kroosmod:Rest": {
+    "NAME": "休息",
+    "DESCRIPTION": "获得 !B! 点[R]格挡[]。 NL 进入[#b0c4de]浅眠[]状态。",
+    "UPGRADE_DESCRIPTION": "获得 !B! 点[R]格挡[]。 NL 进入[#b0c4de]浅眠[]状态。"
+  },
+  "kroosmod:OpenEyes": {
+    "NAME": "睁眼",
+    "DESCRIPTION": "退出[#b0c4de]浅眠[]状态。 NL [#b0c4de]寒芒[]：消耗 1 层[#b0c4de]寒芒[]，获得 !M! 点[R]活力[]。",
+    "UPGRADE_DESCRIPTION": "[R]保留[]。退出[#b0c4de]浅眠[]状态。 NL [#b0c4de]寒芒[]：消耗 1 层[#b0c4de]寒芒[]，获得 !M! 点[R]活力[]。"
+  },
+  "kroosmod:WindUp": {
+    "NAME": "上弦",
+    "DESCRIPTION": "获得 2 层[#b0c4de]专注[]。 NL 你的下一次攻击造成 !M! 点额外伤害。",
+    "UPGRADE_DESCRIPTION": "[R]获得 1 层[#ff8c69]暴击[]。 NL 你的下一次攻击造成 !M! 点额外伤害。"
+  },
+  "kroosmod:AimForVital": {
+    "NAME": "要害瞄准",
+    "DESCRIPTION": "对敌人施加 !M! 层[R]破绽[]。 NL 获得 1 点[R]力量[]，1 层[#b0c4de]寒芒[]。 NL 抽 1 张牌。",
+    "UPGRADE_DESCRIPTION": "对敌人施加 !M! 层[R]破绽[]。 NL 获得 1 点[R]力量[]，2 层[#b0c4de]寒芒[]。 NL 抽 2 张牌。"
   }
 }

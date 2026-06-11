@@ -46,5 +46,9 @@
   "kroosmod:DreamShadow": {
     "NAME": "梦影",
     "DESCRIPTIONS": ["首次进入[#b0c4de]浅眠[]时，获得 ", " 点[R]敏捷[]。"]
+  },
+  "kroosmod:FrostEcho": {
+    "NAME": "寒芒余韵",
+    "DESCRIPTIONS": ["下回合获得 ", " 层[#b0c4de]寒芒[]。"]
   }
 }
