@@ -35,6 +35,7 @@ import sts.kroos.cards.attack.Strike;
 import sts.kroos.cards.attack.Volley;
 import sts.kroos.cards.attack.WarningShot;
 import sts.kroos.cards.attack.Yawn;
+import sts.kroos.cards.colorless.NormalArrow;
 import sts.kroos.cards.power.ArrowImprovement;
 import sts.kroos.cards.power.DreamShadow;
 import sts.kroos.cards.power.FlawConfirm;
@@ -49,17 +50,29 @@ import sts.kroos.cards.power.Transparent;
 import sts.kroos.cards.power.Unlit;
 import sts.kroos.cards.power.Vigilance;
 import sts.kroos.cards.skill.AimForVital;
+import sts.kroos.cards.skill.Collapse;
+import sts.kroos.cards.skill.CrossbowModify;
 import sts.kroos.cards.skill.Defend;
 import sts.kroos.cards.skill.EmergencyEvasion;
 import sts.kroos.cards.skill.EmergencyReload;
 import sts.kroos.cards.skill.EquipmentUpgrade;
+import sts.kroos.cards.skill.FrostStar;
 import sts.kroos.cards.skill.GoodDream;
+import sts.kroos.cards.skill.Hide;
+import sts.kroos.cards.skill.HoldMode;
+import sts.kroos.cards.skill.HundredForge;
 import sts.kroos.cards.skill.MechanicalSight;
+import sts.kroos.cards.skill.MemoryWound;
 import sts.kroos.cards.skill.OpenEyes;
 import sts.kroos.cards.skill.PreparedShot;
+import sts.kroos.cards.skill.RapidShoot;
 import sts.kroos.cards.skill.Rest;
 import sts.kroos.cards.skill.Scout;
 import sts.kroos.cards.skill.SimpleFortification;
+import sts.kroos.cards.skill.Solitude;
+import sts.kroos.cards.skill.SupportOrder;
+import sts.kroos.cards.skill.TruthAndDare;
+import sts.kroos.cards.skill.Unstoppable;
 import sts.kroos.cards.skill.WindUp;
 import sts.kroos.characters.Kroos;
 import sts.kroos.patches.KroosEnum;
@@ -180,6 +193,21 @@ public class KroosMod implements
         BaseMod.addCard(new SlowBurn());
         BaseMod.addCard(new Awareness());
         BaseMod.addCard(new PrecisionShot());
+        // 蓝卡技能
+        BaseMod.addCard(new RapidShoot());
+        BaseMod.addCard(new Solitude());
+        BaseMod.addCard(new Collapse());
+        BaseMod.addCard(new HundredForge());
+        BaseMod.addCard(new TruthAndDare());
+        BaseMod.addCard(new Unstoppable());
+        BaseMod.addCard(new FrostStar());
+        BaseMod.addCard(new MemoryWound());
+        BaseMod.addCard(new SupportOrder());
+        BaseMod.addCard(new CrossbowModify());
+        BaseMod.addCard(new HoldMode());
+        BaseMod.addCard(new Hide());
+        // 衍生无色
+        BaseMod.addCard(new NormalArrow());
 
         UnlockTracker.unlockCard(Strike.ID);
         UnlockTracker.unlockCard(Defend.ID);
@@ -224,6 +252,19 @@ public class KroosMod implements
         UnlockTracker.unlockCard(SlowBurn.ID);
         UnlockTracker.unlockCard(Awareness.ID);
         UnlockTracker.unlockCard(PrecisionShot.ID);
+        UnlockTracker.unlockCard(RapidShoot.ID);
+        UnlockTracker.unlockCard(Solitude.ID);
+        UnlockTracker.unlockCard(Collapse.ID);
+        UnlockTracker.unlockCard(HundredForge.ID);
+        UnlockTracker.unlockCard(TruthAndDare.ID);
+        UnlockTracker.unlockCard(Unstoppable.ID);
+        UnlockTracker.unlockCard(FrostStar.ID);
+        UnlockTracker.unlockCard(MemoryWound.ID);
+        UnlockTracker.unlockCard(SupportOrder.ID);
+        UnlockTracker.unlockCard(CrossbowModify.ID);
+        UnlockTracker.unlockCard(HoldMode.ID);
+        UnlockTracker.unlockCard(Hide.ID);
+        UnlockTracker.unlockCard(NormalArrow.ID);
     }
 
     // === 遗物注册 ===

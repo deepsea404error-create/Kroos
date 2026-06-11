@@ -213,5 +213,70 @@
     "NAME": "精准射击",
     "DESCRIPTION": "造成 !D! 点伤害，施加 !M! 层[R]破绽[]。 NL 本场战斗每打出过 1 次精准射击，伤害+5。 NL [#b0c4de]寒芒[]：消耗 1 层[#b0c4de]寒芒[]，施加 1 层[R]破绽[]。",
     "UPGRADE_DESCRIPTION": "造成 !D! 点伤害，施加 !M! 层[R]破绽[]。 NL 本场战斗每打出过 1 次精准射击，[R]伤害+8[]。 NL [#b0c4de]寒芒[]：消耗 1 层[#b0c4de]寒芒[]，施加 1 层[R]破绽[]。"
+  },
+  "kroosmod:NormalArrow": {
+    "NAME": "普通箭矢",
+    "DESCRIPTION": "[R]消耗[]。[#b0c4de]箭矢[]。造成 !D! 点伤害。",
+    "UPGRADE_DESCRIPTION": "[R]消耗[]。[#b0c4de]箭矢[]。造成 !D! 点伤害。"
+  },
+  "kroosmod:RapidShoot": {
+    "NAME": "速射",
+    "DESCRIPTION": "丢弃所有手牌。每丢弃一张牌，添加一张[#b0c4de]普通箭矢[]至你的手牌。 NL [#b0c4de]寒芒[]：消耗 2 层[#b0c4de]寒芒[]，将添加的[#b0c4de]普通箭矢[]升级。",
+    "UPGRADE_DESCRIPTION": "丢弃所有手牌。每丢弃一张牌，添加一张[#b0c4de]普通箭矢[]至你的手牌。 NL [#b0c4de]寒芒[]：消耗 2 层[#b0c4de]寒芒[]，将添加的[#b0c4de]普通箭矢[]升级。"
+  },
+  "kroosmod:Solitude": {
+    "NAME": "独处",
+    "DESCRIPTION": "若处于[#b0c4de]浅眠[]状态，抽 !M! 张牌。 NL 否则，进入[#b0c4de]浅眠[]状态。 NL [#b0c4de]寒芒[]：消耗 1 层[#b0c4de]寒芒[]，回复 2 点生命。",
+    "UPGRADE_DESCRIPTION": "若处于[#b0c4de]浅眠[]状态，抽 !M! 张牌。 NL 否则，进入[#b0c4de]浅眠[]状态。 NL [#b0c4de]寒芒[]：消耗 1 层[#b0c4de]寒芒[]，[R]回复 3 点生命[]。"
+  },
+  "kroosmod:Collapse": {
+    "NAME": "溃缩",
+    "DESCRIPTION": "若处于[#b0c4de]浅眠[]状态，立即获得 !M! 层[#b0c4de]蓄势[]并退出[#b0c4de]浅眠[]。 NL [#b0c4de]寒芒[]：消耗 1 层[#b0c4de]寒芒[]，获得 2 层[#b0c4de]专注[]。",
+    "UPGRADE_DESCRIPTION": "若处于[#b0c4de]浅眠[]状态，立即获得 !M! 层[#b0c4de]蓄势[]并退出[#b0c4de]浅眠[]。 NL [#b0c4de]寒芒[]：消耗 1 层[#b0c4de]寒芒[]，获得 2 层[#b0c4de]专注[]。"
+  },
+  "kroosmod:HundredForge": {
+    "NAME": "百炼",
+    "DESCRIPTION": "[R]消耗[]。[R]保留[]。 NL [#b0c4de]寒芒[]：消耗 5 层[#b0c4de]寒芒[]，获得 !M! 层[R]力量[]。",
+    "UPGRADE_DESCRIPTION": "[R]消耗[]。[R]保留[]。 NL [#b0c4de]寒芒[]：消耗 5 层[#b0c4de]寒芒[]，获得 !M! 层[R]力量[]。"
+  },
+  "kroosmod:TruthAndDare": {
+    "NAME": "真心的话和想冒的险",
+    "DESCRIPTION": "[R]消耗[]。 NL 获得 !M! 层[#b0c4de]寒芒[]和 1 层[#ff8c69]暴击[]。",
+    "UPGRADE_DESCRIPTION": "[R]消耗[]。 NL 获得 !M! 层[#b0c4de]寒芒[]和 [R]2 层[#ff8c69]暴击[][]。"
+  },
+  "kroosmod:Unstoppable": {
+    "NAME": "势如破竹",
+    "DESCRIPTION": "[R]消耗[]。 NL [#b0c4de]寒芒[]：消耗 4 层[#b0c4de]寒芒[]，获得 !M! 层[#b0c4de]寒芒[]。",
+    "UPGRADE_DESCRIPTION": "[R]消耗[]。 NL [#b0c4de]寒芒[]：消耗 4 层[#b0c4de]寒芒[]，获得 !M! 层[#b0c4de]寒芒[]。"
+  },
+  "kroosmod:FrostStar": {
+    "NAME": "寒星",
+    "DESCRIPTION": "[#b0c4de]寒芒[]：消耗 3 层[#b0c4de]寒芒[]，获得 !M! 点能量。",
+    "UPGRADE_DESCRIPTION": "[#b0c4de]寒芒[]：消耗 3 层[#b0c4de]寒芒[]，获得 !M! 点能量。"
+  },
+  "kroosmod:MemoryWound": {
+    "NAME": "记忆创伤",
+    "DESCRIPTION": "[R]消耗[]。 NL 消耗 3 点生命。获得 !M! 层[#b0c4de]寒芒[]和 2 层[R]力量[]。",
+    "UPGRADE_DESCRIPTION": "[R]消耗[]。 NL 消耗 3 点生命。获得 !M! 层[#b0c4de]寒芒[]和 [R]3 层[R]力量[][]。"
+  },
+  "kroosmod:SupportOrder": {
+    "NAME": "支援号令",
+    "DESCRIPTION": "[R]固有[]。[R]消耗[]。 NL 获得 1 点能量，从抽牌堆中选 1 张牌加入手牌。 NL [#b0c4de]寒芒[]：消耗 1 层[#b0c4de]寒芒[]，获得 1 点能量。",
+    "UPGRADE_DESCRIPTION": "[R]固有[]。[R]消耗[]。 NL 获得 1 点能量，从抽牌堆中选 1 张牌加入手牌。 NL [#b0c4de]寒芒[]：消耗 1 层[#b0c4de]寒芒[]，获得 1 点能量。"
+  },
+  "kroosmod:CrossbowModify": {
+    "NAME": "弩箭改装",
+    "DESCRIPTION": "获得 1 点[R]力量[]，!M! 层[#b0c4de]专注[]。 NL 随机升级抽牌堆中 2 张攻击牌。 NL [#b0c4de]寒芒[]：消耗 1 层[#b0c4de]寒芒[]，获得 2 点[R]活性肌肉[]。",
+    "UPGRADE_DESCRIPTION": "获得 1 点[R]力量[]，!M! 层[#b0c4de]专注[]。 NL [R]升级抽牌堆中所有攻击牌[]。 NL [#b0c4de]寒芒[]：消耗 1 层[#b0c4de]寒芒[]，[R]获得 3 点[R]活性肌肉[][]。"
+  },
+  "kroosmod:HoldMode": {
+    "NAME": "坚守模式",
+    "DESCRIPTION": "[R]消耗[]。 NL 获得 !M! 层[R]多重护甲[]。 NL [#b0c4de]寒芒[]：消耗 1 层[#b0c4de]寒芒[]，获得 6 点[R]格挡[]。",
+    "UPGRADE_DESCRIPTION": "[R]消耗[]。 NL 获得 !M! 层[R]多重护甲[]。 NL [#b0c4de]寒芒[]：消耗 1 层[#b0c4de]寒芒[]，[R]获得 8 点[R]格挡[][]。"
+  },
+  "kroosmod:Hide": {
+    "NAME": "隐藏",
+    "DESCRIPTION": "[R]消耗[]。[R]保留[]。 NL 获得 !B! 点[R]格挡[]，!M! 层[#b0c4de]迷彩[]。 NL [#b0c4de]寒芒[]：消耗 1 层[#b0c4de]寒芒[]，获得 1 点[R]敏捷[]。",
+    "UPGRADE_DESCRIPTION": "[R]消耗[]。[R]保留[]。 NL 获得 !B! 点[R]格挡[]，!M! 层[#b0c4de]迷彩[]。 NL [#b0c4de]寒芒[]：消耗 1 层[#b0c4de]寒芒[]，获得 1 点[R]敏捷[]。"
   }
 }
