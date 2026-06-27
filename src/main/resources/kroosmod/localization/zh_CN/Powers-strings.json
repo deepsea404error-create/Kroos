@@ -1,31 +1,31 @@
 {
   "kroosmod:Frost": {
     "NAME": "寒芒",
-    "DESCRIPTIONS": ["当前拥有 ", " 层 [#b0c4de]寒芒[]。消耗[#b0c4de]寒芒[]可触发卡牌额外效果。"]
+    "DESCRIPTIONS": ["当前拥有 ", " 层寒芒。消耗寒芒可触发卡牌额外效果。"]
   },
   "kroosmod:Focus": {
     "NAME": "专注",
-    "DESCRIPTIONS": ["当前 ", " 层。当[#b0c4de]专注[] >= 3 时，消耗 3 层[#b0c4de]专注[]，获得 1 层[#ff8c69]暴击[]。"]
+    "DESCRIPTIONS": ["当前 ", " 层。当专注 >= 3 时，消耗 3 层专注，获得 1 层暴击。"]
   },
   "kroosmod:Critical": {
     "NAME": "暴击",
-    "DESCRIPTIONS": ["剩余 ", " 次。[R]攻击牌[]造成 1.5 倍伤害；每打出 1 张攻击牌消耗 1 层。"]
+    "DESCRIPTIONS": ["剩余 ", " 次。攻击牌造成 1.5 倍伤害；每打出 1 张攻击牌消耗 1 层。"]
   },
   "kroosmod:Flaw": {
     "NAME": "破绽",
-    "DESCRIPTIONS": ["当前 ", " 层。当[R]破绽[] >= 5 时，消耗 5 层，施加 1 层[R]中的[]。"]
+    "DESCRIPTIONS": ["当前 ", " 层。当破绽 >= 5 时，消耗 5 层，施加 1 层中的。"]
   },
   "kroosmod:Hit": {
     "NAME": "中的",
-    "DESCRIPTIONS": ["剩余 ", " 层。行动开始前受到 10 点伤害，本回合的攻击行为转为眩晕；每回合 -1 层。"]
+    "DESCRIPTIONS": ["剩余 ", " 层。行动开始前受到 10 点伤害，本回合攻击行为转为眩晕；每回合 -1 层。"]
   },
   "kroosmod:ArrowImprovement": {
     "NAME": "箭矢改良",
-    "DESCRIPTIONS": ["[#b0c4de]箭矢[]牌伤害 +", " 点。"]
+    "DESCRIPTIONS": ["箭矢牌伤害 +", "。"]
   },
   "kroosmod:Scatter": {
     "NAME": "散射",
-    "DESCRIPTIONS": ["[#b0c4de]箭矢[]牌对非主目标的其他敌人造成 50% 伤害。"]
+    "DESCRIPTIONS": ["箭矢牌对非主目标的其他敌人造成 50% 伤害。"]
   },
   "kroosmod:Camouflage": {
     "NAME": "迷彩",
@@ -33,7 +33,7 @@
   },
   "kroosmod:Doze": {
     "NAME": "浅眠",
-    "DESCRIPTIONS": ["处于[#b0c4de]浅眠[]状态。非[#b0c4de]梦击[]牌伤害 ×80%；回合结束获得 6 点格挡、恢复 2 点生命；进入浅眠及每回合开始获得 1 层[#b0c4de]蓄势[]；退出浅眠时消耗全部[#b0c4de]蓄势[]。"]
+    "DESCRIPTIONS": ["处于浅眠状态。非梦击牌伤害 x80%；回合结束获得 6 格挡、回复 2 生命；退出时消耗全部蓄势。"]
   },
   "kroosmod:Charge": {
     "NAME": "蓄势",
@@ -41,39 +41,39 @@
   },
   "kroosmod:PhantomCamo": {
     "NAME": "幻影伪装",
-    "DESCRIPTIONS": ["回合结束时若处于[#b0c4de]浅眠[]状态，获得 ", " 层[#b0c4de]迷彩[]。"]
+    "DESCRIPTIONS": ["回合结束时若处于浅眠状态，获得 ", " 层迷彩。"]
   },
   "kroosmod:DreamShadow": {
     "NAME": "梦影",
-    "DESCRIPTIONS": ["首次进入[#b0c4de]浅眠[]时，获得 ", " 点[R]敏捷[]。"]
+    "DESCRIPTIONS": ["首次进入浅眠时，获得 ", " 点敏捷。"]
   },
   "kroosmod:FrostEcho": {
     "NAME": "寒芒余韵",
-    "DESCRIPTIONS": ["下回合获得 ", " 层[#b0c4de]寒芒[]。"]
+    "DESCRIPTIONS": ["下回合获得 ", " 层寒芒。"]
   },
   "kroosmod:Insomnia": {
     "NAME": "无法入眠",
-    "DESCRIPTIONS": ["每回合开始获得 ", " 层[#b0c4de]寒芒[]。"]
+    "DESCRIPTIONS": ["每回合开始获得 ", " 层寒芒。"]
   },
   "kroosmod:FlawConfirm": {
     "NAME": "破绽确认",
-    "DESCRIPTIONS": ["每回合前 ", " 张牌对敌人造成伤害时, 施加 1 层[R]破绽[]。"]
+    "DESCRIPTIONS": ["每回合前 ", " 张牌对敌人造成伤害时，施加 1 层破绽。"]
   },
   "kroosmod:HeartScar": {
     "NAME": "心之痕",
-    "DESCRIPTIONS": ["每回合前 ", " 次触发[#b0c4de]寒芒[]效果时, 消耗的[#b0c4de]寒芒[] -1。"]
+    "DESCRIPTIONS": ["每回合前 ", " 次触发寒芒效果时，消耗的寒芒 -1。"]
   },
   "kroosmod:Transparent": {
     "NAME": "通明",
-    "DESCRIPTIONS": ["每消耗 5 层[#b0c4de]寒芒[], 获得 ", " 点能量。"]
+    "DESCRIPTIONS": ["每消耗 5 层寒芒，获得 ", " 点能量。"]
   },
   "kroosmod:Unlit": {
     "NAME": "无明",
-    "DESCRIPTIONS": ["[#ff8c69]暴击[]时, 获得 ", " 点[R]格挡[]。"]
+    "DESCRIPTIONS": ["暴击时，获得 ", " 点格挡。"]
   },
   "kroosmod:Resonance": {
     "NAME": "共鸣",
-    "DESCRIPTIONS": ["[#ff8c69]暴击[]时, 获得 ", " 层[#b0c4de]寒芒[]。"]
+    "DESCRIPTIONS": ["暴击时，获得 ", " 层寒芒。"]
   },
   "kroosmod:ExtraDraw": {
     "NAME": "物资补给",
@@ -81,26 +81,26 @@
   },
   "kroosmod:Vigilance": {
     "NAME": "警惕",
-    "DESCRIPTIONS": ["每次退出[#b0c4de]浅眠[], 获得 ", " 点[R]活力[]。"]
+    "DESCRIPTIONS": ["每次退出浅眠，获得 ", " 点活力。"]
   },
   "kroosmod:SkyfireFlame": {
     "NAME": "天坠之火",
-    "DESCRIPTIONS": ["[R]中的[]效果造成伤害 +", " 点。"]
+    "DESCRIPTIONS": ["中的效果造成伤害 +", " 点。"]
   },
   "kroosmod:Heartbeat": {
     "NAME": "心音",
-    "DESCRIPTIONS": ["每回合从前 ", " 张卡牌获得的[R]格挡[]翻倍。"]
+    "DESCRIPTIONS": ["每回合从前 ", " 张卡牌获得的格挡翻倍。"]
   },
   "kroosmod:DoubleIncoming": {
     "NAME": "受击翻倍",
-    "DESCRIPTIONS": ["本回合该单位受到的[R]攻击伤害[]翻倍。"]
+    "DESCRIPTIONS": ["本回合该单位受到的攻击伤害翻倍。"]
   },
   "kroosmod:A1SquadBond": {
     "NAME": "A1小队的羁绊",
-    "DESCRIPTIONS": ["每消耗 4 点[#b0c4de]寒芒[], 随机获得 ", " 张 A1 小队卡。"]
+    "DESCRIPTIONS": ["每消耗 4 点寒芒，随机获得 ", " 张 A1 小队卡。"]
   },
   "kroosmod:Vigor": {
     "NAME": "蓄力",
-    "DESCRIPTIONS": ["下一次[R]攻击[]造成 ", " 点额外伤害。"]
+    "DESCRIPTIONS": ["下一次攻击造成 ", " 点额外伤害。"]
   }
 }

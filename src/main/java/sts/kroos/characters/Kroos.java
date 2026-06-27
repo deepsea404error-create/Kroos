@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
@@ -75,11 +76,15 @@ public class Kroos extends CustomPlayer {
         super(name, KroosEnum.KROOS, ORB_TEX, ORB_VFX, LAYER_SPEED,
                 (String) null, (String) null);
 
-        // initializeClass 第一个参数 = 角色全身立绘 (静态图片)
+        // 对话气泡位置 (参考 LexNinja / Mon3tr)
+        this.dialogX = this.drawX + 0.0F * Settings.scale;
+        this.dialogY = this.drawY + 220.0F * Settings.scale;
+
+        // initializeClass 参数: (立绘, 肩2, 肩1, 尸体, loadout, hb_x, hb_y, hb_w, hb_h, 能量)
         initializeClass(MODEL_IMG,
                 SHOULDER_2, SHOULDER_1, CORPSE,
                 getLoadout(),
-                0.0F, -5.0F, 260.0F, 240.0F,
+                0.0F, 5.0F, 240.0F, 300.0F,
                 new EnergyManager(ENERGY_PER_TURN));
     }
 
