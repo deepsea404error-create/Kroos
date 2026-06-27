@@ -1,11 +1,11 @@
 package sts.kroos.cards.power;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.utility.DiscoveryAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import sts.kroos.KroosMod;
+import sts.kroos.actions.A1DiscoveryAction;
 import sts.kroos.cards.AbstractKroosCard;
 import sts.kroos.powers.A1SquadBondPower;
 import sts.kroos.util.A1SquadFactory;
@@ -43,7 +43,7 @@ public class A1SquadBond extends AbstractKroosCard {
             consumeFrost(1);
             List<AbstractCard> candidates = A1SquadFactory.randomA1Cards(3);
             int picks = this.upgraded ? 2 : 1;
-            addToBot(new DiscoveryAction(new ArrayList<>(candidates), picks));
+            addToBot(new A1DiscoveryAction(new ArrayList<>(candidates), picks));
         }
     }
 

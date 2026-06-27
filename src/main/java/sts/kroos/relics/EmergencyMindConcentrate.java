@@ -18,8 +18,7 @@ public class EmergencyMindConcentrate extends CustomRelic {
     public static final int HEAL = 6;
 
     public EmergencyMindConcentrate() {
-        super(ID, (Texture) null, RelicTier.RARE, LandingSound.FLAT);
-        this.img = TextureLoader.getTexture(IMG);
+        super(ID, TextureLoader.getTexture(IMG), RelicTier.RARE, LandingSound.FLAT);
         this.outlineImg = TextureLoader.getTexture(OUTLINE);
     }
 

@@ -27,8 +27,7 @@ public class OriginStone extends CustomRelic {
     private int turnCount = 0;
 
     public OriginStone() {
-        super(ID, (Texture) null, RelicTier.BOSS, LandingSound.HEAVY);
-        this.img = TextureLoader.getTexture(IMG);
+        super(ID, TextureLoader.getTexture(IMG), RelicTier.BOSS, LandingSound.HEAVY);
         this.outlineImg = TextureLoader.getTexture(OUTLINE);
     }
 

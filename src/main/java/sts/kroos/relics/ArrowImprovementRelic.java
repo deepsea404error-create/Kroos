@@ -24,8 +24,7 @@ public class ArrowImprovementRelic extends CustomRelic {
     public static final int BONUS = 2;
 
     public ArrowImprovementRelic() {
-        super(ID, (Texture) null, RelicTier.RARE, LandingSound.FLAT);
-        this.img = TextureLoader.getTexture(IMG);
+        super(ID, TextureLoader.getTexture(IMG), RelicTier.RARE, LandingSound.FLAT);
         this.outlineImg = TextureLoader.getTexture(OUTLINE);
     }
 

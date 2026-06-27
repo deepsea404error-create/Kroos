@@ -23,8 +23,7 @@ public class KroosBadge extends CustomRelic {
     public static final int PER_TURN_FROST = 1;
 
     public KroosBadge() {
-        super(ID, (Texture) null, RelicTier.STARTER, LandingSound.FLAT);
-        this.img = TextureLoader.getTexture(IMG);
+        super(ID, TextureLoader.getTexture(IMG), RelicTier.STARTER, LandingSound.FLAT);
         this.outlineImg = TextureLoader.getTexture(OUTLINE);
     }
 

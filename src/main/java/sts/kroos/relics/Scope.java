@@ -19,8 +19,7 @@ public class Scope extends CustomRelic {
     private static final String OUTLINE = KroosMod.RES_ROOT + "relics/scope_outline.png";
 
     public Scope() {
-        super(ID, (Texture) null, RelicTier.UNCOMMON, LandingSound.FLAT);
-        this.img = TextureLoader.getTexture(IMG);
+        super(ID, TextureLoader.getTexture(IMG), RelicTier.UNCOMMON, LandingSound.FLAT);
         this.outlineImg = TextureLoader.getTexture(OUTLINE);
     }
 

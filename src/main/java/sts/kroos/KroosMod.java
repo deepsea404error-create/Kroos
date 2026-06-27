@@ -21,16 +21,22 @@ import com.google.gson.Gson;
 import sts.kroos.cards.attack.Awareness;
 import sts.kroos.cards.attack.BayonetCharge;
 import sts.kroos.cards.attack.DoubleShot;
+import sts.kroos.cards.attack.DreamDisturb;
+import sts.kroos.cards.attack.DreamShock;
 import sts.kroos.cards.attack.ExplosiveArrow;
+import sts.kroos.cards.attack.FinalCurtain;
 import sts.kroos.cards.attack.FlawShot;
+import sts.kroos.cards.attack.FlowingCloudArrow;
 import sts.kroos.cards.attack.FrostPierce;
 import sts.kroos.cards.attack.GlitteringEdge;
+import sts.kroos.cards.attack.HalfAwake;
 import sts.kroos.cards.attack.Hunt;
 import sts.kroos.cards.attack.PiercingCloud;
 import sts.kroos.cards.attack.PrecisionShot;
 import sts.kroos.cards.attack.RainbowArrow;
 import sts.kroos.cards.attack.RapidFire;
 import sts.kroos.cards.attack.ReinforcedArrow;
+import sts.kroos.cards.attack.RiftStrike;
 import sts.kroos.cards.attack.Rouse;
 import sts.kroos.cards.attack.SkyVolley;
 import sts.kroos.cards.attack.SlowBurn;
@@ -122,7 +128,8 @@ public class KroosMod implements
     public static final String MOD_ID = "kroosmod";
 
     // === 配色 (寒芒：偏冷的银白色) ===
-    public static final java.awt.Color KROOS_COLOR_AWT = new java.awt.Color(176, 196, 222, 255);
+    public static final com.badlogic.gdx.graphics.Color KROOS_COLOR_AWT =
+            new com.badlogic.gdx.graphics.Color(176/255F, 196/255F, 222/255F, 1F);
 
     // === 资源路径 (统一前缀, 不使用占位符) ===
     public static final String RES_ROOT = "kroosmod/images/";
@@ -145,10 +152,8 @@ public class KroosMod implements
         BaseMod.addColor(
                 KroosEnum.KROOS_COLOR,
                 KROOS_COLOR_AWT,
-                ATTACK_BG, SKILL_BG, POWER_BG,
-                ENERGY_ORB,
-                ATTACK_BG_P, SKILL_BG_P, POWER_BG_P,
-                ENERGY_ORB_P,
+                ATTACK_BG, SKILL_BG, POWER_BG, ENERGY_ORB,
+                ATTACK_BG_P, SKILL_BG_P, POWER_BG_P, ENERGY_ORB_P,
                 CARD_ENERGY_ORB
         );
     }
@@ -185,6 +190,9 @@ public class KroosMod implements
         BaseMod.addCard(new Volley());
         BaseMod.addCard(new WarningShot());
         BaseMod.addCard(new Yawn());
+        BaseMod.addCard(new FlowingCloudArrow());
+        BaseMod.addCard(new DreamDisturb());
+        BaseMod.addCard(new HalfAwake());
         // 白卡技能
         BaseMod.addCard(new SimpleFortification());
         BaseMod.addCard(new EmergencyEvasion());
@@ -220,6 +228,8 @@ public class KroosMod implements
         BaseMod.addCard(new SlowBurn());
         BaseMod.addCard(new Awareness());
         BaseMod.addCard(new PrecisionShot());
+        BaseMod.addCard(new RiftStrike());
+        BaseMod.addCard(new DreamShock());
         // 蓝卡技能
         BaseMod.addCard(new RapidShoot());
         BaseMod.addCard(new Solitude());
@@ -238,6 +248,7 @@ public class KroosMod implements
         BaseMod.addCard(new BayonetCharge());
         BaseMod.addCard(new Rouse());
         BaseMod.addCard(new PiercingCloud());
+        BaseMod.addCard(new FinalCurtain());
         // 金卡技能
         BaseMod.addCard(new RapidShift());
         BaseMod.addCard(new Traceless());
@@ -264,6 +275,12 @@ public class KroosMod implements
         UnlockTracker.unlockCard(Volley.ID);
         UnlockTracker.unlockCard(WarningShot.ID);
         UnlockTracker.unlockCard(Yawn.ID);
+        UnlockTracker.unlockCard(FlowingCloudArrow.ID);
+        UnlockTracker.unlockCard(DreamDisturb.ID);
+        UnlockTracker.unlockCard(HalfAwake.ID);
+        UnlockTracker.unlockCard(RiftStrike.ID);
+        UnlockTracker.unlockCard(DreamShock.ID);
+        UnlockTracker.unlockCard(FinalCurtain.ID);
         UnlockTracker.unlockCard(SimpleFortification.ID);
         UnlockTracker.unlockCard(EmergencyEvasion.ID);
         UnlockTracker.unlockCard(Rest.ID);
@@ -377,7 +394,9 @@ public class KroosMod implements
         Keyword[] keywords = gson.fromJson(json, Keyword[].class);
         if (keywords != null) {
             for (Keyword k : keywords) {
-                BaseMod.addKeyword(MOD_ID, k.PROPER_NAME, k.NAMES, k.DESCRIPTION);
+                // Keyword 类只有 NAMES 和 DESCRIPTION 字段, 无 PROPER_NAME
+                // NAMES[0] 即为显示名 (与 JSON 中 PROPER_NAME 对应)
+                BaseMod.addKeyword(MOD_ID, k.NAMES[0], k.NAMES, k.DESCRIPTION);
             }
         }
     }

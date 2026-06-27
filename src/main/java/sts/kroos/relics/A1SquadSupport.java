@@ -2,11 +2,11 @@ package sts.kroos.relics;
 
 import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
-import com.megacrit.cardcrawl.actions.utility.DiscoveryAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import sts.kroos.KroosMod;
+import sts.kroos.actions.A1DiscoveryAction;
 import sts.kroos.util.A1SquadFactory;
 import sts.kroos.util.TextureLoader;
 
@@ -28,8 +28,7 @@ public class A1SquadSupport extends CustomRelic {
     private int turnCount = 0;
 
     public A1SquadSupport() {
-        super(ID, (Texture) null, RelicTier.BOSS, LandingSound.MAGICAL);
-        this.img = TextureLoader.getTexture(IMG);
+        super(ID, TextureLoader.getTexture(IMG), RelicTier.BOSS, LandingSound.MAGICAL);
         this.outlineImg = TextureLoader.getTexture(OUTLINE);
     }
 
@@ -46,7 +45,7 @@ public class A1SquadSupport extends CustomRelic {
         this.flash();
         List<AbstractCard> candidates = A1SquadFactory.randomA1Cards(3);
         AbstractDungeon.actionManager.addToBottom(
-                new DiscoveryAction(new ArrayList<>(candidates), 1));
+                new A1DiscoveryAction(new ArrayList<>(candidates), 1));
     }
 
     @Override

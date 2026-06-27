@@ -28,8 +28,7 @@ public class PracticeTarget extends CustomRelic {
     private boolean triggeredThisTurn = false;
 
     public PracticeTarget() {
-        super(ID, (Texture) null, RelicTier.COMMON, LandingSound.FLAT);
-        this.img = TextureLoader.getTexture(IMG);
+        super(ID, TextureLoader.getTexture(IMG), RelicTier.COMMON, LandingSound.FLAT);
         this.outlineImg = TextureLoader.getTexture(OUTLINE);
     }
 

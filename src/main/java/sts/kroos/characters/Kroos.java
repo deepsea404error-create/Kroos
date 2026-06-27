@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
@@ -43,18 +44,19 @@ public class Kroos extends CustomPlayer {
     public static final String DESCRIPTION = CHAR_STRINGS.TEXT[0];
 
     // ===== 资源路径 (后续添加贴图, 不使用占位符代号) =====
+    private static final String MODEL_IMG    = KroosMod.RES_ROOT + "char/model.png";
     private static final String SHOULDER_1   = KroosMod.RES_ROOT + "char/shoulder.png";
     private static final String SHOULDER_2   = KroosMod.RES_ROOT + "char/shoulder2.png";
     private static final String CORPSE       = KroosMod.RES_ROOT + "char/corpse.png";
-    private static final String SKELETON_ATL = KroosMod.RES_ROOT + "char/skeleton.atlas";
-    private static final String SKELETON_JSN = KroosMod.RES_ROOT + "char/skeleton.json";
 
+    // CustomEnergyOrb 期望 11 元素: [0..4]=正常层, [5]=base底层, [6..10]=暗层
     private static final String[] ORB_TEX = {
             KroosMod.RES_ROOT + "ui/energy/layer1.png",
             KroosMod.RES_ROOT + "ui/energy/layer2.png",
             KroosMod.RES_ROOT + "ui/energy/layer3.png",
             KroosMod.RES_ROOT + "ui/energy/layer4.png",
             KroosMod.RES_ROOT + "ui/energy/layer5.png",
+            KroosMod.RES_ROOT + "ui/energy/layer0.png",    // base layer
             KroosMod.RES_ROOT + "ui/energy/layer1d.png",
             KroosMod.RES_ROOT + "ui/energy/layer2d.png",
             KroosMod.RES_ROOT + "ui/energy/layer3d.png",
@@ -63,18 +65,22 @@ public class Kroos extends CustomPlayer {
     };
     private static final String ORB_VFX = KroosMod.RES_ROOT + "ui/energy/vfx.png";
 
-    public Kroos(String name) {
-        super(name, KroosEnum.KROOS, ORB_TEX, ORB_VFX, (float[]) null, null, null);
+    private static final float[] LAYER_SPEED = new float[] {
+            -20.0F, 20.0F, -40.0F, 40.0F, 360.0F,
+            -10.0F, 8.0F, -5.0F, 5.0F, 0.0F
+    };
 
-        initializeClass(null,
+    public Kroos(String name) {
+        // 传 (String) null, (String) null 不使用骨骼动画, 使用静态图片
+        super(name, KroosEnum.KROOS, ORB_TEX, ORB_VFX, LAYER_SPEED,
+                (String) null, (String) null);
+
+        // initializeClass 第一个参数 = 角色全身立绘 (静态图片)
+        initializeClass(MODEL_IMG,
                 SHOULDER_2, SHOULDER_1, CORPSE,
                 getLoadout(),
-                0.0F, -5.0F, 220.0F, 290.0F,
+                0.0F, -5.0F, 260.0F, 240.0F,
                 new EnergyManager(ENERGY_PER_TURN));
-
-        // 立绘动画后续接入:
-        // loadAnimation(SKELETON_ATL, SKELETON_JSN, 1.0F);
-        // this.state.setAnimation(0, "Idle", true);
     }
 
     @Override
@@ -147,7 +153,7 @@ public class Kroos extends CustomPlayer {
 
     @Override
     public void doCharSelectScreenSelectEffect() {
-        ScreenShake.shake(ScreenShake.ShakeIntensity.MED, ScreenShake.ShakeDur.SHORT, false);
+        CardCrawlGame.screenShake.shake(ScreenShake.ShakeIntensity.MED, ScreenShake.ShakeDur.SHORT, false);
     }
 
     @Override
@@ -176,13 +182,13 @@ public class Kroos extends CustomPlayer {
     }
 
     @Override
-    public AbstractGameEffect.AttackEffect[] getSpireHeartSlashEffect() {
-        return new AbstractGameEffect.AttackEffect[]{
-                AbstractGameEffect.AttackEffect.SLASH_DIAGONAL,
-                AbstractGameEffect.AttackEffect.SLASH_HEAVY,
-                AbstractGameEffect.AttackEffect.SLASH_HORIZONTAL,
-                AbstractGameEffect.AttackEffect.SLASH_VERTICAL,
-                AbstractGameEffect.AttackEffect.SLASH_DIAGONAL
+    public AbstractGameAction.AttackEffect[] getSpireHeartSlashEffect() {
+        return new AbstractGameAction.AttackEffect[]{
+                AbstractGameAction.AttackEffect.SLASH_DIAGONAL,
+                AbstractGameAction.AttackEffect.SLASH_HEAVY,
+                AbstractGameAction.AttackEffect.SLASH_HORIZONTAL,
+                AbstractGameAction.AttackEffect.SLASH_VERTICAL,
+                AbstractGameAction.AttackEffect.SLASH_DIAGONAL
         };
     }
 

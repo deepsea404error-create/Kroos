@@ -4,8 +4,8 @@ import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.powers.VigorPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
+import sts.kroos.powers.VigorPower;
 import sts.kroos.KroosMod;
 import sts.kroos.util.TextureLoader;
 
@@ -24,8 +24,7 @@ public class ProofOfGrowth extends CustomRelic implements IFrostConsumeListener 
     public static final int BONUS_PER_LAYER = 2;
 
     public ProofOfGrowth() {
-        super(ID, (Texture) null, RelicTier.BOSS, LandingSound.MAGICAL);
-        this.img = TextureLoader.getTexture(IMG);
+        super(ID, TextureLoader.getTexture(IMG), RelicTier.BOSS, LandingSound.MAGICAL);
         this.outlineImg = TextureLoader.getTexture(OUTLINE);
     }
 

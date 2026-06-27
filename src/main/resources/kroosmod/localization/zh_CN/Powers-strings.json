@@ -98,5 +98,9 @@
   "kroosmod:A1SquadBond": {
     "NAME": "A1小队的羁绊",
     "DESCRIPTIONS": ["每消耗 4 点[#b0c4de]寒芒[], 随机获得 ", " 张 A1 小队卡。"]
+  },
+  "kroosmod:Vigor": {
+    "NAME": "蓄力",
+    "DESCRIPTIONS": ["下一次[R]攻击[]造成 ", " 点额外伤害。"]
   }
 }

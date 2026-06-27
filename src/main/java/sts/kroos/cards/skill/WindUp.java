@@ -3,11 +3,11 @@ package sts.kroos.cards.skill;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.VigorPower;
 import sts.kroos.KroosMod;
 import sts.kroos.cards.AbstractKroosCard;
 import sts.kroos.powers.CriticalPower;
 import sts.kroos.powers.FocusPower;
+import sts.kroos.powers.VigorPower;
 
 /**
  * 上弦 - 1费, 获得 2 层专注。你的下次攻击造成 4 点额外伤害。

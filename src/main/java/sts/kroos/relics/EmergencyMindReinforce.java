@@ -19,8 +19,7 @@ public class EmergencyMindReinforce extends CustomRelic {
     public static final int HEAL = 3;
 
     public EmergencyMindReinforce() {
-        super(ID, (Texture) null, RelicTier.UNCOMMON, LandingSound.FLAT);
-        this.img = TextureLoader.getTexture(IMG);
+        super(ID, TextureLoader.getTexture(IMG), RelicTier.UNCOMMON, LandingSound.FLAT);
         this.outlineImg = TextureLoader.getTexture(OUTLINE);
     }
 

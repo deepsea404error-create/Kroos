@@ -7,7 +7,7 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
-import com.megacrit.cardcrawl.characters.AbstractCreature;
+import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
@@ -83,7 +83,7 @@ public class HitPower extends AbstractPower {
 
         // 3) 眩晕 1 回合 (StSLib StunMonsterPower)
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(
-                owner, owner, new StunMonsterPower(owner, 1)));
+                owner, owner, new StunMonsterPower((com.megacrit.cardcrawl.monsters.AbstractMonster) owner, 1)));
 
         // 4) 自然衰减 1 层
         AbstractDungeon.actionManager.addToBottom(

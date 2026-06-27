@@ -25,8 +25,7 @@ public class OperatorBadge extends CustomRelic {
     public static final int PER_TURN_FROST = 1;
 
     public OperatorBadge() {
-        super(ID, (Texture) null, RelicTier.BOSS, LandingSound.SOLID);
-        this.img = TextureLoader.getTexture(IMG);
+        super(ID, TextureLoader.getTexture(IMG), RelicTier.BOSS, LandingSound.SOLID);
         this.outlineImg = TextureLoader.getTexture(OUTLINE);
     }
 

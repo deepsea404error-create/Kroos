@@ -38,8 +38,8 @@ public class SelectFromDrawPileToHandAction extends AbstractGameAction {
                 return;
             }
             AbstractDungeon.gridSelectScreen.open(
-                    CardGroup.getGroupWithoutBottledCards(drawPile.group),
-                    1, prompt, false);
+                    CardGroup.getGroupWithoutBottledCards(drawPile),
+                    1, prompt, false, false);
             tickDuration();
             return;
         }

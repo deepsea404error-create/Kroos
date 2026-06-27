@@ -348,5 +348,35 @@
     "NAME": "A1小队的羁绊",
     "DESCRIPTION": "每消耗 4 点[#b0c4de]寒芒[]，随机获得 !M! 张 A1 小队卡。 NL [#b0c4de]寒芒[]：消耗 1 层[#b0c4de]寒芒[]，在 3 张 A1 小队卡中选 1 张加入手牌，本回合耗能为 0。",
     "UPGRADE_DESCRIPTION": "每消耗 4 点[#b0c4de]寒芒[]，随机获得 !M! 张 [R]A1 小队卡+[]。 NL [#b0c4de]寒芒[]：消耗 1 层[#b0c4de]寒芒[]，在 3 张 A1 小队卡中选 [R]2[] 张加入手牌，本回合耗能为 0。"
+  },
+  "kroosmod:FlowingCloudArrow": {
+    "NAME": "流云箭",
+    "DESCRIPTION": "[#b0c4de]箭矢[]。造成 !D! 点伤害。 NL 抽 1 张牌。若抽出的是[#b0c4de]箭矢[]牌，其费用 -1。 NL [#b0c4de]寒芒[]：消耗 1 层[#b0c4de]寒芒[]，获得 1 层[#b0c4de]专注[]。",
+    "UPGRADE_DESCRIPTION": "[#b0c4de]箭矢[]。造成 !D! 点伤害。 NL 抽 1 张牌。若抽出的是[#b0c4de]箭矢[]牌，其费用 -1。 NL [#b0c4de]寒芒[]：消耗 1 层[#b0c4de]寒芒[]，获得 1 层[#b0c4de]专注[]。"
+  },
+  "kroosmod:DreamDisturb": {
+    "NAME": "扰梦",
+    "DESCRIPTION": "[#b0c4de]梦击[]。造成 !D! 点伤害。 NL 若处于[#b0c4de]浅眠[]状态，获得 1 层[#b0c4de]蓄势[]。 NL [#b0c4de]寒芒[]：消耗 1 层[#b0c4de]寒芒[]，伤害 +4。",
+    "UPGRADE_DESCRIPTION": "[#b0c4de]梦击[]。造成 !D! 点伤害。 NL 若处于[#b0c4de]浅眠[]状态，获得 1 层[#b0c4de]蓄势[]。 NL [#b0c4de]寒芒[]：消耗 1 层[#b0c4de]寒芒[]，[R]伤害 +6[]。"
+  },
+  "kroosmod:HalfAwake": {
+    "NAME": "半醒",
+    "DESCRIPTION": "[#b0c4de]梦击[]。造成 !D! 点伤害。 NL 若处于[#b0c4de]浅眠[]状态，获得 1 层[#b0c4de]专注[]。 NL [#b0c4de]寒芒[]：消耗 1 层[#b0c4de]寒芒[]，伤害 +3。",
+    "UPGRADE_DESCRIPTION": "[#b0c4de]梦击[]。造成 !D! 点伤害。 NL 若处于[#b0c4de]浅眠[]状态，获得 1 层[#b0c4de]专注[]。 NL [#b0c4de]寒芒[]：消耗 1 层[#b0c4de]寒芒[]，[R]伤害 +4[]。"
+  },
+  "kroosmod:RiftStrike": {
+    "NAME": "裂击",
+    "DESCRIPTION": "造成 !D! 点伤害 2 次。 NL 若目标拥有[R]中的[]，每次伤害 +2。 NL [#b0c4de]寒芒[]：消耗 1 层[#b0c4de]寒芒[]，施加 1 层[R]破绽[]。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害 2 次。 NL 若目标拥有[R]中的[]，每次伤害 [R]+3[]。 NL [#b0c4de]寒芒[]：消耗 1 层[#b0c4de]寒芒[]，施加 1 层[R]破绽[]。"
+  },
+  "kroosmod:DreamShock": {
+    "NAME": "惊梦",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 退出[#b0c4de]浅眠[]时，本牌回到手牌，且费用 -1。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL 退出[#b0c4de]浅眠[]时，本牌回到手牌，且费用 -1。"
+  },
+  "kroosmod:FinalCurtain": {
+    "NAME": "终幕",
+    "DESCRIPTION": "[#b0c4de]梦击[]。造成 !D! 点伤害。 NL 额外造成当前[#b0c4de]蓄势[] × 4 的伤害。 NL [#b0c4de]寒芒[]：消耗 1 层[#b0c4de]寒芒[]，获得 1 层[#b0c4de]蓄势[]。",
+    "UPGRADE_DESCRIPTION": "[#b0c4de]梦击[]。造成 !D! 点伤害。 NL 额外造成当前[#b0c4de]蓄势[] [R]× 6[] 的伤害。 NL [#b0c4de]寒芒[]：消耗 1 层[#b0c4de]寒芒[]，[R]获得 2 层[#b0c4de]蓄势[][]。"
   }
 }

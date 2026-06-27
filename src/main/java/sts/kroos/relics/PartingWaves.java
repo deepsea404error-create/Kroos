@@ -18,8 +18,7 @@ public class PartingWaves extends CustomRelic {
     private static final String OUTLINE = KroosMod.RES_ROOT + "relics/parting_waves_outline.png";
 
     public PartingWaves() {
-        super(ID, (Texture) null, RelicTier.RARE, LandingSound.FLAT);
-        this.img = TextureLoader.getTexture(IMG);
+        super(ID, TextureLoader.getTexture(IMG), RelicTier.RARE, LandingSound.FLAT);
         this.outlineImg = TextureLoader.getTexture(OUTLINE);
     }
 

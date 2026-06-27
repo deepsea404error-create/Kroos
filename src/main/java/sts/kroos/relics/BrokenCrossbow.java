@@ -21,8 +21,7 @@ public class BrokenCrossbow extends CustomRelic {
     public static final int BATTLE_START_FROST = 2;
 
     public BrokenCrossbow() {
-        super(ID, (Texture) null, RelicTier.COMMON, LandingSound.FLAT);
-        this.img = TextureLoader.getTexture(IMG);
+        super(ID, TextureLoader.getTexture(IMG), RelicTier.COMMON, LandingSound.FLAT);
         this.outlineImg = TextureLoader.getTexture(OUTLINE);
     }
 
