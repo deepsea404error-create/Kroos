@@ -90,10 +90,17 @@ public abstract class AbstractKroosCard extends CustomCard {
         afterUseHook(p, m);
     }
 
-    /** 通用后置 hook: 当前仅处理箭矢自动获取专注; 其他全局 hook 可在此扩展。 */
+    /** 通用后置 hook: 当前仅处理箭矢自动获取专注; 其他全局 hook 可在此扩展。
+     *  专注层数 = 本回合实际消耗的能量 (costForTurn)。
+     *  若牌被免费打出 (freeToPlay() 返回 true), 则消耗能量视为 0, 不获得专注。*/
     private void afterUseHook(AbstractPlayer p, AbstractMonster m) {
         if (isArrow) {
-            int focus = Math.max(0, this.energyOnUse);
+            int focus;
+            if (this.freeToPlay()) {
+                focus = 0;
+            } else {
+                focus = Math.max(0, this.costForTurn);
+            }
             if (focus > 0) {
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(
                         p, p, new FocusPower(p, focus), focus));

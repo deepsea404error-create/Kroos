@@ -21,10 +21,12 @@ import sts.kroos.util.TextureLoader;
  *   - 回合结束: 获得 6 点格挡, 恢复 2 点生命
  *   - 进入浅眠时获得 1 层蓄势
  *   - 回合开始时获得 1 层蓄势
- *   - 退出浅眠时通过 RemoveSpecificPowerAction(ChargePower) 触发蓄势放电
+ *   - 退出浅眠时消耗全部蓄势, 触发放电效果
  *
  * 与其他 power 的边界:
- *   - 蓄势放电由 ChargePower.onRemove 自管, 本 power 不触碰其内部
+ *   - 蓄势放电由本 power 在 onRemove 中直接调用 ChargePower.discharge() 触发,
+ *     不再通过 RemoveSpecificPowerAction → ChargePower.onRemove 的两级链,
+ *     避免行动队列延迟导致放电效果排在队列末尾
  *   - 梦影/幻影伪装通过监听本 power 的 onApplyPower / 检查 owner.hasPower 实现, 本 power 不主动通知
  */
 public class DozePower extends AbstractPower {
@@ -57,8 +59,8 @@ public class DozePower extends AbstractPower {
     private void loadIcons() {
         Texture large = TextureLoader.getTexture(ICON_LARGE);
         Texture small = TextureLoader.getTexture(ICON_SMALL);
-        if (large != null) this.region128 = new com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion(large, 0, 0, 128, 128);
-        if (small != null) this.region48  = new com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion(small, 0, 0, 48, 48);
+        if (large != null) this.region128 = new com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion(large, 0, 0, 84, 84);
+        if (small != null) this.region48  = new com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion(small, 0, 0, 32, 32);
     }
 
     @Override
@@ -67,24 +69,28 @@ public class DozePower extends AbstractPower {
     }
 
     /**
-     * 检测自身被施加。利用 AbstractPower.onApplyPower 在 owner.powers 全员上的广播,
-     * 当 power == this 时即表示"我刚被加进来"。
+     * 首次被施加时触发 (比 onApplyPower 更可靠)。
+     * 进入浅眠时获得 1 层蓄势。
      */
     @Override
-    public void onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
-        if (power == this && target == this.owner) {
-            this.flash();
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(
-                    owner, owner, new ChargePower(owner, ON_GAIN_CHARGE), ON_GAIN_CHARGE));
-        }
+    public void onInitialApplication() {
+        this.flash();
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(
+                owner, owner, new ChargePower(owner, ON_GAIN_CHARGE), ON_GAIN_CHARGE));
     }
 
+    /**
+     * 每回合开始时获得 1 层蓄势。
+     */
     @Override
     public void atStartOfTurn() {
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(
                 owner, owner, new ChargePower(owner, ON_TURN_CHARGE), ON_TURN_CHARGE));
     }
 
+    /**
+     * 回合结束时获得 6 点格挡, 恢复 2 点生命。
+     */
     @Override
     public void atEndOfTurn(boolean isPlayer) {
         if (!isPlayer) return;
@@ -95,16 +101,22 @@ public class DozePower extends AbstractPower {
 
     /**
      * 浅眠移除时:
-     *   1) 通过 RemoveSpecificPowerAction 触发蓄势放电(由 ChargePower.onRemove 自管)
-     *   2) 广播 onDozeExited 给所有实现 IDozeExitListener 的同主 power (警惕等)
+     *   1) 直接调用 ChargePower.discharge() 触发蓄势放电
+     *   2) 移除 ChargePower 本身
+     *   3) 广播 onDozeExited 给所有实现 IDozeExitListener 的同主 power (警惕等)
      */
     @Override
     public void onRemove() {
         if (owner == null) return;
-        if (owner.hasPower(ChargePower.POWER_ID)) {
+        // 直接读取蓄势层数并触发放电, 避免两级行动队列延迟
+        AbstractPower charge = owner.getPower(ChargePower.POWER_ID);
+        if (charge instanceof ChargePower) {
+            ((ChargePower) charge).discharge();
+            // 放电完成后移除蓄势
             AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(
                     owner, owner, ChargePower.POWER_ID));
         }
+        // 通知其他监听器
         for (AbstractPower p : owner.powers) {
             if (p instanceof IDozeExitListener) {
                 ((IDozeExitListener) p).onDozeExited();

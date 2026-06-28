@@ -3,6 +3,11 @@ package sts.kroos.characters;
 import basemod.abstracts.CustomPlayer;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.esotericsoftware.spine.AnimationState;
+import com.esotericsoftware.spine.SkeletonBinary;
+import com.esotericsoftware.spine.SkeletonData;
+import com.esotericsoftware.spine.SkeletonJson;
+import com.esotericsoftware.spine.TextureAtlas;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -26,7 +31,7 @@ import java.util.ArrayList;
 
 /**
  * 寒芒克洛丝 - 角色定义。
- * 包含初始数值、初始牌组、初始遗物、立绘资源等。
+ * 使用 Spine 骨骼动画 (.skel 二进制格式), 参考原版 Mon3tr / Eyjafjalla 的实现。
  */
 public class Kroos extends CustomPlayer {
 
@@ -44,11 +49,22 @@ public class Kroos extends CustomPlayer {
     public static final String NAME = CHAR_STRINGS.NAMES[0];
     public static final String DESCRIPTION = CHAR_STRINGS.TEXT[0];
 
-    // ===== 资源路径 (后续添加贴图, 不使用占位符代号) =====
-    private static final String MODEL_IMG    = KroosMod.RES_ROOT + "char/model.png";
-    private static final String SHOULDER_1   = KroosMod.RES_ROOT + "char/shoulder.png";
-    private static final String SHOULDER_2   = KroosMod.RES_ROOT + "char/shoulder2.png";
-    private static final String CORPSE       = KroosMod.RES_ROOT + "char/corpse.png";
+    // ===== 资源路径 =====
+    private static final String SPINE_PATH    = KroosMod.RES_ROOT + "char/kroos/char_1021_kroos2";
+    private static final String SHOULDER_1    = KroosMod.RES_ROOT + "char/shoulder.png";
+    private static final String SHOULDER_2    = KroosMod.RES_ROOT + "char/shoulder2.png";
+    private static final String CORPSE        = KroosMod.RES_ROOT + "char/corpse.png";
+    private static final float SPINE_SCALE    = 1.75F;
+
+    // ===== Spine 动画名称 =====
+    private static final String ANIM_IDLE         = "IdleVR";
+    private static final String ANIM_ATTACK       = "AttackVR";
+    private static final String ANIM_SKILL_BEGIN  = "Skill_BeginVR";
+    private static final String ANIM_SKILL_IDLE   = "Skill_IdleVR";
+    private static final String ANIM_SKILL_LOOP   = "Skill_LoopVR";
+    private static final String ANIM_SKILL_END    = "Skill_EndVR";
+    private static final String ANIM_DIE          = "DieVR";
+    private static final String ANIM_START        = "StartVR";
 
     // CustomEnergyOrb 期望 11 元素: [0..4]=正常层, [5]=base底层, [6..10]=暗层
     private static final String[] ORB_TEX = {
@@ -72,21 +88,64 @@ public class Kroos extends CustomPlayer {
     };
 
     public Kroos(String name) {
-        // 传 (String) null, (String) null 不使用骨骼动画, 使用静态图片
         super(name, KroosEnum.KROOS, ORB_TEX, ORB_VFX, LAYER_SPEED,
                 (String) null, (String) null);
 
-        // 对话气泡位置 (参考 LexNinja / Mon3tr)
         this.dialogX = this.drawX + 0.0F * Settings.scale;
         this.dialogY = this.drawY + 220.0F * Settings.scale;
 
-        // initializeClass 参数: (立绘, 肩2, 肩1, 尸体, loadout, hb_x, hb_y, hb_w, hb_h, 能量)
-        initializeClass(MODEL_IMG,
+        // 使用 Spine 动画: initializeClass 第一个参数传 null (不使用静态图片)
+        initializeClass(null,
                 SHOULDER_2, SHOULDER_1, CORPSE,
                 getLoadout(),
                 0.0F, 5.0F, 240.0F, 300.0F,
                 new EnergyManager(ENERGY_PER_TURN));
+
+        // 加载 Spine 骨骼动画 (.skel 二进制格式)
+        loadSpineAnimation();
     }
+
+    /**
+     * 加载 Spine 骨骼动画。
+     * STS 自带的 loadAnimation() 只支持 .json 格式,
+     * 因此使用 SkeletonBinary 手动加载 .skel 二进制格式。
+     * 参考 Mon3tr mod 的 Prosts.java 和 Eyjafjalla mod 的 SkinSelectScreen.java。
+     */
+    private void loadSpineAnimation() {
+        this.atlas = new TextureAtlas(
+                com.badlogic.gdx.Gdx.files.internal(SPINE_PATH + ".atlas"));
+        SkeletonBinary binary = new SkeletonBinary(this.atlas);
+        binary.setScale(Settings.renderScale / SPINE_SCALE);
+        SkeletonData skeletonData = binary.readSkeletonData(
+                com.badlogic.gdx.Gdx.files.internal(SPINE_PATH + ".skel"));
+        this.skeleton = new com.esotericsoftware.spine.Skeleton(skeletonData);
+        this.skeleton.setColor(Color.WHITE);
+        this.stateData = new AnimationStateData(skeletonData);
+        this.state = new AnimationState(this.stateData);
+
+        // 设置初始动画为待机
+        this.state.setAnimation(0, ANIM_IDLE, true);
+
+        if (Settings.FAST_MODE) {
+            state.setTimeScale(1.0F);
+        }
+    }
+
+    // ===== 动画控制 =====
+
+    /** 攻击动画: 播放攻击后回到待机 */
+    public void playAttackAnimation() {
+        this.state.setAnimation(0, ANIM_ATTACK, false);
+        this.state.addAnimation(0, ANIM_IDLE, true, 0.0F);
+    }
+
+    /** 技能动画: 播放技能循环后回到待机 */
+    public void playSkillAnimation() {
+        this.state.setAnimation(0, ANIM_SKILL_LOOP, false);
+        this.state.addAnimation(0, ANIM_IDLE, true, 0.0F);
+    }
+
+    // ===== 原有角色方法 =====
 
     @Override
     public ArrayList<String> getStartingDeck() {

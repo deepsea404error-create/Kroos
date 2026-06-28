@@ -20,10 +20,8 @@ import sts.kroos.util.TextureLoader;
  * 含义: 退出浅眠时消耗本 power, 抽 N 张牌, 获得 N 点能量, 获得 N×2 层临时力量。
  *       (临时力量 = StrengthPower(2N) + LoseStrengthPower(2N), 回合结束消除)
  *
- * 触发: onRemove() — DozePower 退出时, 通过 RemoveSpecificPowerAction 移除本 power
- *       从而触发 onRemove, 在此结算放电效果。
- *
- * 设计文档规则4: DozePower 不直接计算蓄势效果, 只负责 Remove 本 power, 放电由本 power 自管。
+ * 触发: 由 DozePower.onRemove() 调用 discharge() 方法直接触发放电效果。
+ *       所有效果均使用 addToTop, 退出浅眠后立即执行 (本回合可用)。
  */
 public class ChargePower extends AbstractPower {
 
@@ -49,8 +47,8 @@ public class ChargePower extends AbstractPower {
     private void loadIcons() {
         Texture large = TextureLoader.getTexture(ICON_LARGE);
         Texture small = TextureLoader.getTexture(ICON_SMALL);
-        if (large != null) this.region128 = new com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion(large, 0, 0, 128, 128);
-        if (small != null) this.region48  = new com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion(small, 0, 0, 48, 48);
+        if (large != null) this.region128 = new com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion(large, 0, 0, 84, 84);
+        if (small != null) this.region48  = new com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion(small, 0, 0, 32, 32);
     }
 
     @Override
@@ -62,19 +60,24 @@ public class ChargePower extends AbstractPower {
     }
 
     /**
-     * 退出浅眠 (RemoveSpecificPowerAction) 触发本 power 移除时:
-     * 抽 N 牌 + 获得 N 能量 + 临时 +2N 力量。
+     * 蓄势放电: 抽 N 牌 + 获得 N 能量 (本回合) + 临时 +2N 力量。
+     *
+     * 由 DozePower.onRemove() 在退出浅眠时直接调用。
+     * 使用 addToTop 保证所有效果紧跟当前行动之后立即执行 (本回合可用)。
+     * 注意: addToTop 需反序添加, 后添加的先执行:
+     *   添加顺序: LoseStrength → Strength → GainEnergy → DrawCard
+     *   执行顺序: DrawCard → GainEnergy → Strength → LoseStrength
      */
-    @Override
-    public void onRemove() {
+    public void discharge() {
         int n = this.amount;
         if (n <= 0 || owner == null) return;
         this.flash();
-        AbstractDungeon.actionManager.addToBottom(new DrawCardAction(owner, n));
-        AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(n));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(
-                owner, owner, new StrengthPower(owner, n * 2), n * 2));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(
+        // addToTop 反序添加, 保证执行顺序为: DrawCard → GainEnergy → Strength → LoseStrength
+        AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(
                 owner, owner, new LoseStrengthPower(owner, n * 2), n * 2));
+        AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(
+                owner, owner, new StrengthPower(owner, n * 2), n * 2));
+        AbstractDungeon.actionManager.addToTop(new GainEnergyAction(n));
+        AbstractDungeon.actionManager.addToTop(new DrawCardAction(owner, n));
     }
 }

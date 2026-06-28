@@ -33,8 +33,8 @@ public class DoubleIncomingPower extends AbstractPower {
         this.amount = -1; // 不可堆叠, 仅作 token
         this.type = PowerType.DEBUFF;
         Texture l = TextureLoader.getTexture(IL), s = TextureLoader.getTexture(IS);
-        if (l != null) this.region128 = new com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion(l, 0, 0, 128, 128);
-        if (s != null) this.region48  = new com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion(s, 0, 0, 48, 48);
+        if (l != null) this.region128 = new com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion(l, 0, 0, 84, 84);
+        if (s != null) this.region48  = new com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion(s, 0, 0, 32, 32);
         updateDescription();
     }
 

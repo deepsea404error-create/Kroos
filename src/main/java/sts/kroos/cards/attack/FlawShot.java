@@ -15,7 +15,7 @@ import sts.kroos.powers.FlawPower;
  * 虚损箭(箭矢) - 1费, 造成 9 伤害, 施加 1 层破绽。
  *   - 寒芒: 消耗 1 层寒芒, 伤害+3, 给予 1 层虚弱
  *
- * 箭矢自动获取专注(=energyOnUse) 由 AbstractKroosCard.afterUseHook 处理, 本牌不显式处理。
+ * 箭矢自动获取专注(=costForTurn, 免费打出时为0) 由 AbstractKroosCard.afterUseHook 处理, 本牌不显式处理。
  * 散射也由 scatterIfArrow 助手统一调用。
  */
 public class FlawShot extends AbstractKroosCard {
