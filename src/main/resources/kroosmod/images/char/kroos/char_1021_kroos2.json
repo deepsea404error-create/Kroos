@@ -1,9 +1,7 @@
 {
     "skeleton": {
         "hash": "jj9/1LkZi0eWE+mJ0/w/yRy98RQ",
-        "spine": "3.8.75",
-        "images": "F:/SpireMod/img/kroos/img",
-        "audio": "F:\\SpireMod\\img\\kroos"
+        "spine": "3.8.75"
     },
     "bones": [
         {
