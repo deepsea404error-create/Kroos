@@ -87,16 +87,17 @@ public class Kroos extends CustomPlayer {
                 (String) null, (String) null);
 
         this.dialogX = this.drawX + 0.0F * Settings.scale;
-        this.dialogY = this.drawY + 220.0F * Settings.scale;
+        this.dialogY = this.drawY + 240.0F * Settings.scale;
 
         // 使用 Spine 动画: initializeClass 第一个参数传 null (不使用静态图片)
+        // 参数顺序与参考项目 (Mon3tr / Eyjafjalla) 完全一致
         initializeClass(null,
-                SHOULDER_2, SHOULDER_1, CORPSE,
+                SHOULDER_1, SHOULDER_2, null,
                 getLoadout(),
-                0.0F, 5.0F, 240.0F, 300.0F,
+                0.0F, -5.0F, 260.0F, 240.0F,
                 new EnergyManager(ENERGY_PER_TURN));
 
-        // 加载 Spine 骨骼动画 (.skel 二进制格式)
+        // 加载 Spine 骨骼动画
         loadSpineAnimation();
     }
 
