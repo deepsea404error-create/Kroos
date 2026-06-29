@@ -1,11 +1,17 @@
 package sts.kroos.characters;
 
 import basemod.abstracts.CustomPlayer;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.PolygonSpriteBatch;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.esotericsoftware.spine.*;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.core.Settings;
@@ -103,21 +109,74 @@ public class Kroos extends CustomPlayer {
 
     /**
      * 加载 Spine 骨骼动画。
-     * 使用 STS 内置的 loadAnimation() 加载。
-     * .skel 二进制格式与 STS 的 Spine 运行时版本不兼容, 必须使用 .json。
-     * 参考 Mon3tr / Eyjafjalla 的实现。
+     * 先尝试用 STS 内置的 loadAnimation() 加载 .json；
+     * 如果失败, 回退到 SkeletonBinary + .skel 加载。
      */
     private void loadSpineAnimation() {
-        // STS 内置的 loadAnimation 只支持 .json
-        // .json 包含骨骼结构、动画数据, 但 mesh 的顶点权重信息不完整
-        // 如果 .json 显示异常, 备选方案: 直接用 .skel + SkeletonBinary 加载
-        this.loadAnimation(SPINE_PATH + ".atlas", SPINE_PATH + ".json", SPINE_SCALE);
+        // 尝试用 JSON 格式加载 (标准方式)
+        if (!tryLoadJson()) {
+            // JSON 方式失败, 回退到 .skel 二进制方式
+            System.err.println("[KroosMod] JSON skeleton加载失败, 尝试.skel回退...");
+            tryLoadSkel();
+        }
 
-        // 设置初始动画为待机
-        this.state.setAnimation(0, ANIM_IDLE, true);
+        // 确保骨架和动画状态已加载
+        if (this.skeleton != null && this.state != null) {
+            this.state.setAnimation(0, ANIM_IDLE, true);
+            if (Settings.FAST_MODE) {
+                state.setTimeScale(1.0F);
+            }
+        } else {
+            System.err.println("[KroosMod] ⚠ 骨架加载完全失败 人物将不可见");
+        }
+    }
 
-        if (Settings.FAST_MODE) {
-            state.setTimeScale(1.0F);
+    /** 用 JSON 格式加载 Spine 动画 */
+    private boolean tryLoadJson() {
+        try {
+            this.loadAnimation(SPINE_PATH + ".atlas", SPINE_PATH + ".json", SPINE_SCALE);
+            // 验证加载成功
+            if (this.atlas != null && this.skeleton != null && this.state != null) {
+                System.err.println("[KroosMod] JSON骨架加载成功");
+                return true;
+            }
+            System.err.println("[KroosMod] JSON骨架加载后状态异常: atlas="
+                    + (this.atlas != null) + " skeleton=" + (this.skeleton != null));
+        } catch (Exception e) {
+            System.err.println("[KroosMod] JSON骨架加载异常: " + e.getClass().getSimpleName()
+                    + ": " + e.getMessage());
+            e.printStackTrace(System.err);
+        }
+        return false;
+    }
+
+    /** 用 .skel 二进制格式回退加载 */
+    private void tryLoadSkel() {
+        try {
+            String atlasPath = SPINE_PATH + ".atlas";
+            String skelPath  = SPINE_PATH + ".skel";
+
+            // 1. 创建并加载 TextureAtlas
+            this.atlas = new TextureAtlas(Gdx.files.internal(atlasPath));
+
+            // 2. 用 SkeletonBinary 读取 .skel
+            SkeletonBinary binary = new SkeletonBinary(this.atlas);
+            binary.setScale(Settings.renderScale / SPINE_SCALE);
+            SkeletonData data = binary.readSkeletonData(Gdx.files.internal(skelPath));
+
+            // 3. 创建 Skeleton
+            this.skeleton = new Skeleton(data);
+            this.skeleton.setColor(Color.WHITE);
+
+            // 4. 创建 AnimationState
+            this.stateData = new AnimationStateData(data);
+            this.state = new AnimationState(this.stateData);
+
+            System.err.println("[KroosMod] .skel骨架加载成功 (二进制回退)");
+        } catch (Exception e) {
+            System.err.println("[KroosMod] .skel回退也失败: " + e.getClass().getSimpleName()
+                    + ": " + e.getMessage());
+            e.printStackTrace(System.err);
         }
     }
 
@@ -133,6 +192,32 @@ public class Kroos extends CustomPlayer {
     public void playSkillAnimation() {
         this.state.setAnimation(0, ANIM_SKILL_LOOP, false);
         this.state.addAnimation(0, ANIM_IDLE, true, 0.0F);
+    }
+
+    /**
+     * 强制使用 Spine 渲染, 跳过 BaseMod 的 animation dispatch。
+     * BaseMod 的 CustomPlayer.renderPlayerImage() 会根据 animation.type()
+     * 分派渲染; 若 G3DJAnimation(null, null) 返回非 NONE 类型, Spine 渲染会被跳过。
+     * 此处直接执行 AbstractCreature 层次的标准 Spine 绘制逻辑。
+     */
+    @Override
+    public void renderPlayerImage(SpriteBatch sb) {
+        if (this.atlas != null && this.skeleton != null && this.state != null) {
+            this.state.update(Gdx.graphics.getDeltaTime());
+            this.state.apply(this.skeleton);
+            this.skeleton.updateWorldTransform();
+            this.skeleton.setPosition(
+                    this.drawX + this.animX,
+                    this.drawY + this.animY + this.hb_h / 2.0F);
+            this.skeleton.setColor(this.tint.color);
+            this.skeleton.setFlip(this.flipHorizontal, this.flipVertical);
+
+            sb.end();
+            CardCrawlGame.psb.begin();
+            AbstractCreature.sr.draw(CardCrawlGame.psb, this.skeleton);
+            CardCrawlGame.psb.end();
+            sb.begin();
+        }
     }
 
     // ===== 原有角色方法 =====
