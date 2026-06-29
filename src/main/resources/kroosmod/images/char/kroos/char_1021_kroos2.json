@@ -1671,11 +1671,9 @@
             "shearMix": 0
         }
     ],
-    "skins": [
-        {
-            "name": "default",
-            "attachments": {
-                "F_L_Hair_Long_2": {
+    "skins": {
+        "default": {
+            "F_L_Hair_Long_2": {
                     "F_L_Hair_Long_2": {
                         "type": "mesh",
                         "uvs": [
@@ -19526,9 +19524,8 @@
                         "height": 47
                     }
                 }
-            }
         }
-    ],
+    },
     "events": {
         "OnAttack": {},
         "OnStart": {}
