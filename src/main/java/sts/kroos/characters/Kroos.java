@@ -3,22 +3,16 @@ package sts.kroos.characters;
 import basemod.abstracts.CustomPlayer;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.esotericsoftware.spine.AnimationState;
-import com.esotericsoftware.spine.SkeletonBinary;
-import com.esotericsoftware.spine.SkeletonData;
-import com.esotericsoftware.spine.SkeletonJson;
-import com.esotericsoftware.spine.TextureAtlas;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.core.Settings;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
-import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 import sts.kroos.KroosMod;
 import sts.kroos.cards.attack.DoubleShot;
 import sts.kroos.cards.attack.Strike;
@@ -57,14 +51,15 @@ public class Kroos extends CustomPlayer {
     private static final float SPINE_SCALE    = 1.75F;
 
     // ===== Spine 动画名称 =====
-    private static final String ANIM_IDLE         = "IdleVR";
-    private static final String ANIM_ATTACK       = "AttackVR";
-    private static final String ANIM_SKILL_BEGIN  = "Skill_BeginVR";
-    private static final String ANIM_SKILL_IDLE   = "Skill_IdleVR";
-    private static final String ANIM_SKILL_LOOP   = "Skill_LoopVR";
-    private static final String ANIM_SKILL_END    = "Skill_EndVR";
-    private static final String ANIM_DIE          = "DieVR";
-    private static final String ANIM_START        = "StartVR";
+    private static final String ANIM_IDLE         = "Idle";
+    private static final String ANIM_ATTACK       = "Attack";
+    private static final String ANIM_SKILL_BEGIN  = "Skill_Begin";
+    private static final String ANIM_SKILL_IDLE   = "Skill_Idle";
+    private static final String ANIM_SKILL_LOOP   = "Skill_Loop";
+    private static final String ANIM_SKILL_LOOP_2 = "Skill_Loop_2";
+    private static final String ANIM_SKILL_END    = "Skill_End";
+    private static final String ANIM_DIE          = "Die";
+    private static final String ANIM_START        = "Start";
 
     // CustomEnergyOrb 期望 11 元素: [0..4]=正常层, [5]=base底层, [6..10]=暗层
     private static final String[] ORB_TEX = {
@@ -107,21 +102,15 @@ public class Kroos extends CustomPlayer {
 
     /**
      * 加载 Spine 骨骼动画。
-     * STS 自带的 loadAnimation() 只支持 .json 格式,
-     * 因此使用 SkeletonBinary 手动加载 .skel 二进制格式。
-     * 参考 Mon3tr mod 的 Prosts.java 和 Eyjafjalla mod 的 SkinSelectScreen.java。
+     * 使用 STS 内置的 loadAnimation() 加载。
+     * .skel 二进制格式与 STS 的 Spine 运行时版本不兼容, 必须使用 .json。
+     * 参考 Mon3tr / Eyjafjalla 的实现。
      */
     private void loadSpineAnimation() {
-        this.atlas = new TextureAtlas(
-                com.badlogic.gdx.Gdx.files.internal(SPINE_PATH + ".atlas"));
-        SkeletonBinary binary = new SkeletonBinary(this.atlas);
-        binary.setScale(Settings.renderScale / SPINE_SCALE);
-        SkeletonData skeletonData = binary.readSkeletonData(
-                com.badlogic.gdx.Gdx.files.internal(SPINE_PATH + ".skel"));
-        this.skeleton = new com.esotericsoftware.spine.Skeleton(skeletonData);
-        this.skeleton.setColor(Color.WHITE);
-        this.stateData = new AnimationStateData(skeletonData);
-        this.state = new AnimationState(this.stateData);
+        // STS 内置的 loadAnimation 只支持 .json
+        // .json 包含骨骼结构、动画数据, 但 mesh 的顶点权重信息不完整
+        // 如果 .json 显示异常, 备选方案: 直接用 .skel + SkeletonBinary 加载
+        this.loadAnimation(SPINE_PATH + ".atlas", SPINE_PATH + ".json", SPINE_SCALE);
 
         // 设置初始动画为待机
         this.state.setAnimation(0, ANIM_IDLE, true);
