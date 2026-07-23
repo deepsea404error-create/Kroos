@@ -1,16 +1,23 @@
 package sts.kroos.characters;
 
+import basemod.abstracts.CustomEnergyOrb;
 import basemod.abstracts.CustomPlayer;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import com.megacrit.cardcrawl.rooms.RestRoom;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
+import com.megacrit.cardcrawl.orbs.AbstractOrb;
+import com.megacrit.cardcrawl.rooms.MonsterRoom;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import sts.kroos.KroosMod;
@@ -18,18 +25,14 @@ import sts.kroos.cards.attack.DoubleShot;
 import sts.kroos.cards.attack.Strike;
 import sts.kroos.cards.skill.Defend;
 import sts.kroos.cards.skill.PreparedShot;
+import sts.kroos.character.KroosSpineHelper;
 import sts.kroos.patches.KroosEnum;
 import sts.kroos.relics.KroosBadge;
 
 import java.util.ArrayList;
 
-/**
- * 寒芒克洛丝 - 角色定义。
- * 使用静态 PNG 贴图 (kroos.png) 显示人物。
- */
 public class Kroos extends CustomPlayer {
 
-    // ===== 角色基础属性 =====
     public static final int ENERGY_PER_TURN = 3;
     public static final int STARTING_HP = 72;
     public static final int MAX_HP = 72;
@@ -43,20 +46,23 @@ public class Kroos extends CustomPlayer {
     public static final String NAME = CHAR_STRINGS.NAMES[0];
     public static final String DESCRIPTION = CHAR_STRINGS.TEXT[0];
 
-    // ===== 资源路径 =====
-    private static final String CHAR_IMG      = KroosMod.RES_ROOT + "char/kroos.png";
-    private static final String SHOULDER_1    = KroosMod.RES_ROOT + "char/shoulder.png";
-    private static final String SHOULDER_2    = KroosMod.RES_ROOT + "char/shoulder2.png";
-    private static final String CORPSE        = KroosMod.RES_ROOT + "char/corpse.png";
+    // Spine animation paths
+    private static final String SPINE_ATLAS = KroosMod.RES_ROOT + "char/kroos/char_1021_kroos2.atlas";
+    private static final String SPINE_JSON = KroosMod.RES_ROOT + "char/kroos/char_1021_kroos2.json";
+    private static final float SPINE_SCALE = 2.0f;
 
-    // CustomEnergyOrb 期望 11 元素: [0..4]=正常层, [5]=base底层, [6..10]=暗层
+    // Selection screen resources
+    private static final String SHOULDER_1 = KroosMod.RES_ROOT + "char/shoulder.png";
+    private static final String SHOULDER_2 = KroosMod.RES_ROOT + "char/shoulder2.png";
+
+    // Energy orb config
     private static final String[] ORB_TEX = {
             KroosMod.RES_ROOT + "ui/energy/layer1.png",
             KroosMod.RES_ROOT + "ui/energy/layer2.png",
             KroosMod.RES_ROOT + "ui/energy/layer3.png",
             KroosMod.RES_ROOT + "ui/energy/layer4.png",
             KroosMod.RES_ROOT + "ui/energy/layer5.png",
-            KroosMod.RES_ROOT + "ui/energy/layer0.png",    // base layer
+            KroosMod.RES_ROOT + "ui/energy/layer0.png",
             KroosMod.RES_ROOT + "ui/energy/layer1d.png",
             KroosMod.RES_ROOT + "ui/energy/layer2d.png",
             KroosMod.RES_ROOT + "ui/energy/layer3d.png",
@@ -64,28 +70,108 @@ public class Kroos extends CustomPlayer {
             KroosMod.RES_ROOT + "ui/energy/layer5d.png"
     };
     private static final String ORB_VFX = KroosMod.RES_ROOT + "ui/energy/vfx.png";
-
-    private static final float[] LAYER_SPEED = new float[] {
+    private static final float[] LAYER_SPEED = {
             -20.0F, 20.0F, -40.0F, 40.0F, 360.0F,
             -10.0F, 8.0F, -5.0F, 5.0F, 0.0F
     };
 
+    // Colors
+    private final Color cardRenderColor = new Color(0.69F, 0.77F, 0.87F, 1.0F);
+    private final Color cardTrailColor = new Color(0.69F, 0.77F, 0.87F, 1.0F);
+    private final Color slashAttackColor = new Color(0.69F, 0.77F, 0.87F, 1.0F);
+
+    // Spine helper
+    private KroosSpineHelper spineHelper;
+
     public Kroos(String name) {
-        super(name, KroosEnum.KROOS, ORB_TEX, ORB_VFX, LAYER_SPEED,
-                (String) null, (String) null);
+        super(name, KroosEnum.KROOS,
+                new CustomEnergyOrb(ORB_TEX, ORB_VFX, LAYER_SPEED),
+                null, null);
+
+        initializeClass(null, SHOULDER_2, SHOULDER_1, null,
+                getLoadout(),
+                20.0F, -20.0F, 200.0F, 250.0F,
+                new EnergyManager(ENERGY_PER_TURN));
 
         this.dialogX = this.drawX + 0.0F * Settings.scale;
-        this.dialogY = this.drawY + 240.0F * Settings.scale;
+        this.dialogY = this.drawY + 220.0F * Settings.scale;
 
-        // 使用静态贴图: initializeClass 第一个参数传图片路径
-        initializeClass(CHAR_IMG,
-                SHOULDER_1, SHOULDER_2, CORPSE,
-                getLoadout(),
-                0.0F, -5.0F, 260.0F, 240.0F,
-                new EnergyManager(ENERGY_PER_TURN));
+        // Load Spine animation
+        spineHelper = new KroosSpineHelper(SPINE_ATLAS, SPINE_JSON, SPINE_SCALE);
+        spineHelper.playIdle();
     }
 
-    // ===== 原有角色方法 =====
+    @Override
+    public void render(SpriteBatch sb) {
+        this.stance.render(sb);
+
+        if ((AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT
+                || AbstractDungeon.getCurrRoom() instanceof MonsterRoom)
+                && !this.isDead) {
+            renderHealth(sb);
+
+            if (!this.orbs.isEmpty()) {
+                for (AbstractOrb o : this.orbs) {
+                    o.render(sb);
+                }
+            }
+        }
+
+        if (!(AbstractDungeon.getCurrRoom() instanceof RestRoom)) {
+            renderPlayerImage(sb);
+            this.hb.render(sb);
+            this.healthHb.render(sb);
+        } else {
+            sb.setColor(Color.WHITE);
+            renderShoulderImg(sb);
+        }
+    }
+
+    @Override
+    public void renderPlayerImage(SpriteBatch sb) {
+        if (spineHelper == null) return;
+
+        spineHelper.update();
+        spineHelper.applyAnimation();
+
+        spineHelper.setPosition(
+                this.drawX + this.animX,
+                this.drawY + this.animY
+        );
+
+        spineHelper.setColor(this.tint.color);
+        spineHelper.setFlip(this.flipHorizontal, this.flipVertical);
+
+        spineHelper.render(sb);
+    }
+
+    @Override
+    public void playDeathAnimation() {
+        if (spineHelper != null) {
+            spineHelper.playDeath();
+        }
+    }
+
+    @Override
+    public void useFastAttackAnimation() {
+        if (spineHelper != null) {
+            spineHelper.playAttack();
+        }
+    }
+
+    @Override
+    public void useSlowAttackAnimation() {
+        if (spineHelper != null) {
+            spineHelper.playAttack();
+        }
+    }
+
+    @Override
+    public void useStaggerAnimation() {
+        if (spineHelper != null) {
+            spineHelper.playIdle();
+        }
+    }
 
     @Override
     public ArrayList<String> getStartingDeck() {
@@ -132,7 +218,7 @@ public class Kroos extends CustomPlayer {
 
     @Override
     public Color getCardRenderColor() {
-        return new Color(0.69F, 0.77F, 0.87F, 1.0F);
+        return this.cardRenderColor;
     }
 
     @Override
@@ -142,7 +228,7 @@ public class Kroos extends CustomPlayer {
 
     @Override
     public Color getCardTrailColor() {
-        return new Color(0.69F, 0.77F, 0.87F, 1.0F);
+        return this.cardTrailColor;
     }
 
     @Override
@@ -171,13 +257,6 @@ public class Kroos extends CustomPlayer {
     }
 
     @Override
-    public void playDeathAnimation() {
-        // 确保 corpseImg 非空; 若贴图缺失则回退到正常 img
-        this.img = (this.corpseImg != null) ? this.corpseImg : this.img;
-        this.renderCorpse = true;
-    }
-
-    @Override
     public AbstractPlayer newInstance() {
         return new Kroos(name);
     }
@@ -189,7 +268,7 @@ public class Kroos extends CustomPlayer {
 
     @Override
     public Color getSlashAttackColor() {
-        return new Color(0.69F, 0.77F, 0.87F, 1.0F);
+        return this.slashAttackColor;
     }
 
     @Override
