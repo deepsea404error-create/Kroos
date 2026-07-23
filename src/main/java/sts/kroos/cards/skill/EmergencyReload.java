@@ -37,7 +37,8 @@ public class EmergencyReload extends AbstractKroosCard {
             consumeFrost(1);
             draw += 1;
         }
-        addToBot(new DrawCardAction(p, draw, new AbstractGameAction() {
+        // 使用 DrawCardAction(amount, callback) 构造函数
+        addToBot(new DrawCardAction(draw, new AbstractGameAction() {
             @Override
             public void update() {
                 if (!DrawCardAction.drawnCards.isEmpty() && !isDone) {
