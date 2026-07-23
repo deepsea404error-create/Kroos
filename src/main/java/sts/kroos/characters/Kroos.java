@@ -171,6 +171,13 @@ public class Kroos extends CustomPlayer {
     }
 
     @Override
+    public void playDeathAnimation() {
+        // 确保 corpseImg 非空; 若贴图缺失则回退到正常 img
+        this.img = (this.corpseImg != null) ? this.corpseImg : this.img;
+        this.renderCorpse = true;
+    }
+
+    @Override
     public AbstractPlayer newInstance() {
         return new Kroos(name);
     }

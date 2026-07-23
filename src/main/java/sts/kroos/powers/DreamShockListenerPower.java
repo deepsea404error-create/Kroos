@@ -34,6 +34,10 @@ public class DreamShockListenerPower extends AbstractPower implements IDozeExitL
         updateDescription();
     }
 
+    // 内部不可见 power, 无图标; 阻止 flash() 时 NPE
+    @Override
+    public void flash() {}
+
     public void addPending(AbstractCard c) {
         if (c != null) {
             pending.add(c);

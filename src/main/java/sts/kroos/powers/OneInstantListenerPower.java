@@ -29,6 +29,10 @@ public class OneInstantListenerPower extends AbstractPower {
         updateDescription();
     }
 
+    // 内部不可见 power, 无需图标; 阻止 ApplyPowerAction 自动调用 flash() 时 NPE
+    @Override
+    public void flash() {}
+
     @Override
     public void updateDescription() {
         this.description = "本回合每打出 1 张[R]攻击[]牌, 对随机敌人施加 1 层[R]破绽[]。";
