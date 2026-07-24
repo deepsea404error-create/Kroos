@@ -7,7 +7,7 @@ import sts.kroos.KroosMod;
 import sts.kroos.cards.AbstractKroosCard;
 import sts.kroos.powers.CriticalPower;
 import sts.kroos.powers.FocusPower;
-import sts.kroos.powers.VigorPower;
+import com.megacrit.cardcrawl.powers.watcher.VigorPower;
 
 /**
  * 上弦 - 1费, 获得 2 层专注。你的下次攻击造成 4 点额外伤害。

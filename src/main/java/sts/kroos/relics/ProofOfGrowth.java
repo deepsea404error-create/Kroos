@@ -5,7 +5,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
-import sts.kroos.powers.VigorPower;
+import com.megacrit.cardcrawl.powers.watcher.VigorPower;
 import sts.kroos.KroosMod;
 import sts.kroos.util.TextureLoader;
 

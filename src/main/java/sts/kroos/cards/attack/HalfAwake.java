@@ -12,16 +12,16 @@ import sts.kroos.powers.DozePower;
 import sts.kroos.powers.FocusPower;
 
 /**
- * 半醒(梦击) - 1费, 造成 6 (强化 9) 点伤害。
+ * 半醒(梦击) - 1费, 造成 9 (强化 12) 点伤害。
  *   - 若处于浅眠状态, 获得 1 层专注
- *   - 寒芒: 消耗 1 层寒芒, 伤害 +3 (强化 +4)
+ *   - 寒芒: 消耗 1 层寒芒, 伤害 +5 (强化 +6)
  */
 public class HalfAwake extends AbstractKroosCard {
     public static final String ID = KroosMod.MOD_ID + ":HalfAwake";
     private static final String IMG = KroosMod.RES_ROOT + "cards/attack/half_awake.png";
 
     private static final int COST = 1;
-    private static final int DAMAGE = 6;
+    private static final int DAMAGE = 9;
     private static final int UPGRADE_DAMAGE = 3;
     private static final int FOCUS = 1;
     private static final int FROST_BONUS = 3;

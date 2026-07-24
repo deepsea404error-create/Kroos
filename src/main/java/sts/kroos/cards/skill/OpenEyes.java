@@ -4,7 +4,7 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.EnergizedPower;
+import com.megacrit.cardcrawl.powers.watcher.VigorPower;
 import sts.kroos.KroosMod;
 import sts.kroos.cards.AbstractKroosCard;
 import sts.kroos.powers.DozePower;
@@ -38,7 +38,7 @@ public class OpenEyes extends AbstractKroosCard {
         if (canConsumeFrost(1)) {
             consumeFrost(1);
             addToBot(new ApplyPowerAction(p, p,
-                    new EnergizedPower(p, this.magicNumber), this.magicNumber));
+                    new VigorPower(p, this.magicNumber), this.magicNumber));
         }
     }
 

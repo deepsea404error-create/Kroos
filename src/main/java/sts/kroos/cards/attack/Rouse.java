@@ -6,6 +6,8 @@ import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import sts.kroos.KroosMod;
@@ -34,12 +36,23 @@ public class Rouse extends AbstractKroosCard {
     private static final int STR = 1;
     private static final int STR_UPG = 2;
 
+    private final String baseDesc;
+
     public Rouse() {
         super(ID, IMG, COST, CardType.ATTACK, CardRarity.RARE, CardTarget.ENEMY);
         this.baseDamage = DAMAGE;
         this.baseMagicNumber = FLAW;
         this.magicNumber = FLAW;
         this.isDreamStrike = true;
+        this.baseDesc = this.rawDescription;
+    }
+
+    @Override
+    public void applyPowers() {
+        super.applyPowers();
+        int hits = 1 + BattleCounters.get(COUNTER_KEY);
+        this.rawDescription = baseDesc + " NL 当前造成 " + hits + " 次伤害。";
+        initializeDescription();
     }
 
     @Override
