@@ -1,11 +1,13 @@
 package sts.kroos.powers;
 
+import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import sts.kroos.KroosMod;
+import sts.kroos.util.TextureLoader;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,12 +27,17 @@ public class DreamShockListenerPower extends AbstractPower implements IDozeExitL
 
     private final List<AbstractCard> pending = new ArrayList<>();
 
+    private static final String DUMMY_ICON = KroosMod.RES_ROOT + "powers/hit_small.png";
+
     public DreamShockListenerPower(AbstractCreature owner) {
         this.name = NAME;
         this.ID = POWER_ID;
         this.owner = owner;
         this.amount = -1;
         this.type = PowerType.BUFF;
+        // Internal power, no real icon needed but renderIcons() requires this.img to be non-null
+        Texture dummy = TextureLoader.getTexture(DUMMY_ICON);
+        if (dummy != null) this.img = dummy;
         updateDescription();
     }
 

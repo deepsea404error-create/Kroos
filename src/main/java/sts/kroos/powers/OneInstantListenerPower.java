@@ -1,5 +1,6 @@
 package sts.kroos.powers;
 
+import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
@@ -9,6 +10,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import sts.kroos.KroosMod;
+import sts.kroos.util.TextureLoader;
 
 /**
  * 一瞬监听 — 内部一次性辅助 power, 不进入本地化系统。
@@ -20,12 +22,17 @@ public class OneInstantListenerPower extends AbstractPower {
     public static final String POWER_ID = KroosMod.MOD_ID + ":OneInstantListener";
     public static final String NAME = "一瞬";
 
+    private static final String DUMMY_ICON = KroosMod.RES_ROOT + "powers/hit_small.png";
+
     public OneInstantListenerPower(AbstractCreature owner) {
         this.name = NAME;
         this.ID = POWER_ID;
         this.owner = owner;
         this.amount = -1; // 不计数, 仅作 token
         this.type = PowerType.BUFF;
+        // Internal power, no real icon needed but renderIcons() requires this.img to be non-null
+        Texture dummy = TextureLoader.getTexture(DUMMY_ICON);
+        if (dummy != null) this.img = dummy;
         updateDescription();
     }
 
