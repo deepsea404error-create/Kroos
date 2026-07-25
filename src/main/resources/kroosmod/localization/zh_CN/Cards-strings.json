@@ -196,8 +196,8 @@
   },
   "kroosmod:ReinforcedArrow": {
     "NAME": "强化箭",
-    "DESCRIPTION": "箭矢。消耗。造成 !D! 点伤害。 NL 本局每使用过 1 次本牌，伤害+2（上限 22）。 NL 寒芒：若未达上限，消耗 1 层寒芒，伤害额外+2。",
-    "UPGRADE_DESCRIPTION": "箭矢。消耗。造成 !D! 点伤害。 NL 本局每使用过 1 次本牌，伤害+3（上限 44）。 NL 寒芒：若未达上限，消耗 1 层寒芒，伤害额外+2。"
+    "DESCRIPTION": "箭矢。消耗。造成 !D! 点伤害。 NL 本局每使用过 1 次本牌，伤害+2（上限 22）。 NL 寒芒：若未达上限，消耗 1 层寒芒，本牌永久性伤害额外+2。",
+    "UPGRADE_DESCRIPTION": "箭矢。消耗。造成 !D! 点伤害。 NL 本局每使用过 1 次本牌，伤害+3（上限 44）。 NL 寒芒：若未达上限，消耗 1 层寒芒，本牌永久性伤害额外+2。"
   },
   "kroosmod:RainbowArrow": {
     "NAME": "破虹箭",
@@ -256,8 +256,8 @@
   },
   "kroosmod:FinalCurtain": {
     "NAME": "终幕",
-    "DESCRIPTION": "梦击。造成 !D! 点伤害。 NL 额外造成当前 蓄势 x4 的伤害。 NL 寒芒：消耗 1 层寒芒，获得 1 层 蓄势。",
-    "UPGRADE_DESCRIPTION": "梦击。造成 !D! 点伤害。 NL 额外造成当前 蓄势 x6 的伤害。 NL 寒芒：消耗 1 层寒芒，获得 2 层 蓄势。"
+    "DESCRIPTION": "梦击。对所有敌人造成 !D! 点伤害。 NL 额外造成当前 蓄势 x4 的伤害。 NL 寒芒：消耗 1 层寒芒，获得 1 层 蓄势。",
+    "UPGRADE_DESCRIPTION": "梦击。对所有敌人造成 !D! 点伤害。 NL 额外造成当前 蓄势 x6 的伤害。 NL 寒芒：消耗 1 层寒芒，获得 2 层 蓄势。"
   },
   "kroosmod:Insomnia": {
     "NAME": "无法入眠",

@@ -9,6 +9,13 @@ target/
 .idea/
 *.iml
 .vscode/
+.classpath
+.project
+.settings/
+.factorypath
+
+# OpenCode
+.opencode/
 
 # OS
 .DS_Store

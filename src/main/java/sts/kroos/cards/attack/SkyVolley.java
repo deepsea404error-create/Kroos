@@ -5,15 +5,12 @@ import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import sts.kroos.KroosMod;
 import sts.kroos.cards.AbstractKroosCard;
 
 /**
- * 破空连射 - 2费, 造成 4 (强化 5) 点伤害。每有 1 张[箭矢]牌, 额外造成 1 次伤害。
- *
- * 实现: 统计当前战斗所有 CardGroup (draw/discard/hand/exhaust) 内 isArrow=true 的卡牌数。
+ * 破空连射 - 2费, 造成 4 (强化 5) 点伤害。手牌中每有 1 张[箭矢]牌, 额外造成 1 次伤害。
  */
 public class SkyVolley extends AbstractKroosCard {
     public static final String ID = KroosMod.MOD_ID + ":SkyVolley";
@@ -30,7 +27,7 @@ public class SkyVolley extends AbstractKroosCard {
 
     @Override
     public void useImpl(AbstractPlayer p, AbstractMonster m) {
-        int hits = 1 + countBattleArrows();
+        int hits = 1 + countHandArrows(p);
         for (int i = 0; i < hits; i++) {
             addToBot(new DamageAction(m,
                     new DamageInfo(p, this.damage, this.damageTypeForTurn),
@@ -38,22 +35,14 @@ public class SkyVolley extends AbstractKroosCard {
         }
     }
 
-    /** 战斗内所有 4 个 CardGroup 中的箭矢牌数(含本牌自身打出前所在位置已被移走情况下也合理) */
-    private static int countBattleArrows() {
+    private static int countHandArrows(AbstractPlayer p) {
         int n = 0;
-        AbstractPlayer p = AbstractDungeon.player;
-        n += countIn(p.drawPile);
-        n += countIn(p.discardPile);
-        n += countIn(p.hand);
-        n += countIn(p.exhaustPile);
-        return n;
-    }
-
-    private static int countIn(com.megacrit.cardcrawl.cards.CardGroup g) {
-        if (g == null) return 0;
-        int n = 0;
-        for (AbstractCard c : g.group) {
-            if (c instanceof AbstractKroosCard && ((AbstractKroosCard) c).isArrow) n++;
+        if (p != null && p.hand != null) {
+            for (AbstractCard c : p.hand.group) {
+                if (c instanceof AbstractKroosCard && ((AbstractKroosCard) c).isArrow) {
+                    n++;
+                }
+            }
         }
         return n;
     }

@@ -2,17 +2,19 @@ package sts.kroos.cards.attack;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import sts.kroos.KroosMod;
 import sts.kroos.cards.AbstractKroosCard;
 import sts.kroos.powers.ChargePower;
+import sts.kroos.powers.DozePower;
 
 /**
- * 终幕(梦击) - 1费, 造成 10 (强化 14) 点伤害。
+ * 终幕(梦击) - 1费, 对所有敌人造成 10 (强化 14) 点伤害。
  *   - 额外造成"当前蓄势 × 4 (强化 × 6)"点伤害
  *   - 寒芒: 消耗 1 层寒芒, 获得 1 (强化 2) 层蓄势
  *
@@ -31,28 +33,35 @@ public class FinalCurtain extends AbstractKroosCard {
     private static final int FROST_CHARGE_UPG = 2;
 
     public FinalCurtain() {
-        super(ID, IMG, COST, CardType.ATTACK, CardRarity.RARE, CardTarget.ENEMY);
+        super(ID, IMG, COST, CardType.ATTACK, CardRarity.RARE, CardTarget.ALL_ENEMY);
         this.baseDamage = DAMAGE;
         this.isDreamStrike = true;
+        this.isMultiDamage = true;
     }
 
     @Override
     public void useImpl(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new DamageAction(m,
-                new DamageInfo(p, this.damage, this.damageTypeForTurn),
-                AttackEffect.SLASH_HEAVY));
-
+        // 基础伤害 + 蓄势额外伤害
+        int mult = this.upgraded ? CHARGE_MULT_UPG : CHARGE_MULT;
+        int extra = 0;
         AbstractPower cp = p.getPower(ChargePower.POWER_ID);
-        int charges = cp != null ? cp.amount : 0;
-        if (charges > 0) {
-            int mult = this.upgraded ? CHARGE_MULT_UPG : CHARGE_MULT;
-            int extra = charges * mult;
-            addToBot(new DamageAction(m,
-                    new DamageInfo(p, extra, this.damageTypeForTurn),
-                    AttackEffect.FIRE));
+        if (cp != null && cp.amount > 0) {
+            extra = cp.amount * mult;
+        }
+        int totalDmg = this.damage + extra;
+
+        // 对所有敌人造成 totalDmg 伤害
+        int n = AbstractDungeon.getCurrRoom().monsters.monsters.size();
+        int[] dmgArr = new int[n];
+        for (int i = 0; i < n; i++) {
+            dmgArr[i] = totalDmg;
         }
 
-        if (canConsumeFrost(1)) {
+        addToBot(new DamageAllEnemiesAction(p, dmgArr,
+                this.damageTypeForTurn, AttackEffect.SLASH_HEAVY, true));
+
+        // 寒芒效果 - 加浅眠检查
+        if (p.hasPower(DozePower.POWER_ID) && canConsumeFrost(1)) {
             consumeFrost(1);
             int add = this.upgraded ? FROST_CHARGE_UPG : FROST_CHARGE;
             addToBot(new ApplyPowerAction(p, p, new ChargePower(p, add), add));

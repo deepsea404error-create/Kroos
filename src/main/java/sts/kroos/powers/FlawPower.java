@@ -2,7 +2,6 @@ package sts.kroos.powers;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -75,10 +74,15 @@ public class FlawPower extends AbstractPower {
         int costTotal   = conversions * CONVERT_COST;
         int gainTotal   = conversions * CONVERT_GAIN;
 
-        AbstractDungeon.actionManager.addToBottom(
-                new ReducePowerAction(owner, owner, POWER_ID, costTotal));
-        AbstractDungeon.actionManager.addToBottom(
-                new ApplyPowerAction(owner, owner,
-                        new HitPower(owner, gainTotal), gainTotal));
+        // 立即扣减，防止重复触发
+        this.amount -= costTotal;
+        updateDescription();
+
+        // 仅队列化施加中的（移除 ReducePowerAction）
+        if (gainTotal > 0) {
+            AbstractDungeon.actionManager.addToBottom(
+                    new ApplyPowerAction(owner, owner,
+                            new HitPower(owner, gainTotal), gainTotal));
+        }
     }
 }

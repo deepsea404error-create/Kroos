@@ -12,7 +12,7 @@ import sts.kroos.cards.AbstractKroosCard;
 /**
  * 强化箭(箭矢 消耗) - 1费, 造成 4 点伤害。
  *   - 每打出一次，这张牌在本局游戏中的伤害值永久性增加 2 (强化 +3) (上限 22, 强化 44)
- *   - 寒芒: 若未达上限, 消耗 1 层寒芒, 本牌伤害额外 +2
+ *   - 寒芒: 若未达上限, 消耗 1 层寒芒, 本牌永久性伤害额外 +2
  *
  * 逻辑参考原版遗传算法 (GeneticAlgorithm):
  *   - 使用 misc 字段存储永久增长的基础伤害 (跨战斗/跨存档保留)
@@ -43,10 +43,10 @@ public class ReinforcedArrow extends AbstractKroosCard {
         int cap = this.upgraded ? CAP_UPG : CAP;
         int dmg = Math.min(cap, this.misc);
 
-        boolean atCap = dmg >= cap;
-        if (!atCap && canConsumeFrost(1)) {
+        boolean consumedFrost = false;
+        if (this.misc < cap && canConsumeFrost(1)) {
             consumeFrost(1);
-            dmg = Math.min(cap, dmg + FROST_EXTRA);
+            consumedFrost = true;
         }
 
         addToBot(new DamageAction(m,
@@ -54,9 +54,12 @@ public class ReinforcedArrow extends AbstractKroosCard {
                 AttackEffect.SLASH_DIAGONAL));
         scatterIfArrow(p, m, dmg);
 
-        // 打出后永久增加基础伤害 (参考遗传算法: IncreaseMiscAction 同步所有同 UUID 实例)
-        int per = this.upgraded ? PER_USE_BONUS_UPG : PER_USE_BONUS;
-        addToBot(new IncreaseMiscAction(this.uuid, this.misc, per));
+        // 打出后永久增加基础伤害
+        // 寒芒消耗时 +4 (基础+2 + 寒芒额外+2)，否则 +2
+        int per = consumedFrost ? (PER_USE_BONUS + FROST_EXTRA) : PER_USE_BONUS;
+        int newMisc = this.misc + per;
+        newMisc = Math.min(cap, newMisc);
+        addToBot(new IncreaseMiscAction(this.uuid, this.misc, newMisc - this.misc));
     }
 
     /** 显示伤害按 misc 同步, 与遗传算法一致 */

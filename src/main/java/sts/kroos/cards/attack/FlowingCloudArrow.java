@@ -10,6 +10,8 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import java.util.HashSet;
+import java.util.UUID;
 import sts.kroos.KroosMod;
 import sts.kroos.cards.AbstractKroosCard;
 import sts.kroos.powers.FocusPower;
@@ -43,18 +45,26 @@ public class FlowingCloudArrow extends AbstractKroosCard {
                 AttackEffect.SLASH_DIAGONAL));
         scatterIfArrow(p, m, this.damage);
 
-        final int handBefore = p.hand.size();
+        // 记录打出前的所有手牌ID
+        final HashSet<UUID> existingIds = new HashSet<>();
+        if (p != null && p.hand != null) {
+            for (AbstractCard c : p.hand.group) {
+                existingIds.add(c.uuid);
+            }
+        }
+
         addToBot(new DrawCardAction(p, 1));
         addToBot(new AbstractGameAction() {
             @Override
             public void update() {
-                this.isDone = true;
-                int now = AbstractDungeon.player.hand.size();
-                for (int i = handBefore; i < now; i++) {
-                    AbstractCard c = AbstractDungeon.player.hand.group.get(i);
+                isDone = true;
+                if (p == null || p.hand == null) return;
+                for (AbstractCard c : p.hand.group) {
+                    // 排除打出前已有的牌
+                    if (existingIds.contains(c.uuid)) continue;
+                    // 新抽到的牌
                     if (c instanceof AbstractKroosCard
                             && ((AbstractKroosCard) c).isArrow) {
-                        c.cost = Math.max(0, c.cost - 1);
                         c.costForTurn = Math.max(0, c.costForTurn - 1);
                         c.isCostModified = true;
                     }
