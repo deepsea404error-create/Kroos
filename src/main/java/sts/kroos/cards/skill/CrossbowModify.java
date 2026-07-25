@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.BufferPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
+import com.megacrit.cardcrawl.vfx.cardManip.ShowCardBrieflyEffect;
 import sts.kroos.KroosMod;
 import sts.kroos.cards.AbstractKroosCard;
 import sts.kroos.powers.FocusPower;
@@ -19,10 +20,8 @@ import java.util.List;
 /**
  * 弩箭改装 - 1费。
  *   - 获得 1 力量, 1 (强化 2) 层专注
- *   - 升级抽牌堆中 2 张随机攻击牌 (强化: 升级抽牌堆中所有攻击牌)
+ *   - 升级抽牌堆中 2 (强化 3) 张随机攻击牌
  *   - 寒芒: 消耗 1 层寒芒, 获得 2 (强化 3) 点活性肌肉 (= BufferPower)
- *
- * 活性肌肉沿用原版 BufferPower (每层抵消下次 1 次伤害)。
  */
 public class CrossbowModify extends AbstractKroosCard {
     public static final String ID = KroosMod.MOD_ID + ":CrossbowModify";
@@ -33,6 +32,7 @@ public class CrossbowModify extends AbstractKroosCard {
     private static final int FOCUS = 1;
     private static final int UPGRADE_FOCUS = 1;
     private static final int UPGRADE_RANDOM = 2;
+    private static final int UPGRADE_EXTRA = 1;
     private static final int BUFFER = 2;
     private static final int BUFFER_UPG = 3;
 
@@ -49,7 +49,7 @@ public class CrossbowModify extends AbstractKroosCard {
         addToBot(new ApplyPowerAction(p, p,
                 new FocusPower(p, this.magicNumber), this.magicNumber));
 
-        final boolean upgradeAll = this.upgraded;
+        final int upgradeCount = this.upgraded ? UPGRADE_RANDOM + UPGRADE_EXTRA : UPGRADE_RANDOM;
         addToBot(new AbstractGameAction() {
             @Override
             public void update() {
@@ -59,16 +59,13 @@ public class CrossbowModify extends AbstractKroosCard {
                 for (AbstractCard c : dp.group) {
                     if (c.type == AbstractCard.CardType.ATTACK && c.canUpgrade()) pool.add(c);
                 }
-                if (upgradeAll) {
-                    for (AbstractCard c : pool) { c.upgrade(); c.applyPowers(); }
-                } else {
-                    int n = Math.min(UPGRADE_RANDOM, pool.size());
-                    for (int i = 0; i < n; i++) {
-                        int idx = AbstractDungeon.cardRandomRng.random(pool.size() - 1);
-                        AbstractCard c = pool.remove(idx);
-                        c.upgrade();
-                        c.applyPowers();
-                    }
+                int n = Math.min(upgradeCount, pool.size());
+                for (int i = 0; i < n; i++) {
+                    int idx = AbstractDungeon.cardRandomRng.random(pool.size() - 1);
+                    AbstractCard c = pool.remove(idx);
+                    c.upgrade();
+                    c.applyPowers();
+                    AbstractDungeon.effectList.add(new ShowCardBrieflyEffect(c.makeStatEquivalentCopy()));
                 }
             }
         });

@@ -172,7 +172,7 @@
   "kroosmod:CrossbowModify": {
     "NAME": "弩箭改装",
     "DESCRIPTION": "获得 1 点力量，!M! 层 专注。 NL 随机升级抽牌堆中 2 张攻击牌。 NL 寒芒：消耗 1 层寒芒，获得 2 点活性肌肉。",
-    "UPGRADE_DESCRIPTION": "获得 1 点力量，!M! 层 专注。 NL 升级抽牌堆中所有攻击牌。 NL 寒芒：消耗 1 层寒芒，获得 3 点活性肌肉。"
+    "UPGRADE_DESCRIPTION": "获得 1 点力量，!M! 层 专注。 NL 随机升级抽牌堆中 3 张攻击牌。 NL 寒芒：消耗 1 层寒芒，获得 3 点活性肌肉。"
   },
   "kroosmod:HoldMode": {
     "NAME": "坚守模式",
@@ -321,8 +321,8 @@
   },
   "kroosmod:RapidShift": {
     "NAME": "急速转移",
-    "DESCRIPTION": "消耗。消耗 !M! 张手牌。立即额外获得 1 点能量与 5 张手牌。 NL 寒芒：消耗 3 层寒芒，下回合额外抽 2 张牌，+1 能量。",
-    "UPGRADE_DESCRIPTION": "保留。消耗 !M! 张手牌。立即额外获得 1 点能量与 5 张手牌。 NL 寒芒：消耗 2 层寒芒，下回合额外抽 2 张牌，+1 能量。"
+    "DESCRIPTION": "消耗。 NL 选择消耗 !M! 张手牌，获得 1 费，抽 5 张牌，结束你的回合。 NL 寒芒：消耗 3 层寒芒，下回合额外抽 2 张牌，获得 1 费。",
+    "UPGRADE_DESCRIPTION": "保留。消耗。 NL 选择消耗 !M! 张手牌，额外获得 1 回合。 NL 寒芒：消耗 2 层寒芒，下回合额外抽 2 张牌，获得 1 费。"
   },
   "kroosmod:Traceless": {
     "NAME": "无痕",
