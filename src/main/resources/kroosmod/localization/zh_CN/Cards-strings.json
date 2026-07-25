@@ -341,8 +341,8 @@
   },
   "kroosmod:OneInstant": {
     "NAME": "一瞬",
-    "DESCRIPTION": "当前回合每打出 1 张攻击牌，施加 1 层 破绽。 NL 丢弃所有手牌。 NL 寒芒：消耗 1 层寒芒，施加 1 层 破绽。",
-    "UPGRADE_DESCRIPTION": "保留。当前回合每打出 1 张攻击牌，施加 1 层 破绽。 NL 丢弃所有手牌。 NL 寒芒：消耗 1 层寒芒，施加 1 层 破绽。"
+    "DESCRIPTION": "当前回合每打出 1 张攻击牌，施加 1 层 破绽。 NL 寒芒：消耗 1 层寒芒，施加 1 层 破绽。",
+    "UPGRADE_DESCRIPTION": "保留。当前回合每打出 1 张攻击牌，施加 1 层 破绽。 NL 寒芒：消耗 1 层寒芒，施加 1 层 破绽。"
   },
   "kroosmod:A1_Fen": {
     "NAME": "A1小队-芬",

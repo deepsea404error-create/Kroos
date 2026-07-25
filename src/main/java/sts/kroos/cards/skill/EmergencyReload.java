@@ -21,7 +21,7 @@ public class EmergencyReload extends AbstractKroosCard {
     private static final String IMG = KroosMod.RES_ROOT + "cards/skill/emergency_reload.png";
 
     private static final int COST = 1;
-    private static final int DRAW = 2;
+    private static final int DRAW = 1;
     private static final int UPGRADE_DRAW = 1;
 
     public EmergencyReload() {

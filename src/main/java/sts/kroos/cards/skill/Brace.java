@@ -36,9 +36,9 @@ public class Brace extends AbstractKroosCard {
 
     @Override
     public void useImpl(AbstractPlayer p, AbstractMonster m) {
-        // 手牌全部 selfRetain (本回合一次性)
+        // 手牌全部 retain（一次性，下回合清除，参考 Well Laid Plans）
         for (AbstractCard c : p.hand.group) {
-            c.selfRetain = true;
+            c.retain = true;
         }
         if (canConsumeFrost(1)) {
             consumeFrost(1);
