@@ -22,7 +22,7 @@ import sts.kroos.cards.attack.Awareness;
 import sts.kroos.cards.attack.BayonetCharge;
 import sts.kroos.cards.attack.DoubleShot;
 import sts.kroos.cards.attack.DreamDisturb;
-import sts.kroos.cards.attack.DreamShock;
+
 import sts.kroos.cards.attack.ExplosiveArrow;
 import sts.kroos.cards.attack.FinalCurtain;
 import sts.kroos.cards.attack.FlawShot;
@@ -229,7 +229,7 @@ public class KroosMod implements
         BaseMod.addCard(new Awareness());
         BaseMod.addCard(new PrecisionShot());
         BaseMod.addCard(new RiftStrike());
-        BaseMod.addCard(new DreamShock());
+
         // 蓝卡技能
         BaseMod.addCard(new RapidShoot());
         BaseMod.addCard(new Solitude());
@@ -279,7 +279,7 @@ public class KroosMod implements
         UnlockTracker.unlockCard(DreamDisturb.ID);
         UnlockTracker.unlockCard(HalfAwake.ID);
         UnlockTracker.unlockCard(RiftStrike.ID);
-        UnlockTracker.unlockCard(DreamShock.ID);
+
         UnlockTracker.unlockCard(FinalCurtain.ID);
         UnlockTracker.unlockCard(SimpleFortification.ID);
         UnlockTracker.unlockCard(EmergencyEvasion.ID);

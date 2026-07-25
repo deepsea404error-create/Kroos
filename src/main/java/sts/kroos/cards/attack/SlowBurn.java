@@ -14,7 +14,7 @@ import sts.kroos.powers.DozePower;
  *   - 每保留 1 回合, 伤害 +2 (强化 +4)
  *   - 寒芒: 若在浅眠状态, 消耗 1 层寒芒, 伤害 +5 (强化 +8)
  *
- * triggerOnEndOfPlayerTurn 在回合结束时(本牌仍在手中)增加 baseDamage。
+ * 保留增加伤害使用原版 onRetained() 回调，参考 WindmillStrike。
  */
 public class SlowBurn extends AbstractKroosCard {
     public static final String ID = KroosMod.MOD_ID + ":SlowBurn";
@@ -31,16 +31,15 @@ public class SlowBurn extends AbstractKroosCard {
     public SlowBurn() {
         super(ID, IMG, COST, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY);
         this.baseDamage = DAMAGE;
+        this.baseMagicNumber = RETAIN_BONUS;
+        this.magicNumber = RETAIN_BONUS;
         this.selfRetain = true;
         this.isDreamStrike = true;
     }
 
     @Override
-    public void triggerOnEndOfPlayerTurn() {
-        super.triggerOnEndOfPlayerTurn();
-        this.baseDamage += this.upgraded ? RETAIN_BONUS_UPG : RETAIN_BONUS;
-        super.applyPowers();
-        this.flash();
+    public void onRetained() {
+        this.upgradeDamage(this.magicNumber);
     }
 
     @Override
@@ -63,6 +62,7 @@ public class SlowBurn extends AbstractKroosCard {
         if (!this.upgraded) {
             this.upgradeName();
             this.upgradeDamage(UPGRADE_DAMAGE);
+            this.upgradeMagicNumber(RETAIN_BONUS_UPG - RETAIN_BONUS);
             upgradeDescription();
         }
     }

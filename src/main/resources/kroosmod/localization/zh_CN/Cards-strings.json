@@ -229,11 +229,6 @@
     "DESCRIPTION": "造成 !D! 点伤害 2 次。 NL 若目标拥有 中的，每次伤害+2。 NL 寒芒：消耗 1 层寒芒，施加 1 层 破绽。",
     "UPGRADE_DESCRIPTION": "造成 !D! 点伤害 2 次。 NL 若目标拥有 中的，每次伤害+3。 NL 寒芒：消耗 1 层寒芒，施加 1 层 破绽。"
   },
-  "kroosmod:DreamShock": {
-    "NAME": "惊梦",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL 退出 浅眠 时，本牌回到手牌，且费用-1。",
-    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL 退出 浅眠 时，本牌回到手牌，且费用-1。"
-  },
   "kroosmod:ThroatSeal": {
     "NAME": "封喉",
     "DESCRIPTION": "消耗。造成 !D! 点伤害 !M! 次。 NL 每次伤害若未被完全阻挡，施加 1 层 破绽。 NL 寒芒：消耗 3 层寒芒，额外造成 2 次伤害。",
@@ -251,8 +246,8 @@
   },
   "kroosmod:PiercingCloud": {
     "NAME": "穿云",
-    "DESCRIPTION": "造成 !D! 点伤害，施加 !M! 层 破绽。 NL 寒芒：本牌 暴击 时，消耗 1 层寒芒，保留此牌且耗能变为 0。",
-    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害，施加 !M! 层 破绽。 NL 寒芒：本牌 暴击 时，消耗 1 层寒芒，保留此牌且耗能变为 0。"
+    "DESCRIPTION": "造成 !D! 点伤害，施加 !M! 层 破绽。 NL 寒芒：本牌 暴击 时，消耗 1 层寒芒，将此牌返回手牌并获得 1 费。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害，施加 !M! 层 破绽。 NL 寒芒：本牌 暴击 时，消耗 1 层寒芒，将此牌返回手牌并获得 1 费。"
   },
   "kroosmod:FinalCurtain": {
     "NAME": "终幕",
