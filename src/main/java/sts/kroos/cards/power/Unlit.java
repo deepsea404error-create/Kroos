@@ -16,8 +16,8 @@ public class Unlit extends AbstractKroosCard {
     private static final String IMG = KroosMod.RES_ROOT + "cards/power/unlit.png";
 
     private static final int COST = 1;
-    private static final int BLOCK = 3;
-    private static final int BLOCK_UPG = 4;
+    private static final int BLOCK = 10;
+    private static final int BLOCK_UPG = 14;
 
     public Unlit() {
         super(ID, IMG, COST, CardType.POWER, CardRarity.UNCOMMON, CardTarget.SELF);

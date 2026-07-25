@@ -8,7 +8,7 @@ import sts.kroos.cards.AbstractKroosCard;
 import sts.kroos.powers.ResonancePower;
 
 /**
- * 共鸣 - 1费, 暴击时获得 1 层寒芒。
+ * 共鸣 - 1费, 暴击时获得 2 层寒芒。
  *   - 强化: 固有
  */
 public class Resonance extends AbstractKroosCard {
@@ -16,7 +16,7 @@ public class Resonance extends AbstractKroosCard {
     private static final String IMG = KroosMod.RES_ROOT + "cards/power/resonance.png";
 
     private static final int COST = 1;
-    private static final int FROST = 1;
+    private static final int FROST = 2;
 
     public Resonance() {
         super(ID, IMG, COST, CardType.POWER, CardRarity.UNCOMMON, CardTarget.SELF);

@@ -7,7 +7,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.powers.EnergizedPower;
+import com.megacrit.cardcrawl.powers.watcher.VigorPower;
 import sts.kroos.KroosMod;
 import sts.kroos.util.TextureLoader;
 
@@ -42,6 +42,6 @@ public class VigilancePower extends AbstractPower implements IDozeExitListener {
         if (this.amount <= 0) return;
         this.flash();
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(
-                owner, owner, new EnergizedPower(owner, this.amount), this.amount));
+                owner, owner, new VigorPower(owner, this.amount), this.amount));
     }
 }

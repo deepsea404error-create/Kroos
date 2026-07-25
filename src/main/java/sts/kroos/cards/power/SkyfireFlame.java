@@ -15,8 +15,8 @@ public class SkyfireFlame extends AbstractKroosCard {
     private static final String IMG = KroosMod.RES_ROOT + "cards/power/skyfire_flame.png";
 
     private static final int COST = 1;
-    private static final int BONUS = 4;
-    private static final int BONUS_UPG = 6;
+    private static final int BONUS = 8;
+    private static final int BONUS_UPG = 10;
 
     public SkyfireFlame() {
         super(ID, IMG, COST, CardType.POWER, CardRarity.UNCOMMON, CardTarget.SELF);

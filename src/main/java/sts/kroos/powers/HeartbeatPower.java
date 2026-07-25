@@ -4,7 +4,6 @@ import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import sts.kroos.KroosMod;
@@ -15,13 +14,12 @@ import java.util.Set;
 
 /**
  * 心音 Power。
- * 含义: 每回合从前 X 张卡牌获得的格挡翻倍。
+ * 含义: 每回合前 X 张卡牌获得的格挡翻倍。
  *
- * 实现:
- *   - modifyBlock 钩子每帧/每次格挡计算都会调用, 因此用 cardInUse 守卫
- *     仅在"卡牌正在被打出"时计入. (手牌显示刷新时 cardInUse 为 null, 不计)
- *   - doubledCards 集合保证同一张卡多次 modifyBlock 调用仅占用 1 次计数
- *   - atStartOfTurn 重置计数与集合
+ * 实现: modifyBlock 钩子翻倍格挡值（同时影响显示和实际效果）。
+ *       doubledCards 集合保证同一张卡多次 modifyBlock 调用仅占用 1 次计数。
+ *       atStartOfTurn 重置计数与集合。
+ *       不检查 cardInUse，因为 applyPowers() 在卡牌打出前就已计算好 block 值。
  */
 public class HeartbeatPower extends AbstractPower {
     public static final String POWER_ID = KroosMod.MOD_ID + ":Heartbeat";
@@ -58,9 +56,7 @@ public class HeartbeatPower extends AbstractPower {
     @Override
     public float modifyBlock(float blockAmount, AbstractCard card) {
         if (blockAmount <= 0 || card == null || this.amount <= 0) return blockAmount;
-        AbstractCard inUse = AbstractDungeon.player != null ? AbstractDungeon.player.cardInUse : null;
-        if (inUse != card) return blockAmount; // 仅"正在打出"才真正翻倍
-        if (doubledCards.contains(card)) return blockAmount * 2F; // 同卡多次格挡保持一致翻倍
+        if (doubledCards.contains(card)) return blockAmount * 2F;
         if (triggersLeft <= 0) return blockAmount;
         doubledCards.add(card);
         triggersLeft--;

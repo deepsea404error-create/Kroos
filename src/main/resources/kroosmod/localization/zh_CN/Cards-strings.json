@@ -321,7 +321,7 @@
   },
   "kroosmod:RapidShift": {
     "NAME": "急速转移",
-    "DESCRIPTION": "消耗。 NL 选择消耗 !M! 张手牌，获得 1 费，抽 5 张牌，结束你的回合。 NL 寒芒：消耗 3 层寒芒，下回合额外抽 2 张牌，获得 1 费。",
+    "DESCRIPTION": "消耗。 NL 选择消耗 !M! 张手牌，额外获得 1 回合。 NL 寒芒：消耗 3 层寒芒，下回合额外抽 2 张牌，获得 1 费。",
     "UPGRADE_DESCRIPTION": "保留。消耗。 NL 选择消耗 !M! 张手牌，额外获得 1 回合。 NL 寒芒：消耗 2 层寒芒，下回合额外抽 2 张牌，获得 1 费。"
   },
   "kroosmod:Traceless": {
