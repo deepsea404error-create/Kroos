@@ -52,13 +52,17 @@ import sts.kroos.cards.colorless.A1_Yanrong;
 import sts.kroos.cards.colorless.NormalArrow;
 import sts.kroos.cards.power.A1SquadBond;
 import sts.kroos.cards.power.ArrowImprovement;
+import sts.kroos.cards.power.Burst;
 import sts.kroos.cards.power.DreamShadow;
+import sts.kroos.cards.power.HellForge;
+import sts.kroos.cards.power.FrostForm;
 import sts.kroos.cards.power.FlawConfirm;
 import sts.kroos.cards.power.HeartScar;
 import sts.kroos.cards.power.Heartbeat;
 import sts.kroos.cards.power.Insomnia;
 import sts.kroos.cards.power.PhantomCamo;
 import sts.kroos.cards.power.Resonance;
+import sts.kroos.cards.power.Scatter;
 import sts.kroos.cards.power.SkyfireFlame;
 import sts.kroos.cards.power.SupplyDrop;
 import sts.kroos.cards.power.Transparent;
@@ -219,6 +223,8 @@ public class KroosMod implements
         BaseMod.addCard(new ArrowImprovement());
         BaseMod.addCard(new PhantomCamo());
         BaseMod.addCard(new Heartbeat());
+        BaseMod.addCard(new Scatter());
+        BaseMod.addCard(new Burst());
         // 蓝卡攻击
         BaseMod.addCard(new SkyVolley());
         BaseMod.addCard(new ExplosiveArrow());
@@ -257,6 +263,8 @@ public class KroosMod implements
         BaseMod.addCard(new OneInstant());
         // 金卡能力
         BaseMod.addCard(new A1SquadBond());
+        BaseMod.addCard(new HellForge());
+        BaseMod.addCard(new FrostForm());
         // 衍生无色
         BaseMod.addCard(new NormalArrow());
         BaseMod.addCard(new A1_Fen());
@@ -305,6 +313,8 @@ public class KroosMod implements
         UnlockTracker.unlockCard(ArrowImprovement.ID);
         UnlockTracker.unlockCard(PhantomCamo.ID);
         UnlockTracker.unlockCard(Heartbeat.ID);
+        UnlockTracker.unlockCard(Scatter.ID);
+        UnlockTracker.unlockCard(Burst.ID);
         UnlockTracker.unlockCard(SkyVolley.ID);
         UnlockTracker.unlockCard(ExplosiveArrow.ID);
         UnlockTracker.unlockCard(ReinforcedArrow.ID);
@@ -335,6 +345,8 @@ public class KroosMod implements
         UnlockTracker.unlockCard(Brace.ID);
         UnlockTracker.unlockCard(OneInstant.ID);
         UnlockTracker.unlockCard(A1SquadBond.ID);
+        UnlockTracker.unlockCard(HellForge.ID);
+        UnlockTracker.unlockCard(FrostForm.ID);
         UnlockTracker.unlockCard(NormalArrow.ID);
         UnlockTracker.unlockCard(A1_Fen.ID);
         UnlockTracker.unlockCard(A1_Miguelu.ID);

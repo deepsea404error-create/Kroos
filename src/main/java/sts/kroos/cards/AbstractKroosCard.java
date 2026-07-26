@@ -48,6 +48,7 @@ public abstract class AbstractKroosCard extends CustomCard {
     /** A1小队牌: 均为虚无、消耗类型无色卡牌 */
     public boolean isA1Squad = false;
 
+
     public AbstractKroosCard(final String id,
                              final String img,
                              final int cost,

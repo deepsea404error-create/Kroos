@@ -60,7 +60,7 @@ public class CriticalPower extends AbstractPower {
         this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
     }
 
-    /** 源端伤害修饰: 攻击牌伤害 * (Scope 持有时 2.0, 否则 1.5) */
+    /** 源端伤害修饰: 攻击牌伤害 * (Scope 持有时 2.0, 否则 1.5) + 爆发加成 */
     @Override
     public float atDamageGive(float damage, DamageInfo.DamageType type) {
         if (this.amount > 0 && type == DamageInfo.DamageType.NORMAL) {
@@ -68,6 +68,13 @@ public class CriticalPower extends AbstractPower {
             if (AbstractDungeon.player != null
                     && AbstractDungeon.player.hasRelic(sts.kroos.relics.Scope.ID)) {
                 mul = 2.0F;
+            }
+            // 爆发：每层增加25%暴击伤害
+            if (AbstractDungeon.player != null) {
+                AbstractPower burst = AbstractDungeon.player.getPower(KroosMod.MOD_ID + ":Burst");
+                if (burst != null && burst.amount > 0) {
+                    mul += 0.25F * burst.amount;
+                }
             }
             return damage * mul;
         }

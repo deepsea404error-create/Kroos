@@ -75,6 +75,18 @@
     "NAME": "共鸣",
     "DESCRIPTIONS": ["暴击时，获得 ", " 层寒芒。"]
   },
+  "kroosmod:Burst": {
+    "NAME": "爆发",
+    "DESCRIPTIONS": ["暴击伤害增加 ", "×25%。"]
+  },
+  "kroosmod:HellForge": {
+    "NAME": "狱淬",
+    "DESCRIPTIONS": ["攻击带有\u201c中的\u201d的敌人时，额外造成 ", " 点伤害。"]
+  },
+  "kroosmod:FrostForm": {
+    "NAME": "寒芒形态",
+    "DESCRIPTIONS": ["每回合前 ", " 张攻击牌重复打出1次。"]
+  },
   "kroosmod:ExtraDraw": {
     "NAME": "物资补给",
     "DESCRIPTIONS": ["每回合开始时额外抽 ", " 张牌。"]
