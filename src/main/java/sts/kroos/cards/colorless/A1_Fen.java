@@ -23,7 +23,7 @@ public class A1_Fen extends AbstractKroosCard {
     public A1_Fen() {
         super(ID, IMG, COST, CardType.SKILL,
                 AbstractCard.CardColor.COLORLESS,
-                CardRarity.UNCOMMON, CardTarget.SELF);
+                CardRarity.SPECIAL, CardTarget.SELF);
         this.baseMagicNumber = DRAW;
         this.magicNumber = DRAW;
         this.exhaust = true;

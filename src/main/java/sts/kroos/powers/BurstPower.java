@@ -26,7 +26,7 @@ public class BurstPower extends AbstractPower {
         this.type = PowerType.BUFF;
         Texture l = TextureLoader.getTexture(IL), s = TextureLoader.getTexture(IS);
         if (l != null) this.region128 = new com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion(l, 0, 0, 84, 84);
-        if (s != null) this.region48  = new com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion(s, 0, 0, 32, 32);
+        if (s != null) this.region48  = new com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion(s, 0, 0, 36, 36);
         updateDescription();
     }
 

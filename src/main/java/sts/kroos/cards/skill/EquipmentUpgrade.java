@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.vfx.cardManip.ShowCardBrieflyEffect;
 import sts.kroos.KroosMod;
 import sts.kroos.cards.AbstractKroosCard;
 import sts.kroos.powers.FocusPower;
@@ -53,8 +54,8 @@ public class EquipmentUpgrade extends AbstractKroosCard {
                     int idx = AbstractDungeon.cardRandomRng.random(pool.size() - 1);
                     AbstractCard c = pool.remove(idx);
                     c.upgrade();
-                    c.superFlash();
                     c.applyPowers();
+                    AbstractDungeon.effectList.add(new ShowCardBrieflyEffect(c.makeStatEquivalentCopy()));
                 }
                 AbstractDungeon.player.hand.glowCheck();
             }

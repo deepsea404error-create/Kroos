@@ -14,9 +14,9 @@ import sts.kroos.cards.AbstractKroosCard;
  *   - 获得 8 (强化 11) 点格挡, 2 (强化 3) 点敏捷
  *   - 寒芒: 消耗 1 层寒芒, 额外获得 3 (强化 5) 点格挡
  */
-public class A1_Miguelu extends AbstractKroosCard {
-    public static final String ID = KroosMod.MOD_ID + ":A1_Miguelu";
-    private static final String IMG = KroosMod.RES_ROOT + "cards/colorless/a1_miguelu.png";
+public class A1_Migelu extends AbstractKroosCard {
+    public static final String ID = KroosMod.MOD_ID + ":A1_Migelu";
+    private static final String IMG = KroosMod.RES_ROOT + "cards/colorless/a1_migelu.png";
 
     private static final int COST = 1;
     private static final int BLOCK = 8;
@@ -26,10 +26,10 @@ public class A1_Miguelu extends AbstractKroosCard {
     private static final int FROST_BLOCK = 3;
     private static final int FROST_BLOCK_UPG = 5;
 
-    public A1_Miguelu() {
+    public A1_Migelu() {
         super(ID, IMG, COST, CardType.SKILL,
                 AbstractCard.CardColor.COLORLESS,
-                CardRarity.UNCOMMON, CardTarget.SELF);
+                CardRarity.SPECIAL, CardTarget.SELF);
         this.baseBlock = BLOCK;
         this.baseMagicNumber = DEX;
         this.magicNumber = DEX;
@@ -50,7 +50,7 @@ public class A1_Miguelu extends AbstractKroosCard {
     }
 
     @Override
-    public AbstractKroosCard makeCopy() { return new A1_Miguelu(); }
+    public AbstractKroosCard makeCopy() { return new A1_Migelu(); }
 
     @Override
     public void upgrade() {

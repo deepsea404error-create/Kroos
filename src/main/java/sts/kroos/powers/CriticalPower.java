@@ -52,7 +52,7 @@ public class CriticalPower extends AbstractPower {
         Texture large = TextureLoader.getTexture(ICON_LARGE);
         Texture small = TextureLoader.getTexture(ICON_SMALL);
         if (large != null) this.region128 = new com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion(large, 0, 0, 84, 84);
-        if (small != null) this.region48  = new com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion(small, 0, 0, 32, 32);
+        if (small != null) this.region48  = new com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion(small, 0, 0, 36, 36);
     }
 
     @Override

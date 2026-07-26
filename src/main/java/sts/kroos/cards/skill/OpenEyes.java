@@ -14,7 +14,7 @@ import sts.kroos.powers.DozePower;
  *   - 寒芒: 消耗 1 层寒芒, 获得 4 点活力 (强化后为 6, 且本牌保留)
  *
  * 退出浅眠 = RemoveSpecificPowerAction(DozePower), 由 DozePower.onRemove 链式触发蓄势放电。
- * 活力 = 原版 EnergizedPower (下回合 +X 能量)
+ * 活力 = 原版 VigorPower
  */
 public class OpenEyes extends AbstractKroosCard {
     public static final String ID = KroosMod.MOD_ID + ":OpenEyes";

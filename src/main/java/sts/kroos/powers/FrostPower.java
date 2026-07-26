@@ -40,7 +40,7 @@ public class FrostPower extends AbstractPower {
         Texture large = TextureLoader.getTexture(ICON_LARGE_PATH);
         Texture small = TextureLoader.getTexture(ICON_SMALL_PATH);
         if (large != null) this.region128 = new com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion(large, 0, 0, 84, 84);
-        if (small != null) this.region48  = new com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion(small, 0, 0, 32, 32);
+        if (small != null) this.region48  = new com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion(small, 0, 0, 36, 36);
 
         updateDescription();
     }

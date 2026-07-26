@@ -47,7 +47,7 @@ import sts.kroos.cards.attack.WarningShot;
 import sts.kroos.cards.attack.Yawn;
 import sts.kroos.cards.colorless.A1_Fen;
 import sts.kroos.cards.colorless.A1_Furong;
-import sts.kroos.cards.colorless.A1_Miguelu;
+import sts.kroos.cards.colorless.A1_Migelu;
 import sts.kroos.cards.colorless.A1_Yanrong;
 import sts.kroos.cards.colorless.NormalArrow;
 import sts.kroos.cards.power.A1SquadBond;
@@ -268,7 +268,7 @@ public class KroosMod implements
         // 衍生无色
         BaseMod.addCard(new NormalArrow());
         BaseMod.addCard(new A1_Fen());
-        BaseMod.addCard(new A1_Miguelu());
+        BaseMod.addCard(new A1_Migelu());
         BaseMod.addCard(new A1_Furong());
         BaseMod.addCard(new A1_Yanrong());
 
@@ -349,7 +349,7 @@ public class KroosMod implements
         UnlockTracker.unlockCard(FrostForm.ID);
         UnlockTracker.unlockCard(NormalArrow.ID);
         UnlockTracker.unlockCard(A1_Fen.ID);
-        UnlockTracker.unlockCard(A1_Miguelu.ID);
+        UnlockTracker.unlockCard(A1_Migelu.ID);
         UnlockTracker.unlockCard(A1_Furong.ID);
         UnlockTracker.unlockCard(A1_Yanrong.ID);
     }

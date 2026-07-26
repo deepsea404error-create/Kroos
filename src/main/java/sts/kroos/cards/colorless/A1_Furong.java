@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.EnergizedPower;
 import com.megacrit.cardcrawl.powers.LoseStrengthPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
+import com.megacrit.cardcrawl.powers.watcher.VigorPower;
 import sts.kroos.KroosMod;
 import sts.kroos.cards.AbstractKroosCard;
 
@@ -34,7 +35,7 @@ public class A1_Furong extends AbstractKroosCard {
     public A1_Furong() {
         super(ID, IMG, COST, CardType.SKILL,
                 AbstractCard.CardColor.COLORLESS,
-                CardRarity.UNCOMMON, CardTarget.SELF);
+                CardRarity.SPECIAL, CardTarget.SELF);
         this.baseMagicNumber = ENERGY;
         this.magicNumber = ENERGY;
         this.exhaust = true;
@@ -48,7 +49,7 @@ public class A1_Furong extends AbstractKroosCard {
         int vit = this.upgraded ? UPGRADE_VITALITY + VITALITY - UPGRADE_VITALITY : VITALITY;
         // 简化: 强化后 vitality 直接为 6
         vit = this.upgraded ? 6 : VITALITY;
-        addToBot(new ApplyPowerAction(p, p, new EnergizedPower(p, vit), vit));
+        addToBot(new ApplyPowerAction(p, p, new VigorPower(p, vit), vit));
         if (canConsumeFrost(1)) {
             consumeFrost(1);
             int str = this.upgraded ? TEMP_STR_UPG : TEMP_STR;

@@ -4,7 +4,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import sts.kroos.cards.colorless.A1_Fen;
 import sts.kroos.cards.colorless.A1_Furong;
-import sts.kroos.cards.colorless.A1_Miguelu;
+import sts.kroos.cards.colorless.A1_Migelu;
 import sts.kroos.cards.colorless.A1_Yanrong;
 
 import java.util.ArrayList;
@@ -26,7 +26,7 @@ public final class A1SquadFactory {
     private static final List<Supplier<AbstractCard>> POOL = new ArrayList<>();
     static {
         POOL.add(A1_Fen::new);
-        POOL.add(A1_Miguelu::new);
+        POOL.add(A1_Migelu::new);
         POOL.add(A1_Furong::new);
         POOL.add(A1_Yanrong::new);
     }

@@ -29,7 +29,7 @@ public class A1_Yanrong extends AbstractKroosCard {
     public A1_Yanrong() {
         super(ID, IMG, COST, CardType.ATTACK,
                 AbstractCard.CardColor.COLORLESS,
-                CardRarity.UNCOMMON, CardTarget.ALL_ENEMY);
+                CardRarity.SPECIAL, CardTarget.ALL_ENEMY);
         this.baseDamage = DAMAGE;
         this.isMultiDamage = true;
         this.exhaust = true;

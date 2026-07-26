@@ -1,5 +1,6 @@
 package sts.kroos.cards.attack;
 
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
@@ -8,6 +9,7 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.vfx.cardManip.ShowCardBrieflyEffect;
 import sts.kroos.KroosMod;
 import sts.kroos.cards.AbstractKroosCard;
 
@@ -38,9 +40,27 @@ public class RapidFire extends AbstractKroosCard {
                 AttackEffect.BLUNT_LIGHT));
         if (canConsumeFrost(1)) {
             consumeFrost(1);
-            DrawCardAction draw = new DrawCardAction(p, 1);
-            addToBot(draw);
-            // TODO: 强化后将抽到的牌升级 — 暂留简单抽 1, 升级需要 hand peek 后处理
+            final boolean shouldUpgrade = this.upgraded;
+            final int handSizeBefore = p.hand.size();
+            addToBot(new DrawCardAction(p, 1));
+            if (shouldUpgrade) {
+                addToBot(new AbstractGameAction() {
+                    @Override
+                    public void update() {
+                        this.isDone = true;
+                        // 找到刚抽入手中且可升级的牌
+                        for (int i = handSizeBefore; i < AbstractDungeon.player.hand.group.size(); i++) {
+                            AbstractCard c = AbstractDungeon.player.hand.group.get(i);
+                            if (c.canUpgrade()) {
+                                c.upgrade();
+                                c.applyPowers();
+                                AbstractDungeon.effectList.add(new ShowCardBrieflyEffect(c.makeStatEquivalentCopy()));
+                                break;
+                            }
+                        }
+                    }
+                });
+            }
         }
     }
 

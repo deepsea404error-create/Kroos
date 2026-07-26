@@ -5,8 +5,12 @@ import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
+import com.megacrit.cardcrawl.vfx.cardManip.ShowCardBrieflyEffect;
 import sts.kroos.KroosMod;
 import sts.kroos.util.TextureLoader;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 分浪 — 稀有。
@@ -28,10 +32,15 @@ public class PartingWaves extends CustomRelic {
     @Override
     public void onEquip() {
         if (AbstractDungeon.player == null) return;
+        List<AbstractCard> upgraded = new ArrayList<>();
         for (AbstractCard c : AbstractDungeon.player.masterDeck.group) {
             if (c.type == AbstractCard.CardType.ATTACK && c.canUpgrade()) {
                 c.upgrade();
+                upgraded.add(c);
             }
+        }
+        for (AbstractCard c : upgraded) {
+            AbstractDungeon.effectList.add(new ShowCardBrieflyEffect(c.makeStatEquivalentCopy()));
         }
     }
 
