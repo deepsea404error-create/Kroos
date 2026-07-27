@@ -33,6 +33,7 @@ public class A1_Yanrong extends AbstractKroosCard {
         this.baseDamage = DAMAGE;
         this.isMultiDamage = true;
         this.exhaust = true;
+        this.isEthereal = true;
         this.isA1Squad = true;
     }
 

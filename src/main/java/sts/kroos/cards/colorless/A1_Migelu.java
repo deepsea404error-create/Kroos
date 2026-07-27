@@ -34,6 +34,7 @@ public class A1_Migelu extends AbstractKroosCard {
         this.baseMagicNumber = DEX;
         this.magicNumber = DEX;
         this.exhaust = true;
+        this.isEthereal = true;
         this.isA1Squad = true;
     }
 

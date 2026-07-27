@@ -39,6 +39,7 @@ public class A1_Furong extends AbstractKroosCard {
         this.baseMagicNumber = ENERGY;
         this.magicNumber = ENERGY;
         this.exhaust = true;
+        this.isEthereal = true;
         this.isA1Squad = true;
     }
 

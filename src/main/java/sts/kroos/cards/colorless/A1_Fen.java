@@ -27,6 +27,7 @@ public class A1_Fen extends AbstractKroosCard {
         this.baseMagicNumber = DRAW;
         this.magicNumber = DRAW;
         this.exhaust = true;
+        this.isEthereal = true;
         this.isA1Squad = true;
     }
 
