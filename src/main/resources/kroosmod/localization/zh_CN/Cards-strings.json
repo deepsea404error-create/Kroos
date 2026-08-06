@@ -96,8 +96,8 @@
   },
   "kroosmod:AimForVital": {
     "NAME": "要害瞄准",
-    "DESCRIPTION": "对敌人施加 !M! 层 kroosmod:破绽 。 NL 获得 1 点力量，1 层 kroosmod:寒芒 。抽 1 张牌。",
-    "UPGRADE_DESCRIPTION": "对敌人施加 !M! 层 kroosmod:破绽 。 NL 获得 1 点力量，2 层 kroosmod:寒芒 。抽 2 张牌。"
+    "DESCRIPTION": "对敌人施加 !M! 层 kroosmod:破绽 。 NL 获得 2 点临时力量，1 层 kroosmod:寒芒 。抽 1 张牌。",
+    "UPGRADE_DESCRIPTION": "对敌人施加 !M! 层 kroosmod:破绽 。 NL 获得 2 点临时力量，2 层 kroosmod:寒芒 。抽 2 张牌。"
   },
   "kroosmod:Scout": {
     "NAME": "侦察",
