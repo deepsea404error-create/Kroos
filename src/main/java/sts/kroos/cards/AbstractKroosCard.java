@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import sts.kroos.KroosMod;
 import sts.kroos.patches.KroosEnum;
 import sts.kroos.powers.A1SquadBondPower;
 import sts.kroos.powers.ArrowImprovementPower;
@@ -89,6 +90,46 @@ public abstract class AbstractKroosCard extends CustomCard {
     public final void use(AbstractPlayer p, AbstractMonster m) {
         useImpl(p, m);
         afterUseHook(p, m);
+    }
+
+    // ===================================================================
+    // 悬停 tooltip 强绑定: 描述提到组内任一关键字时, 自动补充同组其他关键字的 tooltip
+    //   只在 keywords 列表中补充, 不修改卡面显示文本
+    // ===================================================================
+
+    /** 强绑定关键字组: 专注↔暴击, 破绽↔中的, 浅眠↔蓄势, 箭矢→专注, 梦击→浅眠 */
+    private static final String[][] LINKED_KEYWORD_GROUPS = {
+            {KroosMod.MOD_ID + ":专注", KroosMod.MOD_ID + ":暴击"},
+            {KroosMod.MOD_ID + ":破绽", KroosMod.MOD_ID + ":中的"},
+            {KroosMod.MOD_ID + ":浅眠", KroosMod.MOD_ID + ":蓄势"},
+            {KroosMod.MOD_ID + ":箭矢", KroosMod.MOD_ID + ":专注"},
+            {KroosMod.MOD_ID + ":梦击", KroosMod.MOD_ID + ":浅眠"},
+    };
+
+    @Override
+    public void initializeDescription() {
+        super.initializeDescription();
+        addLinkedKeywordTips();
+    }
+
+    private void addLinkedKeywordTips() {
+        if (this.keywords == null) return;
+        for (String[] group : LINKED_KEYWORD_GROUPS) {
+            boolean hasAny = false;
+            for (String kw : group) {
+                if (this.keywords.contains(kw)) {
+                    hasAny = true;
+                    break;
+                }
+            }
+            if (hasAny) {
+                for (String kw : group) {
+                    if (!this.keywords.contains(kw)) {
+                        this.keywords.add(kw);
+                    }
+                }
+            }
+        }
     }
 
     /** 通用后置 hook: 当前仅处理箭矢自动获取专注; 其他全局 hook 可在此扩展。
