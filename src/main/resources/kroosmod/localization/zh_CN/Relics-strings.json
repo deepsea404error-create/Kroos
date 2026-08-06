@@ -1,0 +1,72 @@
+{
+  "kroosmod:KroosBadge": {
+    "NAME": "克洛丝证章",
+    "FLAVOR": "A1 小队的标志，曾闪耀于无数行动中。",
+    "DESCRIPTIONS": ["战斗开始时获得 2 层寒芒。每回合获得 1 层寒芒。"]
+  },
+  "kroosmod:PracticeTarget": {
+    "NAME": "练习靶",
+    "FLAVOR": "穿透的孔越多，目光就越锐利。",
+    "DESCRIPTIONS": ["每回合第一次造成暴击时，获得 1 层寒芒。"]
+  },
+  "kroosmod:BrokenCrossbow": {
+    "NAME": "残弩-典训",
+    "FLAVOR": "破败的训练用弩，却仍能呼出寒意。",
+    "DESCRIPTIONS": ["战斗开始时，获得 2 层寒芒。"]
+  },
+  "kroosmod:Scope": {
+    "NAME": "瞄准镜",
+    "FLAVOR": "瞄准要害的镜片。",
+    "DESCRIPTIONS": ["暴击造成的伤害 +50%（原为 1.5 倍，现为 2.0 倍）。"]
+  },
+  "kroosmod:A1GroupPhoto": {
+    "NAME": "A1小组的合影",
+    "FLAVOR": "队友的影子永远不会散。",
+    "DESCRIPTIONS": ["战斗开始时，从 3 张随机 A1 小队卡中选 1 张加入手牌。本回合耗能为 0。"]
+  },
+  "kroosmod:EmergencyMindReinforce": {
+    "NAME": "应急理智加强剂",
+    "FLAVOR": "战场之外，喘息的滋味。",
+    "DESCRIPTIONS": ["战斗结束时恢复 3 点生命。"]
+  },
+  "kroosmod:ArrowImprovementRelic": {
+    "NAME": "箭矢改良",
+    "FLAVOR": "工坊新出的样品，箭头更冷。",
+    "DESCRIPTIONS": ["箭矢牌伤害 +2。"]
+  },
+  "kroosmod:EmergencyMindConcentrate": {
+    "NAME": "应急理智浓缩液",
+    "FLAVOR": "比起加强剂，这管更猛。",
+    "DESCRIPTIONS": ["战斗结束时恢复 6 点生命。"]
+  },
+  "kroosmod:PartingWaves": {
+    "NAME": "分浪",
+    "FLAVOR": "浪开后，箭直入。",
+    "DESCRIPTIONS": ["拾起时升级所有攻击牌。"]
+  },
+  "kroosmod:Bedrock": {
+    "NAME": "基岩",
+    "FLAVOR": "立于其上，万事可应。",
+    "DESCRIPTIONS": ["拾起时升级所有技能牌。"]
+  },
+  "kroosmod:ProofOfGrowth": {
+    "NAME": "成长的证明",
+    "FLAVOR": "每一道刻痕，都是一次蜕变。",
+    "DESCRIPTIONS": ["每消耗 1 层寒芒，下一次攻击伤害 +2。"]
+  },
+  "kroosmod:OriginStone": {
+    "NAME": "源石",
+    "FLAVOR": "凡欲触者，必先付。",
+    "DESCRIPTIONS": ["每回合失去 2 点生命。单数回合获得 1 点能量，双数回合获得 1 层寒芒。"]
+  },
+  "kroosmod:OperatorBadge": {
+    "NAME": "干员晋升证章",
+    "FLAVOR": "正式干员，名副其实。",
+    "DESCRIPTIONS": ["替换克洛丝证章。战斗开始时获得 3 层寒芒，每回合获得 1 层寒芒。"]
+  },
+  "kroosmod:A1SquadSupport": {
+    "NAME": "A1小队的支援",
+    "FLAVOR": "等等！我们也来了！",
+    "DESCRIPTIONS": ["每 3 回合，从 3 张随机 A1 小队卡中选 1 张加入手牌。"]
+  }
+}

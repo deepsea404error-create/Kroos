@@ -1,0 +1,162 @@
+[
+  {
+    "NAMES": [
+      "寒芒",
+      "hanmang",
+      "frost"
+    ],
+    "DESCRIPTION": "核心资源。打出消耗 #y寒芒 的牌时扣减对应层数。 #y心之痕 可减免消耗， #y通明 按消耗量回能。"
+  },
+  {
+    "NAMES": [
+      "专注",
+      "zhuanzhu",
+      "focus"
+    ],
+    "DESCRIPTION": "当有 #b3 层或以上时，消耗 #b3 层 #y专注 ，获得 #b1 层 #y暴击 。"
+  },
+  {
+    "NAMES": [
+      "暴击",
+      "baoji",
+      "critical"
+    ],
+    "DESCRIPTION": "攻击牌造成 #b1.5 倍伤害（ #y瞄准镜 下为 #b2.0 倍）。触发后消耗 #b3 层 #y专注 。"
+  },
+  {
+    "NAMES": [
+      "破绽",
+      "poyan",
+      "flaw"
+    ],
+    "DESCRIPTION": "当破绽 #b≥5 时，消耗 #b5 层 #y破绽 ，施加 #y中的 。通常数值为 #b1~4 ，表示未命中要害。"
+  },
+  {
+    "NAMES": [
+      "中的",
+      "zhongde",
+      "hit"
+    ],
+    "DESCRIPTION": "敌人行动前受到 #b10 点伤害，攻击行为修改为 #y眩晕 。每回合 #b-1 层。"
+  },
+  {
+    "NAMES": [
+      "迷彩",
+      "micai",
+      "camo"
+    ],
+    "DESCRIPTION": "将所受到的攻击伤害降低 #b50% 。每受到 #b1 次攻击损失 #b1 层迷彩。"
+  },
+  {
+    "NAMES": [
+      "浅眠",
+      "qianmian",
+      "doze"
+    ],
+    "DESCRIPTION": "非 #y梦击 牌伤害 #b×0.8 。每回合结束：获得 #b6 点护甲，恢复 #b2 点生命。退出浅眠时消耗全部 #y蓄势 。获得浅眠时获得 #b1 层 #y蓄势 ，回合开始时若处于浅眠状态获得 #b1 层 #y蓄势 。"
+  },
+  {
+    "NAMES": [
+      "蓄势",
+      "xushi",
+      "charge"
+    ],
+    "DESCRIPTION": "退出 #y浅眠 时消耗：抽 N 张牌，获得 N 点能量，获得 N×#b2 层临时力量。"
+  },
+  {
+    "NAMES": [
+      "箭矢",
+      "jianshi",
+      "arrow"
+    ],
+    "DESCRIPTION": "箭矢牌打出后自动获得其消耗能量数量的 #y专注 层数。与 #y箭矢改良 等联动。"
+  },
+  {
+    "NAMES": [
+      "梦击",
+      "mengji",
+      "dreamstrike"
+    ],
+    "DESCRIPTION": "梦击牌在 #y浅眠 状态下不会降低伤害。"
+  },
+  {
+    "NAMES": [
+      "A1小队",
+      "a1小队",
+      "A1squad"
+    ],
+    "DESCRIPTION": "均为虚无、消耗类型的无色卡牌。 #y羁绊 Power 按寒芒消耗量累计。"
+  },
+  {
+    "NAMES": [
+      "活力",
+      "huoli",
+      "vigor"
+    ],
+    "DESCRIPTION": "下次攻击造成额外伤害，攻击后消耗。"
+  },
+  {
+    "NAMES": [
+      "散射",
+      "sanse",
+      "scatter"
+    ],
+    "DESCRIPTION": "箭矢牌对其他敌人造成 #b50% 溅射伤害。"
+  },
+  {
+    "NAMES": [
+      "爆发",
+      "baoa",
+      "burst"
+    ],
+    "DESCRIPTION": "每层使 #y暴击 伤害 #b+25% ，消耗 #y寒芒 时获得等层 #y专注 。"
+  },
+  {
+    "NAMES": [
+      "狱淬",
+      "yuque",
+      "hellforge"
+    ],
+    "DESCRIPTION": "打出攻击牌时对 #y命中 敌人造成额外生命流失。"
+  },
+  {
+    "NAMES": [
+      "寒芒形态",
+      "hanmangxingtai",
+      "frostform"
+    ],
+    "DESCRIPTION": "每回合前 X 张攻击牌重复打出 #b1 次。"
+  },
+  {
+    "NAMES": [
+      "心之痕",
+      "xinzhihen",
+      "heartscar"
+    ],
+    "DESCRIPTION": "每 X 层减免 #b1 次寒芒消耗。"
+  },
+  {
+    "NAMES": [
+      "通明",
+      "tongming",
+      "transparent"
+    ],
+    "DESCRIPTION": "每消耗 X 层 #y寒芒 获得 #b1 点能量。"
+  },
+  {
+    "NAMES": [
+      "羁绊",
+      "jiban",
+      "bond"
+    ],
+    "DESCRIPTION": "A1小队羁绊，按 #y寒芒 消耗量累计。"
+  },
+  {
+    "NAMES": [
+      "箭矢改良",
+      "jianshigailiang",
+      "arrowimprovement"
+    ],
+    "DESCRIPTION": "每层使 #y箭矢 牌伤害 #b+1 。"
+  }
+]

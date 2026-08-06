@@ -1,0 +1,25 @@
+# Game dependencies - installed locally, not committed to version control
+lib/
+
+# Build output
+target/
+*.class
+
+# IDE
+.idea/
+*.iml
+.vscode/
+.classpath
+.project
+.settings/
+.factorypath
+
+# OpenCode
+.opencode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# 测试文件
+TEST_CHECKLIST.md
