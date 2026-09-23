@@ -13,7 +13,7 @@ import sts.kroos.powers.FrostPower;
 
 /**
  * 要害瞄准 - 1费, 对敌人施加 1 层破绽; 获得 2 点临时力量, 1 层寒芒, 抽 1 张牌。
- *   - 强化: 2 层破绽, 2 层寒芒, 抽 2 张牌 (力量不变 1)
+ *   - 强化: 2 层破绽, 2 层寒芒, 抽 2 张牌 (力量 2)
  */
 public class AimForVital extends AbstractKroosCard {
     public static final String ID = KroosMod.MOD_ID + ":AimForVital";

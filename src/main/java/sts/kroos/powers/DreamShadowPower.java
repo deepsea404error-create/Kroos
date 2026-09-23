@@ -14,10 +14,8 @@ import sts.kroos.util.TextureLoader;
 /**
  * 梦影 Power。
  *
- * 含义: 首次进入浅眠时, 获得 X 点敏捷。
- * "首次"语义: 本 power 实例存活期间, 仅首次检测到 DozePower 被施加时触发一次。
- *
- * 实现: 监听 onApplyPower 广播, 当对方 power 为 DozePower 且未触发过时, 施加敏捷并置位 flag。
+ * 含义: 每次进入浅眠时, 获得 X 点敏捷。
+ * 实现: 监听 onApplyPower 广播, 当对方 power 为 DozePower 时施加敏捷。
  */
 public class DreamShadowPower extends AbstractPower {
 
@@ -29,9 +27,6 @@ public class DreamShadowPower extends AbstractPower {
 
     private static final String ICON_LARGE = KroosMod.RES_ROOT + "powers/dream_shadow_large.png";
     private static final String ICON_SMALL = KroosMod.RES_ROOT + "powers/dream_shadow_small.png";
-
-    /** 本实例是否已触发过首次浅眠效果 */
-    private boolean firstDozeTriggered = false;
 
     public DreamShadowPower(AbstractCreature owner, int amount) {
         this.name = NAME;
@@ -57,10 +52,8 @@ public class DreamShadowPower extends AbstractPower {
 
     @Override
     public void onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
-        if (firstDozeTriggered) return;
         if (target != this.owner) return;
         if (!(power instanceof DozePower)) return;
-        firstDozeTriggered = true;
         this.flash();
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(
                 owner, owner, new DexterityPower(owner, this.amount), this.amount));

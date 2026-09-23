@@ -9,7 +9,7 @@ import sts.kroos.cards.AbstractKroosCard;
 import sts.kroos.powers.FocusPower;
 
 /**
- * 机械瞄具 - 0费, 获得 4 点活力 (下回合 +4 能量)。
+ * 机械瞄具 - 0费, 获得 4 点活力 (下次攻击额外伤害, 攻击后消耗)。
  *   - 寒芒: 消耗 1 层寒芒, 获得 1 层专注
  *   - 强化: 6 点活力
  */

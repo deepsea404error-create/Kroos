@@ -6,7 +6,9 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import sts.kroos.KroosMod;
@@ -18,7 +20,9 @@ import sts.kroos.util.TextureLoader;
  */
 public class OneInstantListenerPower extends AbstractPower {
     public static final String POWER_ID = KroosMod.MOD_ID + ":OneInstantListener";
-    public static final String NAME = "一瞬";
+    private static final PowerStrings S = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
+    public static final String NAME = S.NAME;
+    public static final String[] DESC = S.DESCRIPTIONS;
     private static final String IL = KroosMod.RES_ROOT + "powers/one_instant_large.png";
     private static final String IS = KroosMod.RES_ROOT + "powers/one_instant_small.png";
 
@@ -36,7 +40,7 @@ public class OneInstantListenerPower extends AbstractPower {
 
     @Override
     public void updateDescription() {
-        this.description = "本回合每打出 1 张攻击牌，对随机敌人施加 1 层破绽。";
+        this.description = DESC[0];
     }
 
     @Override

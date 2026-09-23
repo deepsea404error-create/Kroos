@@ -272,10 +272,16 @@ public abstract class AbstractKroosCard extends CustomCard {
         return AbstractDungeon.player.getPower(FrostPower.POWER_ID);
     }
 
-    /** 升级时切换到升级描述。子类应在 upgrade() 中调用。 */
+    /**
+     * 升级时切换到升级描述。子类应在 upgrade() 中调用。
+     * 升级文本与基础文本相同 (仅靠 !M!/!D! 等占位符联动) 的卡牌
+     * 可省略 UPGRADE_DESCRIPTION, 此时回退到基础描述。
+     */
     protected void upgradeDescription() {
         CardStrings s = CardCrawlGame.languagePack.getCardStrings(this.cardID);
-        this.rawDescription = s.UPGRADE_DESCRIPTION;
+        String upg = s.UPGRADE_DESCRIPTION;
+        if (upg == null || upg.isEmpty()) upg = s.DESCRIPTION;
+        this.rawDescription = upg;
         this.initializeDescription();
     }
 }

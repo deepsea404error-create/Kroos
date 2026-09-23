@@ -16,9 +16,10 @@ import java.util.List;
 /**
  * A1 小队的羁绊 - 2费, 能力 (金卡)。
  *   - 每消耗 4 点寒芒, 随机获得 1 张 A1 小队卡 (强化: 升级版)
- *   - 寒芒: 消耗 1 层寒芒, 在 3 张 A1 小队卡中选 1 (强化: 选 2) 张加入手牌, 本回合耗能变 0
+ *   - 寒芒: 消耗 1 层寒芒, 在 3 张 A1 小队卡 (强化: 升级版) 中选 1 张加入手牌, 本回合耗能变 0
+ *     (选牌数不随强化变化; 强化后被动羁绊与选牌获得的 A1 卡均为升级版)
  *
- * 三选机制用原版 DiscoveryAction (它自动将选中牌设为 0 费本回合)。
+ * 三选机制用自制 A1DiscoveryAction (自动将选中牌设为 0 费本回合)。
  */
 public class A1SquadBond extends AbstractKroosCard {
     public static final String ID = KroosMod.MOD_ID + ":A1SquadBond";
@@ -42,7 +43,10 @@ public class A1SquadBond extends AbstractKroosCard {
         if (canConsumeFrost(1)) {
             consumeFrost(1);
             List<AbstractCard> candidates = A1SquadFactory.randomA1Cards(3);
-            int picks = this.upgraded ? 2 : 1;
+            if (this.upgraded) {
+                for (AbstractCard c : candidates) c.upgrade();
+            }
+            int picks = 1;
             addToBot(new A1DiscoveryAction(new ArrayList<>(candidates), picks));
         }
     }

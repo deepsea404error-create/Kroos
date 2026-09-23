@@ -8,7 +8,7 @@ import sts.kroos.cards.AbstractKroosCard;
 import sts.kroos.powers.SkyfireFlamePower;
 
 /**
- * 天坠之火 - 1费, [中的]效果造成伤害 +4 (强化 +6) 点。
+ * 天坠之火 - 1费, [中的]效果造成伤害 +8 (强化 +10) 点。
  */
 public class SkyfireFlame extends AbstractKroosCard {
     public static final String ID = KroosMod.MOD_ID + ":SkyfireFlame";

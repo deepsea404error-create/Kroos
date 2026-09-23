@@ -44,6 +44,7 @@ public class DreamShadow extends AbstractKroosCard {
         if (!this.upgraded) {
             this.upgradeName();
             this.upgradeBaseCost(UPGRADE_COST);
+            this.upgradeMagicNumber(1);
             upgradeDescription();
         }
     }

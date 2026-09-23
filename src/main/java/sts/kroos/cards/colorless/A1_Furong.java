@@ -7,7 +7,6 @@ import com.megacrit.cardcrawl.actions.common.LoseHPAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.EnergizedPower;
 import com.megacrit.cardcrawl.powers.LoseStrengthPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.powers.watcher.VigorPower;
@@ -28,7 +27,6 @@ public class A1_Furong extends AbstractKroosCard {
     private static final int ENERGY = 2;
     private static final int UPGRADE_ENERGY = 1;
     private static final int VITALITY = 4;
-    private static final int UPGRADE_VITALITY = 2;
     private static final int TEMP_STR = 1;
     private static final int TEMP_STR_UPG = 2;
 
@@ -47,9 +45,7 @@ public class A1_Furong extends AbstractKroosCard {
     public void useImpl(AbstractPlayer p, AbstractMonster m) {
         addToBot(new LoseHPAction(p, p, HP_LOSS, AbstractGameAction.AttackEffect.NONE));
         addToBot(new GainEnergyAction(this.magicNumber));
-        int vit = this.upgraded ? UPGRADE_VITALITY + VITALITY - UPGRADE_VITALITY : VITALITY;
-        // 简化: 强化后 vitality 直接为 6
-        vit = this.upgraded ? 6 : VITALITY;
+        int vit = this.upgraded ? 6 : VITALITY;
         addToBot(new ApplyPowerAction(p, p, new VigorPower(p, vit), vit));
         if (canConsumeFrost(1)) {
             consumeFrost(1);

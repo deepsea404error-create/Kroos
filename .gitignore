@@ -16,6 +16,8 @@ target/
 
 # OpenCode
 .opencode/
+# ZCode
+.zcode/
 
 # OS
 .DS_Store

@@ -9,7 +9,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.EnergizedPower;
 import sts.kroos.KroosMod;
 import sts.kroos.cards.AbstractKroosCard;
-import sts.kroos.powers.ExtraDrawPower;
+import sts.kroos.powers.DrawNextTurnPower;
 
 /**
  * 急速转移 - 2费, 消耗(强化: 保留+消耗)。
@@ -50,7 +50,7 @@ public class RapidShift extends AbstractKroosCard {
         if (canConsumeFrost(frostCost)) {
             consumeFrost(frostCost);
             addToBot(new ApplyPowerAction(p, p, new EnergizedPower(p, NEXT_TURN_ENERGY), NEXT_TURN_ENERGY));
-            addToBot(new ApplyPowerAction(p, p, new ExtraDrawPower(p, NEXT_TURN_DRAW), NEXT_TURN_DRAW));
+            addToBot(new ApplyPowerAction(p, p, new DrawNextTurnPower(p, NEXT_TURN_DRAW), NEXT_TURN_DRAW));
         }
     }
 

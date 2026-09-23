@@ -17,11 +17,11 @@ import sts.kroos.powers.FlawPower;
 import sts.kroos.util.BattleCounters;
 
 /**
- * 奋起(梦击) - 1费, 解除浅眠状态。造成 10 (强化 14) 点伤害, 施加 1 (强化 2) 层破绽。
- *   - 每解除 1 次浅眠状态, 额外造成 1 次伤害 (BattleCounters)
+ * 奋起(梦击) - 1费, 造成 10 (强化 14) 点伤害, 施加 1 (强化 2) 层破绽, 随后退出浅眠。
+ *   - 先结算伤害与破绽, 再解除浅眠; 每次因该牌退出浅眠, 之后的伤害次数+1 (BattleCounters)
  *   - 寒芒: 消耗 1 层寒芒, 获得 1 (强化 2) 点力量
  *
- * 计数: 本卡 use 时若实际解除了一次浅眠, +1。
+ * 计数: 本卡 use 时若实际解除了一次浅眠, 在伤害结算后 +1 (下一次生效)。
  */
 public class Rouse extends AbstractKroosCard {
     public static final String ID = KroosMod.MOD_ID + ":Rouse";
@@ -36,7 +36,10 @@ public class Rouse extends AbstractKroosCard {
     private static final int STR = 1;
     private static final int STR_UPG = 2;
 
-    private final String baseDesc;
+    /** 卡面中动态攻击次数的插入锚点 (与 Cards-strings 中的句子保持一致) */
+    private static final String COUNTER_ANCHOR = "造成的伤害次数+1。";
+
+    private String baseDesc;
 
     public Rouse() {
         super(ID, IMG, COST, CardType.ATTACK, CardRarity.RARE, CardTarget.ENEMY);
@@ -51,21 +54,15 @@ public class Rouse extends AbstractKroosCard {
     public void applyPowers() {
         super.applyPowers();
         int hits = 1 + BattleCounters.get(COUNTER_KEY);
-        this.rawDescription = baseDesc + " NL 当前造成 " + hits + " 次伤害。";
+        this.rawDescription = baseDesc.replace(COUNTER_ANCHOR,
+                COUNTER_ANCHOR + "(当前攻击" + hits + "次)");
         initializeDescription();
     }
 
     @Override
     public void useImpl(AbstractPlayer p, AbstractMonster m) {
-        boolean exited = false;
-        if (p.hasPower(DozePower.POWER_ID)) {
-            addToBot(new RemoveSpecificPowerAction(p, p, DozePower.POWER_ID));
-            BattleCounters.inc(COUNTER_KEY);
-            exited = true;
-        }
-        int hits = 1 + BattleCounters.get(COUNTER_KEY) - (exited ? 1 : 0);
-        // 当本次刚解除时, 本次也计入 → hits = 1 + counter
-        if (exited) hits = 1 + BattleCounters.get(COUNTER_KEY);
+        // 先按已有计数结算伤害与破绽 (不含本次退出), 再解除浅眠并计数, 供下次使用
+        int hits = 1 + BattleCounters.get(COUNTER_KEY);
         for (int i = 0; i < hits; i++) {
             addToBot(new DamageAction(m,
                     new DamageInfo(p, this.damage, this.damageTypeForTurn),
@@ -73,11 +70,14 @@ public class Rouse extends AbstractKroosCard {
         }
         addToBot(new ApplyPowerAction(m, p,
                 new FlawPower(m, this.magicNumber), this.magicNumber));
-
         if (canConsumeFrost(1)) {
             consumeFrost(1);
             int str = this.upgraded ? STR_UPG : STR;
             addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, str), str));
+        }
+        if (p.hasPower(DozePower.POWER_ID)) {
+            addToBot(new RemoveSpecificPowerAction(p, p, DozePower.POWER_ID));
+            BattleCounters.inc(COUNTER_KEY);
         }
     }
 
@@ -91,6 +91,9 @@ public class Rouse extends AbstractKroosCard {
             this.upgradeDamage(UPGRADE_DAMAGE);
             this.upgradeMagicNumber(UPGRADE_FLAW);
             upgradeDescription();
+            // applyPowers() 以 baseDesc 为基准拼接动态后缀, 升级后需同步为强化版描述,
+            // 否则会被回退成未升级文本
+            this.baseDesc = this.rawDescription;
         }
     }
 }

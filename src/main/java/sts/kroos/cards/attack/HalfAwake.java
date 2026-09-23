@@ -14,7 +14,7 @@ import sts.kroos.powers.FocusPower;
 /**
  * 半醒(梦击) - 1费, 造成 9 (强化 12) 点伤害。
  *   - 若处于浅眠状态, 获得 1 层专注
- *   - 寒芒: 消耗 1 层寒芒, 伤害 +5 (强化 +6)
+ *   - 寒芒: 消耗 1 层寒芒, 伤害 +3 (强化 +4)
  */
 public class HalfAwake extends AbstractKroosCard {
     public static final String ID = KroosMod.MOD_ID + ":HalfAwake";

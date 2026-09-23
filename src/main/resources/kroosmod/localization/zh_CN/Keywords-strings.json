@@ -5,7 +5,7 @@
       "hanmang",
       "frost"
     ],
-    "DESCRIPTION": "核心资源。打出消耗 #y寒芒 的牌时扣减对应层数。 #y心之痕 可减免消耗， #y通明 按消耗量回能。"
+    "DESCRIPTION": "核心资源。打出消耗 #y寒芒 的牌时扣减对应层数。 #y心之痕 可减免消耗， #y通明 按消耗量获得能量。"
   },
   {
     "NAMES": [
@@ -37,7 +37,7 @@
       "zhongde",
       "hit"
     ],
-    "DESCRIPTION": "敌人行动前受到 #b10 点伤害，攻击行为修改为 #y眩晕 。每回合 #b-1 层。"
+    "DESCRIPTION": "敌人行动前受到 #b10 点伤害，攻击行为修改为 #y眩晕 。每回合减少 #b1 层。"
   },
   {
     "NAMES": [
@@ -53,7 +53,7 @@
       "qianmian",
       "doze"
     ],
-    "DESCRIPTION": "非 #y梦击 牌伤害 #b×0.8 。每回合结束：获得 #b6 点护甲，恢复 #b2 点生命。退出浅眠时消耗全部 #y蓄势 。获得浅眠时获得 #b1 层 #y蓄势 ，回合开始时若处于浅眠状态获得 #b1 层 #y蓄势 。"
+    "DESCRIPTION": "非 #y梦击 牌伤害 ×#b0.8 。 NL 每回合结束时，获得 #b6 点格挡，回复 #b2 点生命。 NL 获得浅眠时与每回合开始时，获得 #b1 层 #y蓄势 。 NL 退出浅眠时消耗全部 #y蓄势 。"
   },
   {
     "NAMES": [
@@ -85,7 +85,7 @@
       "a1小队",
       "A1squad"
     ],
-    "DESCRIPTION": "均为虚无、消耗类型的无色卡牌。 #y羁绊 Power 按寒芒消耗量累计。"
+    "DESCRIPTION": "均为虚无、消耗类型的无色卡牌。 #y羁绊 按寒芒消耗量累计。"
   },
   {
     "NAMES": [
@@ -109,7 +109,7 @@
       "baoa",
       "burst"
     ],
-    "DESCRIPTION": "每层使 #y暴击 伤害 #b+25% ，消耗 #y寒芒 时获得等层 #y专注 。"
+    "DESCRIPTION": "每层使 #y暴击 伤害提高 #b25% 。"
   },
   {
     "NAMES": [
@@ -117,7 +117,7 @@
       "yuque",
       "hellforge"
     ],
-    "DESCRIPTION": "打出攻击牌时对 #y命中 敌人造成额外生命流失。"
+    "DESCRIPTION": "攻击带有 #y中的 的敌人时，额外造成 X 点伤害。"
   },
   {
     "NAMES": [
@@ -133,7 +133,7 @@
       "xinzhihen",
       "heartscar"
     ],
-    "DESCRIPTION": "每 X 层减免 #b1 次寒芒消耗。"
+    "DESCRIPTION": "每回合前 X 次触发 #y寒芒 效果时，该次消耗的 #y寒芒 减少 #b1 层。"
   },
   {
     "NAMES": [
@@ -141,7 +141,7 @@
       "tongming",
       "transparent"
     ],
-    "DESCRIPTION": "每消耗 X 层 #y寒芒 获得 #b1 点能量。"
+    "DESCRIPTION": "每消耗 #b5 层 #y寒芒 ，获得 X 点能量。"
   },
   {
     "NAMES": [
@@ -157,6 +157,6 @@
       "jianshigailiang",
       "arrowimprovement"
     ],
-    "DESCRIPTION": "每层使 #y箭矢 牌伤害 #b+1 。"
+    "DESCRIPTION": "每层使 #y箭矢 牌伤害提高 #b1 点。"
   }
 ]

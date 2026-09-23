@@ -7,7 +7,7 @@ import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.BufferPower;
+import com.megacrit.cardcrawl.powers.LoseStrengthPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardBrieflyEffect;
 import sts.kroos.KroosMod;
@@ -21,7 +21,8 @@ import java.util.List;
  * 弩箭改装 - 1费。
  *   - 获得 1 力量, 1 (强化 2) 层专注
  *   - 升级抽牌堆中 2 (强化 3) 张随机攻击牌
- *   - 寒芒: 消耗 1 层寒芒, 获得 2 (强化 3) 点活性肌肉 (= BufferPower)
+ *   - 寒芒: 消耗 1 层寒芒, 获得 2 (强化 3) 点活性肌肉
+ *     (= 原版 Flex 语义: 获得 X 点力量, 回合结束时失去, 见 LoseStrengthPower)
  */
 public class CrossbowModify extends AbstractKroosCard {
     public static final String ID = KroosMod.MOD_ID + ":CrossbowModify";
@@ -72,8 +73,10 @@ public class CrossbowModify extends AbstractKroosCard {
 
         if (canConsumeFrost(1)) {
             consumeFrost(1);
+            // 活性肌肉: 原版 Flex 语义, 获得 X 点临时力量, 回合结束时失去 (LoseStrengthPower, ID "Flex")
             int buf = this.upgraded ? BUFFER_UPG : BUFFER;
-            addToBot(new ApplyPowerAction(p, p, new BufferPower(p, buf), buf));
+            addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, buf), buf));
+            addToBot(new ApplyPowerAction(p, p, new LoseStrengthPower(p, buf), buf));
         }
     }
 

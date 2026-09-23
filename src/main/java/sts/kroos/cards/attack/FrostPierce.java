@@ -11,7 +11,7 @@ import sts.kroos.cards.AbstractKroosCard;
 import sts.kroos.powers.FrostPower;
 
 /**
- * 寒光贯穿 - 1费, 造成 10 伤害 + (当前寒芒层数 × 1.5) 点额外伤害。
+ * 寒光贯穿 - 1费, 造成 8 伤害 + (当前寒芒层数 × 1.5) 点额外伤害。
  *   - 强化: 额外伤害变为寒芒层数 × 2.0
  *
  * 额外伤害单独以一次 DamageAction 发出, 避免污染 baseDamage 显示。

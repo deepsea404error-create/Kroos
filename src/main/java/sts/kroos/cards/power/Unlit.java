@@ -8,7 +8,7 @@ import sts.kroos.cards.AbstractKroosCard;
 import sts.kroos.powers.UnlitPower;
 
 /**
- * 无明 - 1费, 暴击时获得 3 (强化 4) 点格挡。
+ * 无明 - 1费, 暴击时获得 10 (强化 14) 点格挡。
  *   - 强化: 固有
  */
 public class Unlit extends AbstractKroosCard {

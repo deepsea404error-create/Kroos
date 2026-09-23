@@ -13,7 +13,7 @@ import sts.kroos.cards.AbstractKroosCard;
 import sts.kroos.powers.FlawPower;
 
 /**
- * 封喉 - 2费, 消耗。造成 4 (强化 5) 点伤害 4 次。
+ * 封喉 - 2费, 消耗。造成 4 (强化 5) 点伤害 4 (强化 5) 次。
  *   - 每次伤害若未被完全阻挡, 施加 1 层破绽
  *   - 寒芒: 消耗 3 层寒芒, 额外造成 2 次伤害
  *
@@ -73,6 +73,7 @@ public class ThroatSeal extends AbstractKroosCard {
         if (!this.upgraded) {
             this.upgradeName();
             this.upgradeDamage(UPGRADE_DAMAGE);
+            this.upgradeMagicNumber(1);
             upgradeDescription();
         }
     }
